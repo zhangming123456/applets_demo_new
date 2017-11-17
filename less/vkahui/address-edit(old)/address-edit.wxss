@@ -1,0 +1,57 @@
+page {
+  background: #f1f3f4;
+}
+page view.old-class input {
+  margin-top: 0rem;
+  font-size: 0.8rem;
+}
+page view.old-class label {
+  margin-right: 0.5rem;
+  font-size: 0.8rem;
+}
+page view.old-class .btn-single {
+  margin-top: 1.5rem;
+}
+page view.old-class .cus-width-3 {
+  width: 3.8rem;
+}
+page view.old-class .pd-lr-small {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+page view.old-class .arrow-list-ctn .list .entry:first-child {
+  border-top: none;
+}
+page view.old-class .arrow-list-ctn .list .entry:last-child {
+  border-bottom: none;
+}
+page view.old-class .arrow-list-ctn .list .entry {
+  margin: 0;
+  padding: 1rem 0rem 1rem 0rem;
+}
+page view.old-class .btn-ctn {
+  position: absolute;
+  top: 16rem;
+  left: 0;
+  text-align: center;
+}
+page view.old-class .btn {
+  width: 7.735rem;
+  font-size: 0.8rem;
+}
+page view.old-class .button {
+  width: 646rpx;
+  height: 80rpx;
+  line-height: 2.5555556;
+  border-radius: 6px;
+  font-size: 0.8rem;
+}
+page view.old-class .me {
+  float: left;
+}
+page view.old-class .mes {
+  color: #f74b7b;
+  font-size: 0.6875rem;
+  padding: 0.3rem 0rem 1rem 2.7rem;
+  margin-bottom: -1.3rem;
+}

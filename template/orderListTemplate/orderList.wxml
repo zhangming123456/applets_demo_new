@@ -1,0 +1,148 @@
+<view class="fullScreen canteen-bottom-122">
+    <view class="ct-middle height-all bg-color-white">
+        <view id="sidebar-left" class="sidebar-left bg-color-white height-all">
+            <scroll-view class="height-all" scroll-y="false">
+                <block wx:for="{{foodDatas}}">
+                    <view class="entry {{sidebar}}" bindtap="toView" data-index="id{{index}}"
+                          data-indexs="{{index}}">
+                        <text class="h4-me text-left bold" style="padding-right:0">{{item.catalogName}}
+                        </text>
+                    </view>
+                </block>
+            </scroll-view>
+        </view>
+        <view class="list-choose right height-all">
+            <view class="scroll-view height-all">
+                <scroll-view class="height-all"
+                             scroll-into-view="{{scrollId}}" scroll-y="false">
+                    <block wx:for="{{foodDatas}}">
+                        <view id="id{{index}}" class="category" data-id="{{id}}">
+                            <view class="tit" bindtap="position" data-titleId="{{item.catalogCode}}">
+                                <text>{{item.catalogName}}</text>
+                            </view>
+                            <block wx:for="{{item.list}}" wx:for-item="items">
+                                <view class="entry" data-id="{{items.id}}"
+                                      style="border-bottom:1px solid #f1f3f4;margin-bottom:0rem;padding-bottom:0.65rem;margin-top:0.27rem;">
+                                    <view class="img-area" wx:if="{{items.foodImage}}">
+                                        <image src="{{serverAddressImg+items.foodImage}}"></image>
+                                    </view>
+                                    <view class="img-area" wx:else>
+                                        <image src="/images/noImg.png"></image>
+                                    </view>
+                                    <view class="word-area">
+                                        <text class="p bold">{{items.name}}</text>
+                                        <text class="salesMe">月售 {{items.salesCount}}</text>
+                                        <text class="h5 gray-1">
+                                            <text class="span red h4 bold">¥{{items.price}}</text>
+                                        </text>
+                                    </view>
+
+
+                                    <!--<block wx:if="{{items.foodRuleCount>1||items.foodPracticesCount>0}}">-->
+                                    <block wx:if="{{items.foodRuleCount>1}}">
+                                        <view>
+                                            <view class="choose-area">
+                                                <view class="choose-spec" style="right:0.9rem">
+                                                    <text data-arr="{{items}}" bindtap="chooseSpec"
+                                                          data-key="0"
+                                                          data-ruleCode="{{item.ruleCode}}"
+                                                          data-foodCode="{{items.foodCode}}"
+                                                          data-foodPracticesCount="{{items.foodPracticesCount}}"
+                                                          class="btn btn-red-default">选规格
+                                                    </text>
+                                                    <!--<text class="countMe" wx:if="{{hallCounts[items.foodCode]>0}}">{{hallCounts[items.foodCode]}}</text>-->
+                                                </view>
+                                            </view>
+                                            <view class="clear"></view>
+                                        </view>
+                                    </block>
+                                    <block wx:else>
+                                        <view class="choose-area">
+                                            <view class="">
+                                                <view wx:if="{{hallCounts[items.foodCode]>0}}"
+                                                      bindtap="removeToCarts" data-food="{{items}}"
+                                                      data-pickType="0" data-ruleCode="{{items.ruleCode}}"
+                                                      class="reduce">
+                                                    <image src="/images/icon/reduce.png"></image>
+                                                </view>
+                                                <text class="sum" wx:if="{{hallCounts[items.foodCode]>0}}">
+                                                    {{hallCounts[items.foodCode]}}
+                                                </text>
+                                                <view data-food="{{items}}" data-pickType="0"
+                                                      bindtap="addToCarts" class="plus"
+                                                      data-ruleCode="{{items.ruleCode}}" wx:if="{{plus}}">
+                                                    <image src="/images/icon/plus.png"></image>
+                                                </view>
+                                                <view class="plus" wx:else bindtap="noPlus">
+                                                    <image src="/images/icon/noPlus.png"></image>
+                                                </view>
+                                            </view>
+                                        </view>
+                                    </block>
+                                </view>
+                            </block>
+                        </view>
+                    </block>
+                </scroll-view>
+            </view>
+        </view>
+        <view class="clear"></view>
+    </view>
+    <view class="count">
+        <view class="entry text-left">
+            <text class="money">总价：</text>
+            <text class="red">¥{{hallAmount}}</text>
+        </view>
+        <view class="entry text-center">
+            <view class="p relative spec">
+                <view class="inblk relative" bindtap="shoppingCarClick" data-active="{{shoppingCarActive}}">
+                    <image class="icon-normal-equal-me" src="/images/icon/shopping-car.png"></image>
+                    <text class="red bold">{{hallCount}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="entry text-right" wx:if="{{plus}}">
+            <button class="btn btn-red width-all" data-type="{{0}}" bindtap="hasCard">选好了</button>
+        </view>
+        <view class="entry text-right" wx:else>
+            <button class="btn btn-gray width-all" bindtap="noPlus">选好了</button>
+        </view>
+    </view>
+    <view class="shopping-car {{shoppingCarActive}}" bindtap="close" data-close="close"
+          wx:if="{{hallCount>0}}">
+        <view class="pro-list border-t">
+            <view class="header bg-color-white">
+                <text class="h2 text-left">购物车</text>
+            </view>
+            <view class="cur-page bg-color-white">
+                <block wx:for="{{hallCarts}}" wx:for-item="item">
+                    <view class="list">
+                        <view class="entry">
+                            <view class="inner">
+                                <text class="p">{{item.name}} {{item.guigeName}}</text>
+                            </view>
+                        </view>
+                        <view class="entry">
+                            <text class="p red">¥{{item.price*item.foodCount}}</text>
+                        </view>
+                        <view class="entry">
+                            <view data-food="{{item}}" data-pickType="0" bindtap="addToCarts" class="add"
+                                  data-ruleCode="{{item.ruleCode}}">
+                                <image src="/images/icon/plus.png"></image>
+                            </view>
+                            <text class="num">{{item.foodCount}}</text>
+                            <view bindtap="removeToCarts" data-food="{{item}}" data-pickType="0"
+                                  data-ruleCode="{{item.ruleCode}}" class="jianshao">
+                                <image src="/images/icon/reduce.png"></image>
+                                <view class="shopping add" bindtap="clearCar" data-content="{{0}}">
+                                    <image src="/images/icon/delete.png"></image>
+                                    <text class="bold">清除购物车</text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </block>
+            </view>
+        </view>
+    </view>
+</view>

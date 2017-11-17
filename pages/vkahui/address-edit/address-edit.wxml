@@ -1,0 +1,71 @@
+<view class="new-class">
+    <form bindsubmit="formSubmit" class="azm-form">
+        <view class="azm-section">
+            <view class="p flexBox">
+                <view class="flexBox-item fb-2_5 text-lHeight">
+                    <text>联系人</text>
+                </view>
+                <view class="flexBox-item fb-9_5">
+                    <view class="p">
+                        <input type="text" cursor="20" cursor-spacing="20" placeholder="收货人姓名" maxlength="11"
+                               confirm-type="next" value="{{nikeName}}" name="nikeName"
+                               catch:change="bindChange" data-name="nikeName"
+                               focus="{{focus === 0}}" data-focus="0" bindconfirm="next"
+                               confirm-hold="true" class="inputType"/>
+                    </view>
+                    <view class="p">
+                        <radio-group class="radio-group" data-name="sex" name="sex" bindchange="bindChange">
+                            <label class="radio" value="{{sex}}">
+                                <radio color="#f74b7b" name="sex" value="0" checked="{{sex == 0?true:false}}"/>
+                                先生
+                            </label>
+                            <label class="radio" value="{{sex}}">
+                                <radio color="#f74b7b" name="sex" value="1" checked="{{sex == 1?true:false}}"/>
+                                女士
+                            </label>
+                        </radio-group>
+                    </view>
+                </view>
+            </view>
+            <view class="p flexBox">
+                <view class="flexBox-item fb-2_5 text-lHeight">
+                    <text>联系电话</text>
+                </view>
+                <view class="flexBox-item fb-9_5">
+                    <view class="p">
+                        <input type="number" cursor="20" cursor-spacing="20" placeholder="收货人电话" maxlength="11"
+                               confirm-type="next" value="{{mobile}}" name="mobile"
+                               catch:change="bindChange" data-name="mobile"
+                               focus="{{focus === 1}}" data-focus="1" bindconfirm="next"
+                               confirm-hold="true" class="inputType"/>
+                    </view>
+                </view>
+            </view>
+            <view class="p flexBox">
+                <view class="flexBox-item fb-2_5 text-lHeight">
+                    <text>送餐地址</text>
+                </view>
+                <view class="flexBox-item fb-9_5">
+                    <view class="p">
+                        <input type="text" cursor-spacing="20" placeholder="小区/写字楼/学校等" maxlength="30"
+                               confirm-type="next" value="{{location.address}}" name="address"
+                               catchtap="chooseLocation"
+                               confirm-hold="true" class="inputType text-overflow" disabled/>
+                    </view>
+                    <view class="row">
+                        <textarea cursor-spacing="150" placeholder="详细地址（如门牌号等）" value="{{location.name}}"
+                                  name="addressName" bindchange="bindChange" data-name="location.name"
+                                  focus="{{focus === 2}}" data-focus="2" class="inputType h-80"/>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="box btn-ctn width-all">
+            <button class="azm-btn-red" formType="submit">确定</button>
+        </view>
+    </form>
+</view>
+
+<!--自定义Toast-->
+<import src="../../../template/toast/toast.wxml"/>
+<template is="azm_toast" data="{{...azm_toast}}"></template>

@@ -1,0 +1,95 @@
+page {
+  background: #fff;
+}
+view.old-class .entry {
+  margin-top: 0.5rem;
+  box-sizing: border-box;
+  padding: 0.5rem 1.2rem;
+  overflow: hidden;
+  width: 100%;
+}
+view.old-class .entry .left {
+  width: 80%;
+}
+view.old-class .entry .right {
+  width: 78%;
+}
+view.old-class .entry .marginLeft {
+  margin-left: 1.8rem;
+}
+view.old-class .entry .right .inline-div text {
+  line-height: 1.3rem;
+}
+view.old-class .entry .right .inline-div .inline-icon {
+  width: 10%;
+  margin: 0 !important;
+}
+view.old-class .entry .right .inline-div .inline-text {
+  width: 90%;
+  box-sizing: border-box;
+}
+view.old-class .entry .right image {
+  width: 1rem !important;
+  height: 1.3rem !important;
+}
+view.old-class .entry .edit {
+  position: relative;
+  top: 0rem;
+  right: -2.4rem;
+}
+view.old-class .div-bg image {
+  display: block !important;
+  height: 100%;
+}
+view.old-class .me {
+  width: 100%;
+  border-bottom: 1px solid #f1f3f4;
+}
+view.old-class .address {
+  width: 100%;
+  margin-top: 1rem;
+}
+view.old-class .h2 {
+  font-size: 1rem;
+  display: inline-block;
+  margin: 0 0.5rem;
+}
+view.old-class .rad {
+  vertical-align: top;
+  width: 1rem;
+  height: 1rem;
+}
+view.old-class .gray-1 {
+  font-size: 0.83rem;
+}
+view.old-class .edit > image {
+  width: 0.8rem;
+  height: 0.8rem;
+}
+view.old-class .radio {
+  position: absolute;
+  top: 0.8rem;
+  right: 2rem;
+}
+view.old-class .switch {
+  padding: 1rem 0rem 1rem 1.1rem;
+  border-top: 8px solid #f1f3f4;
+  border-bottom: 1px solid #f1f3f4;
+}
+view.old-class .sex {
+  margin: 0rem 1.6rem 1rem 0.7rem;
+}
+view.old-class .button {
+  width: 646rpx;
+  height: 80rpx;
+  line-height: 2.5555556;
+  border-radius: 6px;
+  font-size: 0.8rem;
+}
+view.old-class .radioImg {
+  width: 1.1rem;
+  height: 1.1rem;
+  position: absolute;
+  top: 0rem;
+  left: 0rem;
+}

@@ -1,0 +1,112 @@
+<import src="../loading.wxml"/>
+
+<template name="module-popup">
+    <view class="module-popup {{class}}" wx:if="{{class}}">
+        <view class="module-title text-overflow">
+            <view class="module-close" catchtap="bindAzmCloseMask"></view>
+            <text>{{isLoading?title:'加载中...'}}</text>
+        </view>
+        <view class="module-content">
+            <scroll-view class="height-all scroll-view" scroll-y="false">
+                <view wx:if="{{!isLoading}}">
+                    <template is="loading2"></template>
+                </view>
+                <template is="{{tableContent}}" data="{{data,data2}}"></template>
+            </scroll-view>
+        </view>
+        <view class="module-footer flexBox" wx:if="{{footer.length>0}}">
+            <view class="module-footer-left flexBox-item fb-8_5 height-all text-overflow">
+                <block wx:if="{{tableContent === 'table-rule'}}">
+                    <text decode="true" class="text-bold text-black">{{filterMoney.RMB(data.rule.price)}}&nbsp;</text>
+                    <block wx:if="{{data.rule.status == 1}}">
+                        <text class="iconfont icon-zhekou-copy price-red"></text>
+                        <text class="price-red">折扣价</text>
+                    </block>
+                    <block wx:elif="{{data.rule.status == 2}}">
+                        <text class="iconfont icon-huiyuan price-red"></text>
+                        <text class="price-red">会员价</text>
+                    </block>
+                    <block wx:if="{{data.rule.status > 0}}">
+                        <text class="price-red">{{filterMoney.RMB(data.rule.minMemberPrice)}}起</text>
+                    </block>
+                </block>
+                <block wx:else>
+                    <text class="font-weight-bold text-red">{{filterMoney.RMB(data.price)}}</text>
+                </block>
+            </view>
+            <view class="module-footer-right flexBox-item fb-3_5 height-all">
+                <button class="height-all" catchtap="bindAzmModulePopupSubmit" data-value="{{data}}">{{footer[0]}}
+                </button>
+            </view>
+        </view>
+    </view>
+    <template is="mask" data="{{isMask}}"></template>
+</template>
+
+<!--规格-->
+<template name="table-rule">
+    <view class="module-radio-list" wx:if="{{data.info.ruleList.length>1}}">
+        <view class="module-left">规格</view>
+        <view class="module-right">
+            <button plain="true" wx:for="{{data.info.ruleList}}" wx:for-item="v" wx:for-index="i"
+                    class="module-btn btn-red-default text-overflow {{data.rule.id === v.id?'active':''}}"
+                    data-index="{{i}}"
+                    data-value="{{v}}" catchtap="bindAzmPopupRuleBtn">{{v.name}}
+            </button>
+        </view>
+    </view>
+    <view class="module-radio-list" wx:for="{{data.info.practicesList}}"
+          wx:if="{{item.foodPracticesList}}">
+        <view class="module-left">{{item.practicesTypeName}}</view>
+        <view class="module-right module-right-item">
+            <button plain="true" wx:for="{{item.foodPracticesList}}" wx:for-item="v" wx:for-index="i"
+                    class="module-btn btn-red-default text-overflow {{(v.id === data.practicesList[index].practicesCheckedId)?'active':''}}"
+                    data-index="{{index+','+i}}"
+                    data-value="{{v}}" catchtap="bindAzmPopupPracticesBtn">{{v.practicesName}}
+            </button>
+        </view>
+    </view>
+</template>
+<!--套餐-->
+<template name="table-package">
+    <view class="module-radio-list" wx:for="{{data.info.foodPackagesList}}"
+          wx:if="{{item.value}}">
+        <view class="module-left">{{item.name}}</view>
+        <view class="module-right module-right-item">
+            <block wx:for="{{item.value}}" wx:for-item="v" wx:for-index="i">
+                <button plain="true"
+                        class="module-btn btn-red-default text-overflow {{(v.ruleCode+v.foodCode === data.foodPackagesList[index].checkedId)?'active':''}}"
+                        data-index="{{index+','+i}}"
+                        data-value="{{v}}" catchtap="bindAzmPopupPackageBtn">
+                    <text>{{v.foodName}}({{v.ruleName}})</text>
+                </button>
+            </block>
+        </view>
+    </view>
+</template>
+<!--桌台-->
+<template name="table-content">
+    <view class="module-radio-list flexBox" wx:if="{{data.list.length>0}}">
+        <view class="module-left flexBox-item fb-2">选择</view>
+        <view class="module-right flexBox-item fb-10">
+            <button plain="true" wx:for="{{data.list}}" wx:for-item="v" wx:for-index="i"
+                    class="btn-red-default text-overflow {{v.checked?'active':''}}"
+                    catchtap="bindAzmPopupSubareaBtn" data-index="{{i}}" data-value="{{v}}">{{v.subareaName}}
+            </button>
+        </view>
+    </view>
+    <view class="module-radio-list flexBox" wx:if="{{data.tableList.length>0}}">
+        <view class="module-left flexBox-item fb-2">台号</view>
+        <view class="module-right module-right-item flexBox-item fb-10">
+            <button plain="true" wx:for="{{data.tableList}}" wx:for-item="v" wx:for-index="i"
+                    class="btn btn-red-default {{(data2.tableCode == v.tableCode)?'active':''}}"
+                    catchtap="bindAzmPopupSubareaItemBtn"
+                    data-index="{{i}}" data-value="{{v}}">{{v.name}}
+            </button>
+        </view>
+    </view>
+</template>
+
+
+<!--过滤器-->
+<wxs src="../../utils/filter/filter_money.wxs" module="filterMoney"/>

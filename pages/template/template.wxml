@@ -1,0 +1,30 @@
+<view class="old-class">
+    <template name="navigation">
+        <view class="navigation">
+            <!--<navigator open-type="redirect" url="/pages/init/init">-->
+            <view class="entry" bindtap="tab" data-id="{{'shouye'}}">
+                <image class="icon-nav unactive" src="/images/icon/nav-homepage.png" wx:if="{{shouye}}"></image>
+                <image class="icon-nav unactive" src="/images/icon/nav-homepage-active.png" wx:if="{{!shouye}}"></image>
+                <text class="h3">首页</text>
+            </view>
+            <!--</navigator>-->
+            <!--<navigator open-type="redirect" url="/pages/order/index/index">-->
+            <view class="entry" bindtap="tab" data-id="{{'dingdan'}}">
+                <image class="icon-nav unactive" src="/images/icon/nav-order.png" wx:if="{{!dingdan}}"></image>
+                <image class="icon-nav unactive" src="/images/icon/nav-order-active.png" wx:if="{{dingdan}}"></image>
+                <text class="h3">订单</text>
+            </view>
+            <!--</navigator>-->
+            <!--<navigator open-type="redirect" url="/pages/vkahui/me/me">-->
+            <view class="entry" bindtap="tab" data-id="{{'wo'}}">
+                <image class="icon-nav unactive" src="/images/icon/nav-me.png" wx:if="{{!wo}}"></image>
+                <image class="icon-nav active" src="/images/icon/nav-me-active.png" wx:if="{{wo}}"></image>
+                <text class="h3">我</text>
+            </view>
+            <!--</navigator>-->
+        </view>
+    </template>
+    <!--<import src="/pages/template/template.wxml" />
+    <template is="navigation" />-->
+
+</view>

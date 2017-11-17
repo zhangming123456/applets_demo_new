@@ -1,0 +1,32 @@
+<view class="page">
+    <view class="weui-msg">
+        <view class="p">
+            <text class="iconfont icon-weixinsaoma azm-icon"></text>
+        </view>
+        <view class="weui-msg__text-area">
+            <view class="weui-msg__title">扫码点餐</view>
+            <view class="weui-msg__desc">
+                <text>该餐厅支持餐后付款，请扫描桌台二维码</text>
+                <navigator url="" class="weui-msg__link"></navigator>
+            </view>
+        </view>
+        <view class="weui-msg__opr-area">
+            <view class="weui-btn-area">
+                <button class="weui-btn home_scanCode_btn" type="primary" catchtap="bindScanCode">扫一扫</button>
+                <button class="weui-btn" type="default" catchtap="bindGoBack">返回</button>
+            </view>
+        </view>
+        <view class="weui-msg__extra-area">
+            <view class="weui-footer">
+                <view class="weui-footer__links">
+                    <navigator url="" class="weui-footer__link">一号掌柜</navigator>
+                </view>
+                <view class="weui-footer__text">Copyright © 2016-2020 vip.zhenler.com</view>
+            </view>
+        </view>
+    </view>
+</view>
+
+<!--自定义Toast-->
+<import src="../../../template/toast/toast.wxml"/>
+<template is="azm_toast" data="{{...azm_toast}}"></template>

@@ -1,0 +1,191 @@
+<view class="shopFront new-class">
+    <!---------------------------------------------店铺首页轮播图----------------------------------------------->
+    <view class="header">
+        <swiper indicator-dots="true" indicator-color="rgba(247, 75, 123, 0.3)" indicator-active-color="#f74b7b"
+                autoplay="true" bindchange="" circular="true">
+            <swiper-item wx:for="{{topImages}}">
+                <image lazy-load="true" src="{{item.id?(imageServer + item.imageUrl):item.imageUrl}}"
+                       class="topImages" data-index="{{index}}" binderror="imageError" bindload=""/>
+            </swiper-item>
+        </swiper>
+    </view>
+    <view class="section">
+        <!---------------------------------------------头部滚动信息栏----------------------------------------------->
+        <view class="topInfo pr bg-color-white">
+            <view class="pr">
+                <swiper autoplay="true" bindchange="" circular="true" vertical="true">
+                    <block wx:for="{{topInfoList}}">
+                        <swiper-item>
+                            <view class="p">
+                                <text>{{item}}</text>
+                                <text class="text-hotPink"></text>
+                            </view>
+                        </swiper-item>
+                    </block>
+                </swiper>
+            </view>
+        </view>
+        <!---------------------------------------------店铺----------------------------------------------->
+        <view class="shopInfo pr bg-color-white">
+            <view class="pr content">
+                <!---------------------------------------------店铺信息----------------------------------------------->
+                <view class="shopInfo-top flexBox">
+                    <view class="flexBox-item fb-3 left">
+                        <block wx:if="{{shopInfo.resLogo}}">
+                            <image src="{{imageServer+shopInfo.resLogo}}"></image>
+                        </block>
+                        <block wx:else>
+                            <view>
+                                <text class="iconfont icon-jiazaishibai azm-icon"></text>
+                            </view>
+                        </block>
+                    </view>
+                    <view class="flexBox-item fb-9 right">
+                        <view class="h1">
+                            <text>{{shopInfo.resName}}</text>
+                        </view>
+                        <view class="p address pr" data-address="{{shopInfo.resPhone}}" catchtap="bindOpenMap">
+                            <view class="icon">
+                                <text class="iconfont-2 icon-location azm-icon"></text>
+                                <!--<image src="../../../images/shop/address.png"></image>-->
+                            </view>
+                            <view class="text">
+                                <text space="true" decode="true">{{shopInfo.resAddress}}</text>
+                            </view>
+                        </view>
+                        <view class="p phone pr" data-phone="{{shopInfo.resPhone}}" catchtap="makePhoneCall">
+                            <view class="icon">
+                                <text class="iconfont icon-phone azm-icon"></text>
+                                <!--<image src="../../../images/shop/phone.png"></image>-->
+                            </view>
+                            <view class="text">
+                                <text>{{shopInfo.resPhone}}</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <!-----------------------------------店铺就餐方式列表----------------------------------------------->
+                <view class="shopInfo-list flexBox {{shopList.length>4?'flexBox-start':''}}">
+                    <block wx:for="{{shopList}}">
+                        <view class="shopInfo-list-item flexBox-item fb-{{shopList.length>4?3:12/shopList.length}}"
+                              data-url="{{item.url}}"
+                              data-value="{{item}}"
+                              data-type="{{item.orderType}}" catchtap="bindAzmScanCode" hover-stay-time="100"
+                              wx:if="{{item.status===1}}">
+                            <image src="{{item.img}}"></image>
+                            <view class="text">
+                                <text>{{item.name}}</text>
+                            </view>
+                        </view>
+                    </block>
+                </view>
+            </view>
+        </view>
+        <!---------------------------------------------会员卡----------------------------------------------->
+        <view class="clubCard pr bg-color-white">
+            <view class="pr content">
+                <view class="h2 pr">
+                    <text>会员卡</text>
+                </view>
+                <view class="clubCard-info clearfix">
+                    <view class="fl col-3">
+                        <view class="p">
+                            <block wx:if="{{memberCardDto.memberTypeDiscount == 0}}">
+                                <text>-</text>
+                            </block>
+                            <block wx:elif="{{memberCardDto.memberTypeDiscount > 0}}">
+                                <text>{{memberCardDto.memberTypeDiscount/10}}折</text>
+                            </block>
+                        </view>
+                        <view class="p">
+                            <block wx:if="{{memberCardDto.memberTypeName}}">
+                                <text>{{memberCardDto.memberTypeName}}</text>
+                            </block>
+                            <block wx:else>
+                                <text>会员等级</text>
+                            </block>
+                        </view>
+                    </view>
+                    <view class="fl col-3">
+                        <view class="p">{{filterMoney.RMB(memberCardDto.memberBalance)}}</view>
+                        <view class="p">余额</view>
+                    </view>
+                    <view class="fl col-3">
+                        <view class="p">{{memberCardDto.memberIntegral || 0}}</view>
+                        <view class="p">积分</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <!---------------------------------------------商家----------------------------------------------->
+        <view class="merchants pr bg-color-white">
+            <view class="pr content">
+                <view class="h2 pr">
+                    <view class="icon"></view>
+                    <text>商家</text>
+                </view>
+                <view class="merchants-info pr">
+                    <view class="">
+                        <view class="h3">
+                            <text>营业时间：</text>
+                            <block wx:if="{{shopInfo.closingtime}}">
+                                <text class="c-grey">{{shopInfo.closingtime}}</text>
+                            </block>
+                            <block wx:else>
+                                <text class="c-grey">{{shopInfo.resStarTime}} 至 {{shopInfo.resEndTime}}</text>
+                            </block>
+                        </view>
+                    </view>
+                    <view class="">
+                        <view class="h3">
+                            <text>提供服务：</text>
+                        </view>
+                        <view class="ul">
+                            <block wx:for="{{specialServiceList}}">
+                                <view class="li">
+                                    <text>{{item.name}}</text>
+                                </view>
+                            </block>
+                        </view>
+                    </view>
+                    <view class="">
+                        <view class="h3">
+                            <text>商家简介：</text>
+                        </view>
+                        <view class="p">
+                            <text>{{shopInfo.resIntro}}</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="footer">
+        <view class="clearfix">
+            <view class="fl left">
+                <image src="../../../images/shop/logo-icon.png"></image>
+            </view>
+            <view class="fl right">
+                <view class="p text">
+                    <text space="true" decode="true">技&nbsp;&nbsp;&nbsp;&nbsp;术&nbsp;&nbsp;&nbsp;&nbsp;支&nbsp;&nbsp;&nbsp;&nbsp;持</text>
+                </view>
+                <view class="p phone">
+                    <text data-phone="0755-32914310" catchtap="makePhoneCall">0755-32914310</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+
+
+<!--自定义loading-->
+<import src="../../../template/loading.wxml"/>
+<template is="loading2" data="{{isLoading:hasMoreData}}"></template>
+
+
+<!--自定义Toast-->
+<import src="../../../template/toast/toast.wxml"/>
+<template is="azm_toast" data="{{...azm_toast}}"></template>
+
+<!--过滤器-->
+<wxs src="../../../utils/filter/filter_money.wxs" module="filterMoney"/>

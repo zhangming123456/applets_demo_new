@@ -1,0 +1,35 @@
+"use strict";
+
+function isNumberOfNaN(arg) {
+    if (arg) {
+        arg = Number(arg);
+    }
+    return typeof arg === 'number' && !isNaN(arg);
+}
+
+function _money(num, len) {
+    num = parseFloat(num) || 0;
+    return num.toFixed(len);
+}
+
+var money = function (num, type, len) {
+    type = type || '';
+    len = len || 2;
+    if (isNumberOfNaN(num)) {
+        num = _money(num, len);
+    } else {
+        num = _money(0, len);
+    }
+    return type + ' ' + num;
+};
+var rmb_money = function (num, len) {
+    return money(num, "¥", len);
+};
+var us_money = function (num, len) {
+    return money(num, '$', len);
+};
+module.exports = {
+    Money: money,
+    RMB: rmb_money,
+    US: us_money
+};

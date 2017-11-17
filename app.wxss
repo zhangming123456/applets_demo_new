@@ -1,0 +1,8 @@
+@import "./lib/css/animate.wxss";
+@import "./fontIcon/iconfont.wxss";
+@import "./lib/icons/iconfont.wxss";
+@import "./less/app.wxss";
+@import "./template/loading.wxss";
+@import "./template/toast/toast.wxss";
+@import "./lib/weui/weui.wxss";
+@import "./template/module/index.wxss";

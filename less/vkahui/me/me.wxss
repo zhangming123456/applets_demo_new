@@ -1,0 +1,54 @@
+page {
+  background: #f1f3f4;
+  height: 100%;
+}
+page view.old-class {
+  /*.ct { min-height: 8rem; padding-bottom: 5rem; }*/
+  /*.arrow-list-ctn .listMe{border-top:1px solid #ddd;}*/
+}
+page view.old-class .info {
+  padding: 0.8rem 0;
+  display: inline-block;
+  width: 100%;
+}
+page view.old-class .info .entry {
+  background: #fff;
+  width: 33.33%;
+  float: left;
+  text-align: center;
+  padding: 1.5rem 0;
+  box-sizing: border-box;
+  border-right: 1px solid #ddd;
+}
+page view.old-class .logout {
+  padding: 0.8rem 0;
+  text-align: center;
+}
+page view.old-class .logout button {
+  display: inline-block;
+}
+page view.old-class .arrow-list-ctn {
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+page view.old-class .arrow-list-ctn > .list {
+  border-top: 1px solid #ddd;
+}
+page view.old-class .arrow-list-ctn > .listMe {
+  border-top: none;
+}
+page view.old-class .headline {
+  width: 100%;
+  background: #2d2c34;
+  border-bottom: none;
+  text-align: center;
+  color: #f1f3f4;
+  font-size: 0.8125rem;
+  padding: 1.8rem 0rem;
+}
+page view.old-class .headline .btn {
+  padding: 0.8rem 1.8rem;
+}
+page view.old-class .name {
+  color: #f1f3f4;
+}

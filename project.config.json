@@ -1,0 +1,99 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.5.0",
+	"appid": "wxdaecf7a9dfaac8ff",
+	"projectname": "V_KH%EF%BC%88%E5%BC%80%E5%8F%91%EF%BC%89-%20%E6%8B%86%E5%88%86%E5%A4%96%E5%8D%96",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 2,
+			"list": [
+				{
+					"id": 0,
+					"name": "本地1号掌柜店铺",
+					"pathName": "pages/shop/home/home",
+					"query": "q=http%3A%2F%2Fvip.zhenler.com%2FH5%2Fqrcode.html%3Fid%3D9979ad35ca8e40a5848debb459af63de",
+					"scene": "1011"
+				},
+				{
+					"id": 1,
+					"name": "本地洪记桌台",
+					"pathName": "pages/init/init",
+					"query": "q=http%3A%2F%2Fvip.zhenler.com%2FH5%2Fqrcode.html%3Fid%3D49b13f26a79545878bf9d4d8af9252b6",
+					"scene": "1011"
+				},
+				{
+					"id": 2,
+					"name": "分享进1号掌柜",
+					"pathName": "pages/shop/home/home",
+					"query": "resId=000000005c2536d5015c2e169199061f",
+					"scene": "1036",
+					"referrerInfo": {}
+				},
+				{
+					"id": 3,
+					"name": "分享进洪记",
+					"pathName": "pages/shop/home/home",
+					"query": "resId=0000000055dd15670155ddd056ef0121",
+					"scene": "1036"
+				},
+				{
+					"id": 4,
+					"name": "1号桌台线上",
+					"pathName": "pages/shop/home/home",
+					"query": "q=http%3A%2F%2Fvip.zhenler.com%2FH5%2Fqrcode.html%3Fid%3D2278ddc78f884094b9351af5cdc1c180",
+					"scene": "1011"
+				},
+				{
+					"id": 5,
+					"name": "支付结果",
+					"pathName": "pages/order/order-detail/order-detail",
+					"query": "consumerId=a0317c8aee204d3093117fc0d414b2aa&resId=0000000055dd15670155ddd056ef0121&status=8&tableCode=2914abe2fa1d4fa1bcc3849f9cf597c7"
+				},
+				{
+					"id": 6,
+					"name": "本地一号桌台",
+					"pathName": "pages/shop/home/home",
+					"query": "q=http%3A%2F%2Fvip.zhenler.com%2FH5%2Fqrcode.html%3Fid%3D50f1b9e6219c4f448c446b15f3f6e2e7",
+					"scene": "1011"
+				},
+				{
+					"id": 7,
+					"name": "收货地址",
+					"pathName": "pages/vkahui/address-edit/address-edit",
+					"query": "",
+					"scene": "1011"
+				},
+				{
+					"id": -1,
+					"name": "绑定手机",
+					"pathName": "pages/vkahui/phone-add/phone-add",
+					"query": "",
+					"scene": "1011"
+				},
+				{
+					"id": -1,
+					"name": "1号桌台线上（汉字）",
+					"pathName": "pages/shop/home/home",
+					"query": "q=http%3A%2F%2Fvip.zhenler.com%2FH5%2Fqrcode.html%3Fid%3Dd1380d3a1120479b82f45950db58952a",
+					"scene": "1011"
+				}
+			]
+		}
+	}
+}

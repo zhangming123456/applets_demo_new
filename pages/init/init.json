@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "我的会员卡",
+  "backgroundColor": "#f1f2f4",
+  "backgroundTextStyle": "dark",
+  "enablePullDownRefresh": true
+}

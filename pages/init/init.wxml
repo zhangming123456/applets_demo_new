@@ -1,0 +1,142 @@
+<view class="old-class">
+    <view class="pr">
+        <view class="wrapper title height-all pr">
+            <!--演示店铺-->
+            <navigator class="ct pr" open-type="navigate"
+                       url="/pages/shop/home/home?resId=000000005c2536d5015c2e169199061f">
+                <view class="pr box-sizing home overflow-h">
+                    <canvas class="pa dot" canvas-id="000000005c2536d5015c2e169199061f"
+                            wx:if="{{module!='moduleActive'}}"></canvas>
+                    <view class="entry inblk relative clearfix overflow-h padding-10 init-box">
+                        <view class="img-area fl">
+                            <view class="cus-table">
+                                <image class="icon-user-bigger"
+                                       src="http://f.zhenler.com/resources/UPLOADIMAGE/FORMAL/000000005c2536d5015c2e169199061f/logo/479b8cf0a4334a278a43a63f470df24e.png"></image>
+                            </view>
+                        </view>
+                        <view class="word-area fl">
+                            <view class="cus-table">
+                                <view class="top overflow-h">
+                                    <view class="h2 width-100 height-all clearfix" style="color:#fff;">
+                                        <view class="bold fl width-70 shopName overflow-h">
+                                            <text>1号掌柜(演示店铺)</text>
+                                        </view>
+                                        <view class="level dazhe fl">
+                                            <text>VIP</text>
+                                        </view>
+                                    </view>
+                                </view>
+                                <view class="bottom inblk border-box me overflow-h">
+                                    <view class="inline-div fl mg-right-5 overflow-h">
+                                        <image class="inline-icon icon-normal-equal"
+                                               src="/images/icon/jifeng.png"></image>
+                                        <text class="inline-text">0</text>
+                                    </view>
+                                    <view class="inline-div fl overflow-h">
+                                        <image class="inline-icon icon-normal-equal"
+                                               src="/images/icon/money.png"></image>
+                                        <text class="inline-text">0</text>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="classname">
+                        <view class="address">地址：广东省深圳市</view>
+                        <view class="number">NO:YH1508**********475</view>
+                        <view>
+                            <text class="line"></text>
+                        </view>
+                    </view>
+                </view>
+            </navigator>
+            <block class="pr" wx:for="{{memberCardList}}"
+                   wx:if="{{item.resId && '000000005c2536d5015c2e169199061f'!= item.resId}}">
+                <navigator class="ct pr" open-type="navigate"
+                           url="/pages/shop/home/home?resId={{item.resId}}">
+                    <view class="pr box-sizing home overflow-h">
+                        <canvas class="pa dot" canvas-id="{{item.resId}}" wx:if="{{module!='moduleActive'}}"></canvas>
+                        <view class="entry inblk relative {{item.classLevel}} clearfix overflow-h padding-10 init-box">
+                            <view class="img-area fl">
+                                <view class="cus-table">
+                                    <block wx:if="{{item.resLogo}}">
+                                        <image class="icon-user-bigger" src="{{imageServer+item.resLogo}}"></image>
+                                    </block>
+                                    <block wx:else>
+                                        <view>
+                                            <text class="iconfont icon-jiazaishibai azm-icon"></text>
+                                        </view>
+                                    </block>
+                                </view>
+                            </view>
+                            <view class="word-area fl">
+                                <view class="cus-table">
+                                    <view class="top overflow-h">
+                                        <view class="h2 width-100 height-all clearfix" style="color:#fff;">
+                                            <view class="bold fl width-70 shopName overflow-h">
+                                                <text>{{item.resName}}</text>
+                                            </view>
+                                            <view class="level dazhe fl" wx:if="{{item.memberTypeDiscount!=0}}">
+                                                <text>{{item.memberTypeDiscount/100}}折</text>
+                                            </view>
+                                            <view class="level dazhe fl" wx:if="{{item.memberTypeDiscount==0}}">
+                                                <text>VIP</text>
+                                            </view>
+                                        </view>
+                                    </view>
+                                    <view class="bottom inblk border-box me overflow-h">
+                                        <view class="inline-div fl mg-right-5 overflow-h">
+                                            <image class="inline-icon icon-normal-equal"
+                                                   src="/images/icon/jifeng.png"></image>
+                                            <text class="inline-text">{{item.memberIntegral}}</text>
+                                        </view>
+                                        <view class="inline-div fl overflow-h">
+                                            <image class="inline-icon icon-normal-equal"
+                                                   src="/images/icon/money.png"></image>
+                                            <text class="inline-text">{{filterMoney.Money(item.memberBalance)}}</text>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="classname">
+                            <view class="address">地址：{{item.resAddress}}</view>
+                            <view class="number" wx:if="{{item.memberCardNo}}">NO:{{item.memberCardNo}}</view>
+                            <view>
+                                <text class="line"></text>
+                            </view>
+                        </view>
+                    </view>
+                </navigator>
+            </block>
+        </view>
+    </view>
+</view>
+
+
+<view class="weui-loadmore" wx:if="{{!hasMoreData && !isShow}}">
+    <view class="weui-loading"></view>
+    <view class="weui-loadmore__tips">正在加载</view>
+</view>
+<view class="weui-loadmore weui-loadmore_line" wx:elif="{{hasMoreData && isShow}}">
+    <block wx:if="{{vkahuiData.length>0}}">
+        <view class="weui-loadmore__tips weui-loadmore__tips_in-line">我是有底线的</view>
+    </block>
+    <block wx:else>
+        <view class="weui-loadmore__tips weui-loadmore__tips_in-line">没有更多数据</view>
+    </block>
+</view>
+
+<!--自定义Toast-->
+<import src="../../template/toast/toast.wxml"/>
+<template is="azm_toast" data="{{...azm_toast}}"></template>
+
+
+<!--自定义loading-->
+<import src="../../template/loading.wxml"/>
+<template is="loading2" data="{{isLoading:hasMoreData}}"></template>
+
+
+<!--过滤器-->
+<wxs src="../../utils/filter/filter_money.wxs" module="filterMoney"/>
+<wxs src="../../utils/filter/filter_navigate.wxs" module="filterNavigate"/>

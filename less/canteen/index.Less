@@ -1,0 +1,869 @@
+@import "../index";
+
+/*title部分**********************************************************/
+
+view.canteen-index {
+  position: absolute;
+  margin: auto;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  .swiper-tab {
+    width: 100%;
+    border-bottom: 3*1rpx solid #f1f3f4;
+    text-align: center;
+    .px2rpx(line-height, 40);
+    .px2rpx(padding-bottom, 0.5);
+  }
+
+  .swiper-tab-list {
+    font-size: 0.9rem;
+    display: inline-block;
+    width: 33.33%;
+    color: #2d2c34;
+  }
+
+  .canteen-bottom-122 {
+    .px2rpx(bottom, 61);
+  }
+
+  .choose-area-box {
+    position: absolute;
+    box-sizing: border-box;
+    /* width: 100%;
+    height: 100%; */
+    .px2rpx(bottom, 25);
+    .px2rpx(right, 10);
+  }
+
+  .choose-area-box > .choose-area-box-right {
+    position: absolute;
+    right: 0;
+  }
+
+  .choose-area-box > .choose-area-box-left {
+    position: absolute;
+    .px2rpx(right, 57.5);
+  }
+
+  .choose-area-box > .text-center-box {
+    position: absolute;
+    .px2rpx(right, 37.5);
+    bottom: -50*1rpx;
+    height: 60*1rpx;
+    line-height: 60*1rpx;
+  }
+
+  .on {
+    color: #f74b7b;
+    border-bottom: 5*1rpx solid #f74b7b;
+    .px2rpx-two(padding, 7, 0, 6, 0);
+  }
+
+  .swiper-box {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+    margin: auto;
+    .px2rpx(top, 56.5);
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: auto;
+  }
+
+  .swiper-box view {
+    text-align: center;
+  }
+
+  .tankuang {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: #000;
+    z-index: 100;
+  }
+
+  /*堂食模块***************************************************************/
+
+  .jagofancybox .title {
+    text-align: center;
+  }
+
+  .jagofancybox .title text {
+  }
+
+  .jagofancybox .ct {
+    padding: 0 1rem 2rem;
+    box-sizing: border-box;
+  }
+
+  .jagofancybox .ct.cus-height {
+    padding-top: 2rem;
+  }
+
+  .jagofancybox .ct .title {
+    margin-bottom: 0.8rem;
+    text-align: left;
+  }
+
+  .jagofancybox .ct .outer {
+    text-align: center;
+  }
+
+  .jagofancybox .ct .outer .entry {
+    float: left;
+  }
+
+  .jagofancybox .ct .outer .entry .price {
+    display: block;
+    font-size: 0.9rem;
+    margin-top: 0.8rem;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .jagofancybox .ct .outer .inner {
+    margin: 0 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .jagofancybox .add-to-car.style-1 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: inline-block;
+    width: 100%;
+    background: #4c4c4c;
+    padding: 0.5rem 1rem;
+    box-sizing: border-box;
+  }
+
+  .jagofancybox .add-to-car.style-1 text {
+    float: left;
+    color: #fff;
+    width: auto;
+    line-height: 2rem;
+  }
+
+  .jagofancybox .add-to-car.style-1 .btn {
+    float: right;
+    line-height: 2rem;
+    padding: 0 0.8rem;
+  }
+
+  .jagofancybox .add-to-car.style-2 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: inline-block;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    box-sizing: border-box;
+  }
+
+  .jagofancybox .add-to-car.style-2 .btn {
+    line-height: 2rem;
+    padding: 0 0.8rem;
+    width: 50%;
+  }
+
+  .search-ctn {
+    padding: 0 0.5rem;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 71%;
+    z-index: 1;
+    background: #fff;
+  }
+
+  .search-ctn input {
+    border-bottom: 1px solid #f1f3f4;
+    height: 2.5rem;
+  }
+
+  .search-ctn .icon-search {
+    position: absolute;
+    right: 0.8rem;
+    top: 0.75rem;
+  }
+
+  .list-choose.right .overflow-y-scroll {
+    margin-top: 3rem;
+  }
+
+  .scroll-view {
+    margin-top: 0rem;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .jianshao image {
+    .px2rpx(width, 24);
+    .px2rpx(height, 24);
+    z-index: 20;
+  }
+
+  .add image {
+    .px2rpx(width, 24);
+    .px2rpx(height, 24);
+    z-index: 20;
+  }
+
+  .entry .jianshao {
+    float: right;
+    width: 30%;
+    text-align: center;
+  }
+
+  .entry .num {
+    float: right;
+    width: 25%;
+    text-align: center;
+  }
+
+  .entry .add {
+    float: right;
+    width: 30%;
+    text-align: center;
+  }
+
+  .salesMe {
+    color: #aab0ca;
+    font-size: 0.75rem;
+    margin: 0.35rem 0rem 0rem -3.2rem;
+    display: inline-block;
+  }
+
+  .money {
+    margin-top: 0.8rem;
+    display: inline-block;
+    font-size: 0.8rem;
+  }
+
+  .money.totalHide, .money.deliveryHide {
+    display: none;
+  }
+
+  .money.totalShow, .money.deliveryShow {
+    display: inline-block;
+  }
+
+  /*提示是否加菜*/
+
+  .module {
+    display: none;
+  }
+
+  /*.module{display:block;}*/
+
+  .tanchuang {
+    padding: 1rem 1rem 0.2rem 1rem;
+    opacity: 1;
+    background: #fff;
+    position: absolute;
+    right: 15%;
+    top: 25%;
+    z-index: 100;
+    border-radius: 2px;
+  }
+
+  .tanchuang .content {
+    min-width: 235px;
+    line-height: 1.3rem;
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+  }
+
+  .tanchuang .use, .tanchuang .phone {
+    width: 50%;
+    background: none;
+    border-right: 1px solid #bfc4d3;
+    border-radius: 0;
+    color: #000;
+    font-size: 1rem;
+  }
+
+  .tanchuang .phone {
+    border-right: none;
+    color: #f74b7b;
+  }
+
+  .tanchuang .h4 {
+    border-top: 1px solid #bfc4d3;
+  }
+
+  .moduleActive {
+    background: #57565c;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    display: block;
+    opacity: 0.95;
+  }
+
+  .tanchuang.goOrder .use, .tanchuang.goOrder .phone {
+    width: 100%;
+    border: none;
+  }
+
+  .tanchuang.goOrder {
+    right: 25%;
+  }
+
+  /*菜品规格*/
+
+  .moduleMe {
+    display: none;
+  }
+
+  /*.module{display:block;}*/
+
+  .tanchuangMe {
+    padding: 0rem 0rem 0.2rem 0rem;
+    opacity: 1;
+    background: #fff;
+    position: absolute;
+    right: 6.5%;
+    top: 25%;
+    z-index: 100;
+    border-radius: 2px;
+    text-align: center;
+    width: 85%;
+  }
+
+  .tanchuangMe .contentMe {
+    line-height: 2.625rem;
+    font-size: 0.9rem;
+    background: #000;
+    color: #fff;
+  }
+
+  .tanchuangMe .useMe, .tanchuangMe .phoneMe {
+    width: 50%;
+    background: none;
+    border-right: 1px solid #bfc4d3;
+    border-radius: 0;
+    color: #000;
+    font-size: 1rem;
+  }
+
+  .tanchuangMe .h4Me {
+    padding-left: 0.9375rem;
+    margin-top: 1.5625rem;
+    text-align: left;
+  }
+
+  .tanchuangMe .phoneMe {
+    border-right: none;
+    color: #f74b7b;
+  }
+
+  .moduleActiveMe {
+
+  }
+
+  .inblkMe {
+    padding: 0.5rem 0rem 0rem 0rem;
+  }
+
+  .inblk {
+    margin-left: 0.875rem;
+  }
+
+  .kw {
+    margin-bottom: 0.5rem;
+  }
+
+  .blkMe {
+    color: #bec4d2;
+    border: 1px solid #bec4d2;
+    border-radius: 0.1rem;
+    text-align: center;
+    font-size: 0.75rem;
+    padding: 0.2rem 0.5rem;
+  }
+
+  .standardText {
+    font-size: 0.6875rem;
+    color: #2d2c34;
+    margin-top: 0.5625rem;
+    display: inline-block;
+    margin-left: 0.5rem;
+  }
+
+  .button {
+    width: 6.25rem;
+    height: 1.75rem;
+    border-radius: 1rem;
+    margin: 1.675rem 0 0.875rem 6rem;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  .cancle {
+    border: 1px solid #fff;
+    border-radius: 100%;
+    height: 1.5rem;
+    width: 1.5rem;
+    line-height: 1.4rem;
+    position: absolute;
+    top: -0.5rem;
+    right: -0.5rem;
+    background: transparent;
+    color: #fff;
+    font-size: 1.5rem;
+    z-index: 20;
+  }
+
+  .userCell {
+    color: #bec4d2;
+    border: 1px solid #bec4d2;
+    border-radius: 0.1rem;
+    text-align: center;
+    font-size: 0.75rem;
+    padding: 0.2rem 0.5rem;
+  }
+
+  .userCellActive {
+    color: #fff;
+    background: #f74b7b;
+    border: 1px solid #f74b7b;
+  }
+
+  .countMe {
+    background: #4b4b4b;
+    color: #fff;
+    box-sizing: border-box;
+    border-radius: 100%;
+    position: absolute;
+    bottom: 1.1rem;
+    right: -0.2rem;
+    display: inline-block;
+    line-height: 1rem;
+    min-width: 1rem;
+    min-height: 1rem;
+    font-size: 0.7rem;
+  }
+
+  /*店铺详情模块************************************************************************/
+
+  page {
+  }
+
+  .ctn {
+    position: relative;
+    top: 0;
+  }
+
+  .ctn image {
+    width: 100%;
+  }
+
+  .ctn .h1 {
+    position: absolute;
+    top: 1rem;
+    left: 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  .headline {
+    position: absolute;
+    top: 0rem;
+    left: 0rem;
+    background: transparent;
+  }
+
+  .headline .h2 {
+    margin: 0rem 0 0.3rem;
+    color: #fff;
+    text-align: left;
+  }
+
+  .headline .img-ctn {
+    background: #6e7bb3;
+    box-sizing: border-box;
+    width: 4rem;
+    height: 4rem;
+    text-align: center;
+    padding: 0.7rem;
+    border-radius: 300px;
+    display: inline-block;
+  }
+
+  .headline .arrow {
+    right: 1.5rem;
+  }
+
+  .content {
+  }
+
+  .content .category {
+    padding: 0.5rem 0.5rem;
+    background: #fff;
+  }
+
+  .content .category .entry {
+    float: left;
+    width: 30%;
+    text-align: center;
+    margin-bottom: 1rem;
+    margin: 0 1.5%;
+    padding: 1.2rem 0;
+    background: #f2f3f4;
+    border-radius: 0.3rem;
+  }
+
+  .content .category .entry image {
+    width: 2rem;
+    height: 1.6rem;
+  }
+
+  .content .category .entry text {
+    margin-top: 1rem;
+  }
+
+  .content .area {
+    padding: 0.8rem 0 1rem;
+    margin: 0.5rem 1.5rem 0 1rem;
+    border-bottom: 1px solid #f1f3f4;
+    text-align: left;
+  }
+
+  .content .area .title {
+    display: inline-block;
+    width: 100%;
+    margin: 0rem 0rem;
+    height: 1.6rem;
+  }
+
+  .content .area .title image {
+    float: left;
+    margin-right: 0.5rem;
+    margin-top: 0.4rem;
+  }
+
+  .content .area .title .h2 {
+    float: left;
+    letter-spacing: 0.1rem;
+    line-height: 1.6rem;
+    font-weight: bold;
+  }
+
+  .content .area .ct .entry {
+    margin-top: 0.6rem;
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.6rem 0;
+  }
+
+  .content .area .ct .entry .left {
+    float: left;
+    width: 70%;
+    box-sizing: border-box;
+    height: 5rem;
+    color: #fff;
+    padding: 0rem 0 0 1.2rem;
+  }
+
+  .content .area .ct .entry .right {
+    float: right;
+    width: 30%;
+    box-sizing: border-box;
+    height: 5rem;
+    color: #fff;
+    padding: 0rem 0.8rem;
+    text-align: center;
+  }
+
+  .content .area .ct .entry .left .p-bigger {
+    font-weight: bold;
+    font-size: 1.3rem;
+  }
+
+  .content .area .ct .entry .left .p {
+    margin-top: 0.7rem;
+    font-size: 0.8rem;
+  }
+
+  .content .area .ct .entry .left .p-small {
+  }
+
+  .content .area .ct .entry .right .p {
+    display: inline-block;
+  }
+
+  .content .area .ct .entry .right .span {
+    display: inline-block;
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+
+  .content .area .ct .entry .right .p-small {
+    margin-top: 0.8rem;
+  }
+
+  .contact {
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /*.contact.area { padding: 1.2rem 0 1.2rem 1rem !important; }*/
+
+  .contact .left {
+    box-sizing: border-box;
+    width: 68%;
+    float: left;
+    display: inline-block;
+  }
+
+  .contact .right {
+    width: 30%;
+    float: left;
+    text-align: center;
+    margin: -0.2rem 1.2rem 0rem 0rem;
+    display: inline-block;
+  }
+
+  .leftMe {
+    box-sizing: border-box;
+    width: 68%;
+    display: block;
+    height: 90*1rpx;
+    line-height: 90*1rpx;
+    text-align: left !important;
+    font-size: 34*1rpx;
+    font-weight: bold;
+  }
+
+  .leftMe > image {
+    display: inline-block;
+    width: 48*1rpx;
+    height: 48*1rpx;
+    vertical-align: text-bottom;
+  }
+
+  .rightMe {
+    width: 25%;
+    display: inline-block;
+    padding: 0.8rem 0rem 0rem 1.2rem;
+  }
+
+  .lineMe {
+    border-top: 8px solid #f4f4f4;
+  }
+
+  .btnMe {
+    color: #000;
+    background: #f74b7b;
+    box-sizing: border-box;
+    padding: 0 12px;
+    line-height: 1.8rem;
+    font-size: 0.9rem;
+  }
+
+  .bannerBg {
+    height: 6.5rem;
+  }
+
+  .bg-img {
+    background-image: url("/images/banner.jpg");
+  }
+
+  .content .margin {
+    margin: 0.5rem 1rem 0 1rem;
+    padding: 0.3rem 0 0.3rem;
+  }
+
+  .content .padding {
+    margin: 0.5rem 1.5rem 0 1rem;
+    padding: 0rem 0 0.8rem;
+    border-bottom: none;
+  }
+
+  .service .inline-div {
+    float: left;
+    width: 40%;
+  }
+
+  .service .inline-div text:before {
+    content: '•';
+    color: #f74b7b;
+    margin-right: 0.3rem;
+    font-size: 3rem;
+    width: 2rem;
+    vertical-align: middle;
+    display: inline-block;
+  }
+
+  .service .inline-div text {
+    line-height: 2.2rem;
+  }
+
+  .distance {
+    margin-left: 0.6rem;
+  }
+
+  .me {
+    margin: 0 0.4rem 0.3rem 0;
+  }
+
+  .bold {
+    font-weight: bold;
+  }
+
+  .shopping {
+    position: absolute;
+    top: 0.8rem;
+    right: 1rem;
+    font-size: 0.8rem;
+    color: #b5bbd1;
+    z-index: 10;
+  }
+
+  .shopping > image {
+    width: 0.8rem;
+    height: 0.8rem;
+    position: relative;
+    top: 0.09rem;
+    left: -0.3rem;
+  }
+
+  .carItem {
+    text-align: right;
+    padding-right: 2rem;
+  }
+  .canteen-tab-box {
+    .px2rpx(height, 56.5);
+    overflow: hidden;
+  }
+  /*********** 购物车盒子 ********************/
+  .cart-box {
+    view {
+      text-align: left;
+    }
+    .px2rpx-two(padding, 0, 10, 5, 20);
+    .list {
+      padding-bottom: 0;
+      .px2rpx(min-height, 50);
+      text {
+        .px2rpx(font-size, 12);
+      }
+      .fl {
+        overflow: hidden;
+        .text-overflow();
+        height: 100%;
+        &.cart-box-list-money {
+          text-align: right;
+          .px2rpx(padding-right, 5);
+          text {
+            .px2rpx(font-size, 15);
+          }
+          .px2rpx(line-height, 24);
+        }
+        > view {
+          &.inner {
+            text {
+              .px2rpx(font-size, 15);
+            }
+            font-weight: bold;
+            .px2rpx(line-height, 24);
+            .rule {
+              font-weight: 400;
+              .px2rpx(font-size, 12);
+            }
+          }
+          .px2rpx(width, 172);
+          overflow: hidden;
+          .text-overflow();
+        }
+      }
+      .cart-box-list-add {
+        > view {
+          .px2rpx(height, 24);
+          .px2rpx(line-height, 24);
+          text-align: center;
+        }
+        .px2rpx-two(padding, 0, 5, 0, 5);
+        .px2rpx(height, 26);
+      }
+    }
+  }
+  .food {
+    &-left {
+      image {
+        .px2rpx(width, 70);
+        .px2rpx(height, 70);
+        vertical-align: text-bottom;
+        .px2rpx(border-radius, 3);
+      }
+    }
+    &-right {
+      .px2rpx(padding-left, 11.5);
+      .px2rpx(padding-right, 5);
+      .p {
+        position: relative;
+        text-align: left;
+        text {
+          .px2rpx(font-size, 16);
+        }
+        &:nth-of-type(1) {
+
+        }
+        &:nth-of-type(2) {
+          .px2rpx(padding-top, 5);
+          .px2rpx(font-size, 12);
+          color: #aab0ca;
+        }
+        &:nth-of-type(3) {
+          .px2rpx(height, 35);
+          .px2rpx(line-height, 35);
+          .food-money {
+            .px2rpx(width, 60);
+            .text-overflow();
+            text-align: left;
+            color: @color-f74b7b;
+          }
+          .food-btn-plus {
+            .px2rpx(padding-right, 10);
+            height: 100%;
+            > view {
+              .px2rpx(height, 30);
+              .px2rpx(line-height, 25);
+            }
+            .food-rule {
+              .px2rpx(padding-right, 10);
+              .food-btn-rule {
+                .px2rpx(height, 30);
+                .px2rpx(line-height, 26);
+              }
+            }
+            //加按钮
+            .plus {
+              float: right;
+            }
+            .sum {
+              float: left;
+              .px2rpx(width, 30);
+            }
+            .reduce {
+              float: left;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

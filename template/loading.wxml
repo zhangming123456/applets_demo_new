@@ -1,0 +1,51 @@
+<template name="loading">
+    <view class="loading" hidden="{{isLoading}}">
+        <!--<image class="loading-img" src="../../../images/logo.png"></image>-->
+        <view class="spinner">
+            <view class="bounce1"></view>
+            <view class="bounce2"></view>
+            <view class="bounce3"></view>
+        </view>
+    </view>
+</template>
+
+<template name="loading3">
+    <view class="loading">
+        <view class="spinner3" wx:if="{{!isLoading}}">
+            <view class="spinner-container container1">
+                <view class="circle1"></view>
+                <view class="circle2"></view>
+                <view class="circle3"></view>
+                <view class="circle4"></view>
+            </view>
+            <view class="spinner-container container2">
+                <view class="circle1"></view>
+                <view class="circle2"></view>
+                <view class="circle3"></view>
+                <view class="circle4"></view>
+            </view>
+            <view class="spinner-container container3">
+                <view class="circle1"></view>
+                <view class="circle2"></view>
+                <view class="circle3"></view>
+                <view class="circle4"></view>
+            </view>
+        </view>
+    </view>
+</template>
+
+<template name="loading2">
+    <view class="loading">
+        <view class="spinner2" wx:if="{{!isLoading}}">
+            <view class="azm-loading">
+                <text class="iconfont icon-loading azm-icon"></text>
+            </view>
+        </view>
+    </view>
+    <view class='mask2' wx:if="{{!isLoading}}"></view>
+</template>
+
+
+<template name="mask">
+    <view class="mask {{class}}" catch:touchstart="bindAzmCloseMask" hidden="{{!isMask}}" data-active="close"></view>
+</template>

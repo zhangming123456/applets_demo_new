@@ -1,0 +1,76 @@
+page {
+  background: #f1f3f4;
+}
+page view.new-class text,
+page view.new-class input,
+page view.new-class textarea {
+  color: #000;
+  font-size: 28rpx;
+}
+page view.new-class .azm-section {
+  margin-top: 20rpx;
+  margin-bottom: 60rpx;
+  padding-right: 20rpx;
+  padding-left: 20rpx;
+  background-color: #fff;
+  width: 100%;
+}
+page view.new-class .azm-section .p {
+  width: 100%;
+  min-height: 100rpx;
+  border-bottom: 2rpx solid #e2e2e2;
+}
+page view.new-class .azm-section .p:nth-last-of-type(1) {
+  border-bottom: none;
+}
+page view.new-class .azm-section .row {
+  width: 100%;
+}
+page view.new-class .azm-section .text-lHeight {
+  line-height: 100rpx;
+  height: 100rpx;
+}
+page view.new-class .azm-section .radio-group {
+  height: 100rpx;
+  line-height: 100rpx;
+}
+page view.new-class .azm-section .radio-group label {
+  margin-right: 40rpx;
+}
+page view.new-class .azm-section .inputType,
+page view.new-class .azm-section .textarea-placeholder,
+page view.new-class .azm-section input-placeholder {
+  -web-kit-appearance: none;
+  -moz-appearance: none;
+  text-decoration: none;
+  display: block;
+  height: 100rpx;
+  min-height: 100rpx;
+  box-sizing: border-box;
+  outline: 0;
+  font-size: 28rpx;
+}
+page view.new-class .azm-section .inputType.h-80,
+page view.new-class .azm-section .textarea-placeholder.h-80,
+page view.new-class .azm-section input-placeholder.h-80 {
+  width: 100%;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  min-height: 160rpx;
+  height: 160rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+page view.new-class .box {
+  margin-top: 20rpx;
+  margin-bottom: 60rpx;
+  padding-right: 20rpx;
+  padding-left: 20rpx;
+}
+page view.new-class .box .azm-btn-red {
+  line-height: 70rpx;
+  border-radius: 70rpx;
+}

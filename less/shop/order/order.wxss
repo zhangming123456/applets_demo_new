@@ -1,0 +1,358 @@
+page {
+  background-color: #fff;
+}
+.orderPage {
+  position: absolute;
+  overflow: hidden;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.orderPage .header {
+  background-color: #4b4b4b;
+}
+.orderPage .header .shopInfo {
+  padding: 20rpx 0rpx 20rpx 0rpx;
+}
+.orderPage .header .shopInfo .image {
+  width: 104rpx;
+  height: 104rpx;
+  border: 6rpx solid #636469;
+  border-radius: 100%;
+  overflow: hidden;
+}
+.orderPage .header .shopInfo .image image {
+  width: 100%;
+  height: 100%;
+}
+.orderPage .header .shopInfo .shopInfo-txt .p {
+  color: #fff;
+}
+.orderPage .header .shopInfo .shopInfo-txt .p:nth-of-type(1) {
+  padding-bottom: 20rpx;
+}
+.orderPage .header .shopInfo .shopInfo-txt .p:nth-of-type(2) {
+  padding-left: 46rpx;
+}
+.orderPage .header .shopInfo .shopInfo-txt .p:nth-of-type(2)::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  width: 28rpx;
+  height: 26rpx;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAaCAYAAACkVDyJAAAB80lEQVRIibWWz0sVURTHPz2khTwFyZ3hyiSFTGwhpOWDhxktXAWtIjQ3uk7RTVGKiwLdipukTf4BUS5cROHChT0JMshV+AMUfwXRooVfF3MmrtMbnfscDxzOme85d74zZ+45d5BECXpT0rykO75rM/jLQ2AByAM538W+hE+BN871rxNyr56FsBL4ADyP4IrJLwe+A8ulEHYAK8DdhA8HcNnsdWAujtD1LwJ1wAvgI1DjQQawCvSa3wVM/ItImpS0JmlD0rrplpLJ0Cm7ctDJvSYJEt44CWG9pAdFSAuWuyRriwPPcsXJE2AWGIngYWlbgOYMcJgS4Z7ZceC+gxeARfN7Smn8OBkGnpn/OhKbNnsrTUIIdvUukAXaHPyL2dq0CSFoI4AbDrZr9tJ5EIbT50IRrKThfZrkzBYcrNrsftqEw3bzP8BnB281+7MsRbKXwKD5fRwf7ANmFzIcr/VZJCzbGPDWwduBJvNn0hxtjZIeFxltPyz3qyTKCA7UboINJNMMwRnoIyumrowCV8x/BBA+RVZShWlWUqWkBkkTHm8Y1R4nbyrEk/z43JO040lY7+R8cmNJ2uI90AjMe5R30+w34LYbSNqH20An8CqCx+3w3wTHUUs04Nv4Q0C/c111Qm4B+PsfmuAbFtMOSe8k5X3XHgFyLNDCQL/WogAAAABJRU5ErkJggg==");
+  background-size: 28rpx 26rpx;
+}
+.orderPage .section {
+  position: absolute;
+  overflow: hidden;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  top: 144rpx;
+  bottom: 102rpx;
+}
+.orderPage .section view {
+  color: #2d2c34;
+}
+.orderPage .section .dishes-tab {
+  height: 100%;
+  overflow: hidden;
+}
+.orderPage .section .dishes-tab > scroll-view {
+  height: 100%;
+}
+.orderPage .section .dishes-tab > .left {
+  min-height: 100%;
+  background-color: #f1f3f4;
+}
+.orderPage .section .dishes-tab > .left .dishes-tab-item {
+  height: 124rpx;
+  line-height: 124rpx;
+  padding-left: 32rpx;
+  padding-right: 16rpx;
+  font-size: 26rpx;
+  font-weight: 500;
+  position: relative;
+}
+.orderPage .section .dishes-tab > .left .dishes-tab-item .weui-badge {
+  position: absolute;
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 20rpx;
+  background-color: #f74b7b;
+  padding: 0;
+  text-align: center;
+  border-radius: 50%;
+  z-index: 10;
+  color: #fff;
+  top: 0rpx;
+  right: 0rpx;
+}
+.orderPage .section .dishes-tab > .left .dishes-tab-item.selected {
+  background-color: #fff;
+  color: #f74b7b;
+}
+.orderPage .section .dishes-tab > .right {
+  min-height: 100%;
+  padding-top: 20rpx;
+  padding-left: 25rpx;
+}
+.orderPage .section .dishes-tab > .right .dishes-tab-item > .h2 {
+  position: relative;
+  height: 62rpx;
+  line-height: 62rpx;
+  background-color: #f1f3f4;
+  padding-left: 16rpx;
+  font-size: 26rpx;
+  font-weight: 500;
+}
+.orderPage .section .dishes-tab > .right .dishes-tab-item > .h2::after {
+  position: absolute;
+  content: '';
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  height: 32rpx;
+  border-left: 8rpx solid #f74b7b;
+}
+.orderPage .section .dishes-tab > .right .dishes-tab-item .dishes-tab-item-foodList {
+  margin-left: 0;
+  margin-top: 0;
+  border-bottom: 2rpx solid #e2e2e2;
+  padding: 16rpx 0rpx 16rpx 0rpx;
+}
+.orderPage .section .dishes-tab > .right .dishes-tab-item .dishes-tab-item-foodList:nth-last-child(1) {
+  border-bottom: none;
+}
+.orderPage .section .dishes-tab > .right .dishes-tab-item .dishes-tab-item-foodList .foodList-item > .left .image {
+  height: 160rpx;
+  width: 160rpx;
+  border-radius: 6rpx;
+  overflow: hidden;
+}
+.orderPage .section .dishes-tab > .right .dishes-tab-item .dishes-tab-item-foodList .foodList-item > view.right {
+  padding-left: 20rpx;
+}
+.orderPage .section .dishes-tab > .right .dishes-tab-item .dishes-tab-item-foodList .foodList-item > view.right .h2 {
+  font-size: 30rpx;
+  padding-bottom: 6rpx;
+  color: #2d2c34;
+}
+.orderPage .section .dishes-tab > .right .dishes-tab-item .dishes-tab-item-foodList .foodList-item > view.right .sales {
+  color: rgba(45, 44, 52, 0.8);
+}
+.orderPage .section .dishes-tab > .right .dishes-tab-item .dishes-tab-item-foodList .foodList-item > view.right .money {
+  padding-top: 15rpx;
+  color: #000;
+  font-size: 30rpx;
+}
+.orderPage .section .dishes-tab > .right .dishes-tab-item .dishes-tab-item-foodList .foodList-item > view.right .member-price {
+  display: inline-block;
+  padding-top: 0;
+  padding-left: 6rpx;
+  padding-right: 6rpx;
+  color: #f74b7b;
+  font-size: 24rpx;
+}
+.orderPage .section .dishes-tab > .right .dishes-tab-item .dishes-tab-item-foodList .select {
+  right: 0;
+  top: 80rpx;
+}
+.orderPage .section .dishes-tab > .right .dishes-tab-item .dishes-tab-item-foodList .select.food-btn-rule button {
+  font-size: 26rpx;
+  border-radius: 56rpx;
+  line-height: 56rpx;
+}
+.orderPage .section .dishes-tab > .right .dishes-tab-item .dishes-tab-item-foodList .select.food-btn-rule .weui-badge {
+  position: absolute;
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 20rpx;
+  background-color: #f74b7b;
+  padding: 0;
+  text-align: center;
+  border-radius: 50%;
+  z-index: 10;
+  color: #fff;
+  top: -20rpx;
+  right: -10rpx;
+}
+.orderPage .footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  overflow: hidden;
+}
+.orderPage .footer .left {
+  padding: 0rpx 57rpx 0rpx 45rpx;
+  background-color: #4b4b4b;
+  font-size: 26rpx;
+  text-align: center;
+}
+.orderPage .footer .left .money {
+  font-size: 24rpx;
+}
+.orderPage .footer .left .money .azm-money {
+  text-align: left;
+  height: 50rpx;
+  line-height: 74rpx;
+  font-weight: 600;
+}
+.orderPage .footer .left .money .azm-bottom {
+  text-align: left;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 20rpx;
+  color: #e8e8e8;
+}
+.orderPage .footer .left .shopCart-btn {
+  position: relative;
+}
+.orderPage .footer .left .shopCart-btn image {
+  margin-top: 15rpx;
+  width: 68rpx;
+  height: 68rpx;
+}
+.orderPage .footer .left .shopCart-btn text {
+  position: absolute;
+  top: 6rpx;
+  right: -12rpx;
+  width: 30rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  border-radius: 100%;
+  background-color: #f74b7b;
+  color: #fff;
+}
+.orderPage .footer .right {
+  text-align: center;
+  background-color: #f74b7b;
+  font-size: 30rpx;
+}
+.orderPage .footer .right.azm-submit-gray {
+  background-color: #8e8e8e;
+}
+.orderPage .footer .right text {
+  display: inline-block;
+  width: 100%;
+  height: inherit;
+}
+.orderPage .shopCart {
+  position: absolute;
+  left: 0;
+  bottom: 100rpx;
+  max-height: 600rpx;
+  background-color: #fff;
+  width: 100%;
+  z-index: 401;
+  overflow: hidden;
+}
+.orderPage .shopCart .top {
+  padding: 10rpx 30rpx 10rpx 30rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom: 2rpx solid #e2e2e2;
+  background-color: #f3f3f3;
+}
+.orderPage .shopCart .top .left .h2 {
+  position: relative;
+  height: 62rpx;
+  line-height: 62rpx;
+  padding-left: 16rpx;
+  font-size: 30rpx;
+}
+.orderPage .shopCart .top .left .h2::after {
+  position: absolute;
+  content: '';
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  height: 32rpx;
+  border-left: 8rpx solid #f74b7b;
+}
+.orderPage .shopCart .top .right {
+  position: relative;
+  padding-left: 40rpx;
+  text-align: right;
+}
+.orderPage .shopCart .top .right text {
+  color: #aab0ca;
+  display: inline-block;
+  width: 100%;
+  height: inherit;
+  line-height: 60rpx;
+}
+.orderPage .shopCart .top .right button {
+  border: none;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.orderPage .shopCart .top .right::after {
+  content: '';
+  position: absolute;
+  width: 24rpx;
+  height: 25rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 84rpx;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAiCAYAAAA+stv/AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA4RpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTExIDc5LjE1ODMyNSwgMjAxNS8wOS8xMC0wMToxMDoyMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpiM2E3MDNhMi1lYzVmLWIwNDYtYWRiMi1jYWZkMDc1ZTlkOWIiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QTYxNTIwRURGNEU3MTFFNkI4MUNCNzFFODRGNzRCREUiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QTYxNTIwRUNGNEU3MTFFNkI4MUNCNzFFODRGNzRCREUiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKFdpbmRvd3MpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6M2JjZGNlNDUtMWVlYS1jNTRkLWFlYTYtZjMzNTkxNjcyOTMwIiBzdFJlZjpkb2N1bWVudElEPSJhZG9iZTpkb2NpZDpwaG90b3Nob3A6Mzk1NTMzMzAtZjM0MS0xMWU2LTkzODQtYTE4OWU5MzQxOWY1Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+7Lw8JgAAAXFJREFUeNpiXLxqOwMRwACIzwAxMwNx4B8Q2wHxUUIKmYg08D/UUAYS1P8nRiELkQZeBGI2BhoAFmgoKBDho49A/IdIc0FRJQDEjATUPQY54CkQSzAMDHgPcsAJIDYeIAdcATkgkGEAARPDAANsDtAFYnka2CUNxPqEHCACxJeA+DAegxyh6tABPxA74NG3E4gvoCd4dAcIotHowB2I9wFxMxa5MiDeD8ShOPTCHC2MzwG/ofQnHIZI4nGgEFJQYwMwM39Rkgi/QemvJMoNrVww6oBRB4w6YNQBow4YdQA+wA2lebHIwcR4aOmAh1D6CbY2PpS+T2rHhBQAag3pAPE9LHKdQLwOiK9SwwH4ekC4LPhFwPJfxEQBzEF8NEhvsDYhKz4HfIHSoH5dC5RmgXZMycEsUM9UArE4tvYmehS8AOKtQOwNxNVQ/IeITia+Ti2yHYfREzC2XABqVi8H4rdIjmQmE8Msfw9NoP7olgEEGAA3kzyBrHPG7AAAAABJRU5ErkJggg==") no-repeat 0 0;
+  background-size: 24rpx 25rpx;
+}
+.orderPage .shopCart .ul {
+  padding: 0;
+  padding-left: 40rpx;
+  padding-right: 30rpx;
+  max-height: 500rpx;
+  box-sizing: border-box;
+}
+.orderPage .shopCart .ul .li {
+  overflow: hidden;
+  margin-bottom: 0;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-bottom: 2rpx solid #e2e2e2;
+}
+.orderPage .shopCart .ul .li::after {
+  width: 0;
+  height: 0;
+}
+.orderPage .shopCart .ul .li .azm-left .p .text-ruleName {
+  font-size: 24rpx;
+}
+.orderPage .shopCart .ul .li .azm-left .p:nth-of-type(2) {
+  font-size: 22rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  color: rgba(45, 44, 52, 0.8);
+}
+.orderPage .shopCart .ul .li .azm-left .p.text-top {
+  height: 50rpx;
+  line-height: 74rpx;
+}
+.orderPage .shopCart .ul .li,
+.orderPage .shopCart .ul .li view {
+  font-size: 31rpx;
+  color: #000;
+}
+.orderPage .shopCart .ul .li .food-btn-plus {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  padding-top: 24rpx;
+}
+.shopCartModule-mask {
+  bottom: 100rpx;
+}

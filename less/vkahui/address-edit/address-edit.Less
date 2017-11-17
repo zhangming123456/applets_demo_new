@@ -1,0 +1,77 @@
+@import "../../index";
+
+@height-default: 50;
+page {
+  background: #f1f3f4;
+  view.new-class {
+    text, input, textarea {
+      color: #000;
+      .px2rpx(font-size, 14);
+    }
+    .azm-section {
+      .px2rpx(margin-top, 10);
+      .px2rpx(margin-bottom, 30);
+      .px2rpx(padding-right, 10);
+      .px2rpx(padding-left, 10);
+      background-color: #fff;
+      width: 100%;
+      .p {
+        width: 100%;
+        .px2rpx(min-height, @height-default);
+        border-bottom: @border-1px;
+        &:nth-last-of-type(1) {
+          border-bottom: none;
+        }
+      }
+      .row {
+        width: 100%;
+      }
+      .text-lHeight {
+        .px2rpx(line-height, @height-default);
+        .px2rpx(height, @height-default);
+      }
+      .radio-group {
+        .px2rpx(height, @height-default);
+        .px2rpx(line-height, @height-default);
+        label {
+          .px2rpx(margin-right, 20);
+        }
+      }
+      .inputType, .textarea-placeholder, input-placeholder {
+        -web-kit-appearance: none;
+        -moz-appearance: none;
+        text-decoration: none;
+        display: block;
+        //.px2rpx(line-height, 40);
+        .px2rpx(height, @height-default);
+        .px2rpx(min-height, @height-default);
+        //height: 100%;
+        box-sizing: border-box;
+        outline: 0;
+        .px2rpx(font-size, 14);
+        &.h-80 {
+          width: 100%;
+          .px2rpx(padding-top, 10);
+          .px2rpx(padding-bottom, 10);
+          .px2rpx(min-height, 80);
+          .px2rpx(height, 80);
+          .text-overflow-two();
+        }
+        &.addressInput {
+
+        }
+      }
+    }
+    .box {
+      .px2rpx(margin-top, 10);
+      .px2rpx(margin-bottom, 30);
+      .px2rpx(padding-right, 10);
+      .px2rpx(padding-left, 10);
+      .azm-btn-red {
+        .px2rpx(line-height, 35);
+        .px2rpx(border-radius, 35);
+      }
+    }
+  }
+}
+

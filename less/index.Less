@@ -1,0 +1,148 @@
+.px2rem(@name, @px) {
+    @{name}: @px / 75 * 4rem;
+}
+
+.px2rpx(@name, @px) {
+    @{name}: @px*2rpx;
+}
+
+.px2rpx-one(@name, @px) {
+    @{name}: @px*1rpx;
+}
+
+@flex-basis-number: 12;
+
+.fb(@name,@num) {
+    @{name}: @num * (100 / @flex-basis-number) * 1%;
+  width: @num * (100 / @flex-basis-number) * 1%;
+}
+
+.px2rem-two(@name, @px1,@px2,@px3,@px4) {
+    @{name}: (@px1 / 75 * 4rem) (@px2 / 75 * 4rem) (@px3 / 75 * 4rem) (@px4 / 75 * 4rem);
+}
+
+.px2rpx-two(@name, @px1,@px2,@px3,@px4) {
+    @{name}: (@px1*2rpx) (@px2*2rpx) (@px3*2rpx) (@px4*2rpx);
+}
+
+@color-f74b7b: #f74b7b; //主色调，用于重要性文字、按钮和icon
+@color-aab0ca: #aab0ca;
+@color-2d2c34: #2d2c34;
+@color-8e8e8e: #8e8e8e;
+@color-bebebf: #bebebf;
+@color-eee: #eee;
+@color-f1f3f4: #f1f3f4;
+@color-ccc: #dcdcdc;
+
+@border-1px: 1*2rpx solid #e2e2e2;
+@border-8px: 8*2rpx solid #e2e2e2;
+
+@bg-navigationBar-default: #2d2c34;
+@bg-navigationBar-4b4b4b: #4b4b4b;
+
+@bg-default: #f1f3f4;
+
+.center(@translate) {
+  position: absolute;
+  top: @translate;
+  left: @translate;
+  transform: translate(-@translate, -@translate);
+}
+
+.translateY(@translate) {
+  top: @translate;
+  transform: translateY(-@translate);
+}
+
+.translateX(@translate) {
+  left: @translate;
+  transform: translateX(-@translate);
+}
+
+.fullScreen () {
+  position: absolute;
+  overflow: hidden;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.text-overflow() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.text-overflow-two() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.transition-all(@s) {
+  transition: all @s*1s ease-in-out;
+}
+
+.btn-height-align(@h) {
+  .px2rpx(height, @h);
+  .px2rpx(line-height, @h - 5);
+}
+
+.clearFix() {
+  & {
+    zoom: 1;
+  }
+  &::after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+    font-size: 0;
+  }
+}
+
+.food-btn-plus() {
+  &.food-btn-plus {
+    .row {
+      .px2rpx(width, 85);
+      .px2rpx(height, 24);
+      .px2rpx(line-height, 24);
+    }
+    .left, .right {
+      .px2rpx(height, 24);
+      .px2rpx(line-height, 24);
+      color: transparent;
+      .px2rpx(flex-basis, 24);
+      .px2rpx(width, 24);
+      .azm-icon {
+        .px2rpx(font-size, 24);
+      }
+    }
+    .food-btn-plus-default {
+      transform: translate(60*2rpx, 0) rotate(360deg);
+      opacity: 0;
+    }
+    .left {
+      .azm-icon {
+        color: #aab0ca;
+      }
+    }
+    .center {
+      .px2rpx(font-size, 13.5);
+      color: #000;
+      text-align: center;
+      flex-grow: 1;
+    }
+    .right {
+      .azm-icon {
+        color: @color-f74b7b;
+      }
+    }
+  }
+}

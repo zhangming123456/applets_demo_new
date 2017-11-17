@@ -1,0 +1,59 @@
+<view class="old-class">
+    <view class="wrapper has-nav">
+        <view class="headline text-center" wx:if="{{true}}">
+            <block wx:if="{{wxInfo.avatarUrl}}">
+                <image class="icon-user-bigger" src="{{wxInfo.avatarUrl}}"></image>
+            </block>
+            <block wx:else>
+                <text class="iconfont-2 icon-yonghu" style="font-size: 80rpx"></text>
+            </block>
+            <text class="h2-big blk mg-top name">{{wxInfo.nickName}}</text>
+        </view>
+        <view class="ct arrow-list-ctn relative">
+            <view class="listMe list">
+                <navigator url="" open-type="switchTab" url="/pages/init/init">
+                    <view class="entry h5" style="border-bottom:none;margin:0;">
+                        会员卡
+                        <text style="color:#aab1cb;">({{memberCardCount}})</text>
+                        <view class="arrow">
+                            <view class="outer">
+                                <view class="inner">
+                                    <image src="/images/icon/arrow-right.png"></image>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </navigator>
+            </view>
+            <view class="list">
+                <navigator url="/pages/vkahui/address/address" open-type="navigate">
+                    <view class="entry" style="border-bottom:none;margin:0;">
+                        <text class="h5">收货地址</text>
+                        <view class="arrow">
+                            <view class="outer">
+                                <view class="inner">
+                                    <image src="/images/icon/arrow-right.png"></image>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </navigator>
+            </view>
+            <view class="list" wx:if="{{memberCardCount>0}}">
+                <navigator url="{{!isBindMobile?'/pages/vkahui/phone-add/phone-add':''}}" open-type="navigate">
+                    <view class="entry h5" style="border-bottom:none;margin:0;">
+                        <text>绑定手机</text>
+                        <text style="color:#aab1cb;">{{isBindMobile?' 已绑定':''}}</text>
+                        <view class="arrow" wx:if="{{!isBindMobile}}">
+                            <view class="outer">
+                                <view class="inner">
+                                    <image src="/images/icon/arrow-right.png"></image>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </navigator>
+            </view>
+        </view>
+    </view>
+</view>

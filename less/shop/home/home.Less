@@ -1,0 +1,229 @@
+@import "../../index";
+
+page {
+  background-color: @color-f1f3f4;
+}
+
+.shopFront {
+  .bg-color-white {
+    background-color: #fff;
+  }
+  .header {
+    swiper {
+      .px2rpx(height, 146);
+      .topImages {
+        .px2rpx(width, 375);
+        .px2rpx(height, 146);
+      }
+    }
+  }
+  .section {
+    //头部滚动信息栏
+    .topInfo {
+      border-bottom: @border-1px;
+      > view {
+        .px2rpx(height, 40);
+        overflow: hidden;
+        .px2rpx(padding-left, 32);
+        .px2rpx-two(margin, 0, 21, 0, 21);
+        &::after {
+          position: absolute;
+          .translateY(50%);
+          left: 0;
+          content: ' ';
+          .px2rpx(width, 16);
+          .px2rpx(height, 16);
+          background: data-uri('../../../images/shop/notice.png') no-repeat 0 0;
+          background-size: 16*2rpx 16*2rpx;
+        }
+        swiper {
+          height: 100%;
+          .p {
+            overflow: hidden;
+            .text-overflow();
+            .px2rpx(font-size, 13);
+            color: #6b6a6e;
+            .px2rpx(line-height, 40);
+
+          }
+        }
+      }
+    }
+    //店铺信息
+    .shopInfo {
+      .px2rpx(margin, 0);
+      &-top {
+        width: 100%;
+        //.px2rpx(height, 120);
+        border-bottom: @border-1px;
+        .px2rpx-two(padding, 21, 0, 5, 0);
+        //.px2rpx(margin-bottom, 21);
+        .left {
+          width: 26.666666666666666%;
+          .px2rpx(margin-bottom, 21);
+          image {
+            .px2rpx(width, 67.5);
+            .px2rpx(height, 67.5);
+            .px2rpx(border-radius, 11);
+          }
+          view {
+            text-align: center;
+            .px2rpx(width, 67.5);
+            .px2rpx(height, 67.5);
+            .px2rpx(border-radius, 11);
+            .azm-icon {
+              color: #7e8396;
+              .px2rpx(font-size, 45);
+            }
+          }
+        }
+        .right {
+          width: 73.33333333333334%;
+          height: 100%;
+          overflow: hidden;
+          .h1 {
+            .px2rpx(height, 18);
+            .px2rpx(line-height, 18);
+            .px2rpx(font-size, 16);
+          }
+          .p {
+            .px2rpx(min-height, 16);
+            .px2rpx(margin-top, 10);
+            .azm-icon {
+              position: absolute;
+              .px2rpx(top, -3);
+              left: 0;
+              color: #98979a;
+              .px2rpx(font-size, 16);
+            }
+            .text {
+              .px2rpx(line-height, 17);
+              .px2rpx(padding-left, 22);
+              .text-overflow-two();
+              color: #98979a;
+            }
+          }
+        }
+      }
+      &-list {
+        height: 100%;
+        width: 100%;
+        .shopInfo-list-item {
+          .px2rpx-two(padding, 15, 0, 15, 0);
+          text-align: center;
+          .text {
+            color: #6b6a6e;
+          }
+          &.navigator-hover {
+            background: #fff;
+            opacity: 0.8;
+            .text {
+              color: #ff0000;
+            }
+          }
+          image {
+            .px2rpx(width, 46);
+            .px2rpx(height, 46);
+            .px2rpx(margin-bottom, 10);
+          }
+        }
+      }
+    }
+
+    .title(@url,@w,@h) {
+      .px2rpx(margin-top, 9);
+      .h2 {
+        top: 0;
+        left: 0;
+        .px2rpx(height, 54);
+        .px2rpx(line-height, 54);
+        .px2rpx(padding-left, 32);
+        .px2rpx(font-size, 15);
+        //.px2rpx-two(margin, 0, 21, 0, 21);
+        color: #2d2c34;
+        border-bottom: @border-1px;
+        &::after {
+          position: absolute;
+          content: '';
+          .translateY(50%);
+          left: 0;
+          .px2rpx(width, @w);
+          .px2rpx(height, @h);
+          background: data-uri(@url) no-repeat 0 0;
+          background-size: @w*2rpx @h*2rpx;
+        }
+      }
+    }
+
+    .c-grey {
+      color: #8e8e8e;
+    }
+    //会员卡
+    .clubCard {
+      .title('../../../images/shop/clubCard.png', 18, 15);
+      .clubCard-info {
+        .px2rpx-two(padding, 17, 0, 17, 0);
+        .p {
+          .px2rpx(padding-top, 12);
+          .px2rpx(font-size, 16);
+          text-align: center;
+          .px2rpx(min-height, 37);
+          &:nth-of-type(1) {
+            color: #2d2c34;
+          }
+          &:nth-of-type(2) {
+            color: #8e8e8e;
+            .px2rpx(font-size, 13);
+          }
+        }
+      }
+    }
+    //商家
+    .merchants {
+      .title('../../../images/shop/merchants.png', 17, 17);
+      .merchants-info {
+        .px2rpx-two(padding, 20, 22, 50, 22);
+        > view {
+          .px2rpx(padding-bottom, 13);
+          .h3 {
+            font-weight: 500;
+            .px2rpx(font-size, 13);
+          }
+          .ul {
+            .px2rpx(padding-bottom, 0);
+            .li {
+              .c-grey;
+            }
+          }
+          .p {
+            .px2rpx(padding-top, 13);
+            .px2rpx(text-indent, 25);
+            .c-grey;
+          }
+        }
+      }
+    }
+  }
+  .footer {
+    width: 100%;
+    .px2rpx(height, 70);
+    .px2rpx(padding-left, 109);
+    .px2rpx(padding-top, 23);
+    overflow: hidden;
+    .left {
+      image {
+        .px2rpx(width, 68);
+        .px2rpx(height, 24);
+      }
+    }
+    .right {
+      .px2rpx(margin-left, 11);
+      .p {
+        .px2rpx(height, 15);
+        .px2rpx(line-height, 15);
+        color: #aeb5cd;
+        .px2rpx(font-size, 12);
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+page {
+    background-color: #FFFFFF;
+}
+
+.azm-icon {
+    font-size: 250rpx;
+}
+
+button[type="primary"].home_scanCode_btn {
+    background-color: #f74a7b;
+}

@@ -1,0 +1,55 @@
+{
+  "pages": [
+    "pages/init/init",
+    "pages/vkahui/me/me",
+    "pages/order/index/index",
+    "pages/order/order-pay/order-pay",
+    "pages/order/order-detail/order-detail",
+    "pages/shop/home/home",
+    "pages/shop/order/order",
+    "pages/shop/takeaway/takeaway",
+    "pages/shop/confirm-order/confirm-order",
+    "pages/shop/home_scanCode/home_scanCode",
+    "pages/vkahui/address-edit/address-edit",
+    "pages/vkahui/address/address",
+    "pages/vkahui/phone-add/phone-add",
+    "pages/homepage/index/index",
+    "pages/homepage/index-my-coupon/index-my-coupon",
+    "pages/homepage/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#2d2c34",
+    "navigationBarTitleText": "V卡汇",
+    "navigationBarTextStyle": "wirte",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/init/init",
+        "text": "首页",
+        "iconPath": "/images/icon/nav-homepage.png",
+        "selectedIconPath": "/images/icon/nav-homepage-active.png"
+      },
+      {
+        "pagePath": "pages/order/index/index",
+        "text": "订单",
+        "iconPath": "/images/icon/nav-order.png",
+        "selectedIconPath": "/images/icon/nav-order-active.png"
+      },
+      {
+        "pagePath": "pages/vkahui/me/me",
+        "text": "我",
+        "iconPath": "/images/icon/nav-me.png",
+        "selectedIconPath": "/images/icon/nav-me-active.png"
+      }
+    ],
+    "color": "#000",
+    "selectedColor": "#f74b7b",
+    "backgroundColor": "#fff"
+  },
+  "networkTimeout": {
+    "request": 15000
+  }
+}

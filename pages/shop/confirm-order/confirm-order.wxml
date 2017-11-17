@@ -1,0 +1,193 @@
+<form bindsubmit="submitOrder" bindreset="formReset" report-submit>
+    <view class="new-class">
+        <!--外卖-->
+        <block wx:if="{{isOrderType == 1}}">
+            <view class="azm-waimai header">
+                <block wx:if="{{DefaultAddress}}">
+                    <navigator open-type="navigate" url="/pages/vkahui/address/address?isWaimai=true">
+                        <view class="azm-address flexBox flexBox-center">
+                            <view class="flexBox-item image fb-2">
+                                <image src="/images/icon/address-address.png"></image>
+                            </view>
+                            <view class="flexBox-item azm-address-text text-overflow">{{loadDefault.address}}</view>
+                            <view class="flexBox-item weui-cell__ft_in-access"></view>
+                        </view>
+                        <view class="azm-info">
+                            <text decode>{{loadDefault.name}}&nbsp;&nbsp;{{loadDefault.mobile}}</text>
+                        </view>
+                    </navigator>
+                </block>
+                <block wx:else>
+                    <navigator open-type="navigate" url="/pages/vkahui/address-edit/address-edit?isWaimai=true">
+                        <button plain="true" class="btn btn-red-default">+请添加收货地址</button>
+                    </navigator>
+                </block>
+
+            </view>
+        </block>
+    </view>
+    <view class="old-class">
+        <view class="wrapper has-nav">
+            <view class="ct bg-color-gray overflow-h">
+                <!--自助取餐-->
+                <block wx:if="{{isOrderType == 2}}">
+                    <view class="arrow-list-ctn mg-top-middle azm-tanshi">
+                        <view class="list">
+                            <view class="entry" style="padding-bottom:0.5rem;padding-top:0.5rem;">
+                                <text class="h3 cus-width-8 fontSize">餐桌号: 自助取餐</text>
+                            </view>
+                        </view>
+                    </view>
+                </block>
+                <!--桌台取餐-->
+                <block wx:elif="{{isOrderType == 0 || isOrderType == 3}}">
+                    <view class="arrow-list-ctn mg-top-middle azm-tanshi">
+                        <view class="list">
+                            <view class="entry flexBox flexBox-start">
+                                <view class="flexBox-item fb-3">
+                                    <text class="cus-width-4 fontSize">就餐人数：</text>
+                                </view>
+                                <view class="flexBox-item fb-9 food-btn-plus">
+                                    <view class="row flexBox flexBox-start">
+                                        <view class="left flexBox-item" wx:if="{{!hasConsumerId}}"
+                                              catchtap="numberAdd"
+                                              data-number="-1">
+                                            <text class="azm-icon iconfont-2 icon-jianhao"></text>
+                                        </view>
+                                        <view class="center flexBox-item {{hasConsumerId?'text-left':''}}">
+                                            <text>{{diningNumber}}</text>
+                                        </view>
+                                        <view class="right flexBox-item" catchtap="numberAdd"
+                                              wx:if="{{!hasConsumerId}}"
+                                              data-number="1">
+                                            <text class="azm-icon iconfont-2 icon-jiahao2"></text>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class="entry tableNum">
+                                <view class="flexBox flexBox-start">
+                                    <view class="flexBox-item fb-3">
+                                        <text class="cus-width-8 fontSize">餐桌号：</text>
+                                    </view>
+                                    <view class="flexBox-item fb-9" catchtap="tableBox">
+                                        <text>{{userOrderInfo.name}}</text>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </block>
+                <!--商品列表-->
+                <view class="pro-list border-t">
+                    <view class="header bg-color-white">
+                        <text class="h6">商品列表:</text>
+                    </view>
+                    <view class="cur-page bg-color-white">
+                        <block wx:for="{{consumerData}}">
+                            <view class="list" style="padding-bottom:0">
+                                <view class="entry text-overflow">
+                                    <text class="p  fontSize">{{item.name}}</text>
+                                    <view class="mark">
+                                        <block wx:if="{{item.method.length > 0}}">
+                                            <view class="mark">
+
+                                            </view>
+                                        </block>
+                                    </view>
+                                </view>
+                                <view class="fontSize p text-right entry">
+                                    <text>×{{item.info.counts}}</text>
+                                </view>
+                                <view class="fontSize p red text-right entry">
+                                    <text>¥ {{ item.info.discountPrice}}</text>
+                                </view>
+                            </view>
+                        </block>
+                    </view>
+                    <view class="cur-page bg-color-white">
+                        <block wx:if="{{otherList.length>0}}" wx:for="{{otherList}}">
+                            <view class="list flexBox flexBox-between" style="padding-bottom:0" wx:if="{{item.price}}">
+                                <view class="flexBox-item text-overflow fb-4">{{item.name}}</view>
+                                <view class="flexBox-item text-red text-right fb-4">¥ {{item.price}}</view>
+                            </view>
+                            <!--<view wx:else class="list flexBox flexBox-between" style="padding-bottom:0">-->
+                            <!--<view class="flexBox-item fb-all text-red text-right">免{{item.name}}</view>-->
+                            <!--</view>-->
+                        </block>
+                        <view class="list flexBox flexBox-between" style="padding-bottom:0"
+                              wx:if="{{otherFees.totalPrice > 0}}">
+                            <view class="flexBox-item fb-4 text-overflow">
+                                <view class="inner p fontSize">
+                                    <text>{{otherFees.name}}</text>
+                                </view>
+                            </view>
+                            <view class="flexBox-item fb-4 text-overflow text-right" wx:if="{{otherFees.counts>0}}">
+                                <text>×{{otherFees.counts}}</text>
+                            </view>
+                            <view class="flexBox-item fb-4 text-overflow text-red text-right">
+                                <text>¥{{ otherFees.totalPrice}}</text>
+                            </view>
+                        </view>
+                        <!--<view wx:elif="{{otherFees.name}}" class="list flexBox flexBox-between"-->
+                        <!--style="padding-bottom:0">-->
+                        <!--<view class="flexBox-item fb-all text-red text-right">{{otherFees.name}}</view>-->
+                        <!--</view>-->
+                        <view class="list" style="padding-bottom:0.3rem;">
+                            <view class="entry">
+                                <view class="inner">
+                                    <text class="p fontSize">优惠折扣</text>
+                                </view>
+                            </view>
+                            <view class="entry p red text-right  fontSize" style="float:right;">
+                                <text>-¥{{ offerPrice}}</text>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="remark bg-color-white" style="padding-bottom:0.4rem;padding-top:0.5rem;">
+                        <text class="p cus-width-4  fontSize">备注</text>
+                        <input name="note" placeholder="请填写..." bindchange="bindChange" class="fontSize"/>
+                    </view>
+                </view>
+            </view>
+
+            <!--餐后支付-->
+            <block wx:if="{{isOrderType==3}}">
+                <view class="count" style="bottom:0;background:#ffffff;height:3rem;">
+                    <view class="entry text-center" style="width:66.66%">
+                        <view class="p" style="bottom:0;color:#000000;">
+                            <text>*商家支持用餐结束后付款</text>
+                        </view>
+                    </view>
+                    <view class="entry text-right">
+                        <button plain="true" form-type="submit" class="btn btn-red width-all"
+                                style="line-height:3rem">确定点餐
+                        </button>
+                    </view>
+                </view>
+            </block>
+
+            <!--餐前支付-->
+            <block wx:else>
+                <view class="count" style="bottom:0;background:#ffffff;height:3rem;">
+                    <view class="entry text-left p width-40" style="bottom:0;color:#000000;line-height: 3rem">
+                        <text>总金额：</text>
+                        <text class="red bold">¥ {{totalPrice}}</text>
+                    </view>
+                    <view class="entry text-left width-30">
+                        <text class="p" style="bottom:-0.1rem;color:#000000;font-size:0.7rem;">(已优惠:¥{{offerPrice}})
+                        </text>
+                    </view>
+                    <view class="entry text-right width-30">
+                        <button plain="true" form-type="submit" class="btn btn-red width-all"
+                                style="line-height:3rem">确认订单
+                        </button>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </view>
+</form>
+<import src="../../../template/module/index.wxml"/>
+<!--规格弹窗-->
+<template is="module-popup" data="{{...ShopOneData,data2:tableDetail,class:moduleActiveMe,isMask}}"></template>

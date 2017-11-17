@@ -1,0 +1,274 @@
+<view class="orderPage new-class">
+    <!----------------头部-店铺信息----------------->
+    <view class="header">
+        <view class="content">
+            <view class="flexBox flexBox-start shopInfo">
+                <view class="flexBox-item fb-3">
+                    <view class="image">
+                        <block wx:if="shopInfo.resLogo.length>0">
+                            <image src="{{imageServer + shopInfo.resLogo}}"></image>
+                        </block>
+                        <block wx:else>
+                            <image src="resLogoDefault"></image>
+                        </block>
+                    </view>
+                </view>
+                <view class="flexBox-item fb-9 shopInfo-txt">
+                    <view class="p text-overflow">营业时间：{{shopInfo.resStarTime}} - {{shopInfo.resEndTime}}</view>
+                    <view class="p text-overflow">公告：{{shopInfo.notice?shopInfo.notice:'暂无公告'}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-----------------------菜品-->
+    <view class="section">
+        <view class="flexBox flexBox-start dishes-tab">
+            <!---------------菜品类Tab-->
+            <scroll-view scroll-y scroll-with-animation class="flexBox-item fb-3 left"
+                         scroll-into-view="{{dishesTabIndex}}" scroll-top="{{100}}" enable-back-to-top="true">
+                <block wx:for="{{findFoodCatalogList}}">
+                    <view id="dishesTab{{index}}"
+                          class="dishes-tab-item text-overflow {{('dishesTab'+index) === dishesTabIndex?'selected':''}}"
+                          catchtap="dishesTab" data-index="{{index}}" data-id="{{item.id}}">
+                        <view class="weui-badge" wx:if="{{foodListTab[index]>0}}">
+                            <text>{{foodListTab[index]}}</text>
+                        </view>
+                        <text>{{item.name}}</text>
+                    </view>
+                </block>
+            </scroll-view>
+            <!----------------------------菜品列表-->
+            <scroll-view scroll-y class="flexBox-item fb-9 right"
+                         scroll-into-view="{{dishesTabListIndex}}"
+                         enable-back-to-top="true" bindscroll="scroll" bind>
+                <block wx:for="{{foodList}}">
+                    <view id="dishesTabList{{index}}" data-active="dishesTabList" data-index="{{index}}"
+                          class="dishes-tab-item {{('dishesTab'+index) === dishesTabIndex?'selected':''}}">
+                        <view class="h2">{{item.catalogName}}</view>
+                        <block wx:for="{{item.list}}" wx:for-item="val" wx:for-index="i">
+                            <view class="dishes-tab-item-foodList content">
+                                <view class="flexBox flexBox-start foodList-item">
+                                    <!------------------------------菜品图片-->
+                                    <view class="flexBox-item fb-4 left">
+                                        <view class="image">
+                                            <image wx:if="{{val.foodImage}}"
+                                                   src="{{imageServer+val.foodImage}}"></image>
+                                            <image wx:else src="../../../images/bitmap.png"></image>
+                                        </view>
+                                    </view>
+                                    <!---------------------------菜品信息-->
+                                    <view class="flexBox-item fb-8 right pr row">
+                                        <view class="h2 text-overflow">
+                                            <text>{{val.name}}</text>
+                                        </view>
+                                        <view class="p sales text-overflow">
+                                            <text decode="true">月售&nbsp;&nbsp;{{val.salesCount}}</text>
+                                        </view>
+                                        <view class="p money text-overflow ">
+                                            <text>{{filterMoney.RMB(val.price)}}</text>
+                                        </view>
+                                        <!--{{discountType != 0?'':''}}-->
+                                        <view class="member-price text-overflow" wx:if="{{val.discountType > 0}}">
+                                            <block wx:if="{{val.discountType == 1}}">
+                                                <text class="iconfont icon-zhekou-copy azm-icon"></text>
+                                                <text class="azm-icon">折扣价</text>
+                                            </block>
+                                            <block wx:elif="{{val.discountType == 2}}">
+                                                <text class="iconfont icon-huiyuan azm-icon"></text>
+                                                <text class="azm-icon">会员价</text>
+                                            </block>
+                                            <text> {{filterMoney.RMB(val.memberPrice)}}起</text>
+                                        </view>
+                                        <block wx:if="{{val.foodType == 2}}">
+                                            <!----------------------套餐按钮-->
+                                            <view class="pa select food-btn-rule">
+                                                <view class="weui-badge"
+                                                      wx:if="{{shopCartToFoodList[val.foodCode].info.amount>0}}">
+                                                    <text>{{shopCartToFoodList[val.foodCode].info.amount}}</text>
+                                                </view>
+                                                <button plain="true" type="mini" class="btn-red-default"
+                                                        catchtap="bindOpenPackageBtn"
+                                                        data-value="{{val}}"
+                                                        data-index="{{index+','+i}}">选套餐
+                                                </button>
+                                            </view>
+                                        </block>
+                                        <block wx:else>
+                                            <!----------------------规格按钮-->
+                                            <view wx:if="{{val.foodRuleCount>1 || val.foodPracticesCount>0}}"
+                                                  class="pa select food-btn-rule">
+                                                <view class="weui-badge"
+                                                      wx:if="{{shopCartToFoodList[val.foodCode].info.amount>0}}">
+                                                    <text>{{shopCartToFoodList[val.foodCode].info.amount}}</text>
+                                                </view>
+                                                <button plain="true" type="mini" class="btn-red-default"
+                                                        catchtap="bindOpenRuleBtn"
+                                                        data-value="{{val}}"
+                                                        data-index="{{index+','+i}}">选规格
+                                                </button>
+                                            </view>
+
+                                            <!----------------------选菜按钮-->
+                                            <view wx:else class="pa select food-btn-plus">
+                                                <template is="foodBtnPlus"
+                                                          data="{{data:val,index:index+','+i,replaceData:shopCartToFoodList}}"></template>
+                                            </view>
+                                        </block>
+                                    </view>
+                                </view>
+                            </view>
+                        </block>
+                    </view>
+                </block>
+            </scroll-view>
+        </view>
+    </view>
+
+    <!-----------------------底部价格与确认订单按钮-->
+    <view class="footer">
+        <view class="row flexBox">
+            <view class="flexBox-item fb-8 left">
+                <view class="flexBox flexBox-between">
+                    <view class="flexBox-item money">
+                        <view class="azm-money">
+                            <text>总价：</text>
+                            <text>{{totalPrice}}</text>
+                        </view>
+                        <view class="azm-bottom">
+                            <text>另需{{otherPrice.name}}{{otherPrice.price}}元{{otherPrice.counts>0?'/人':''}}</text>
+                        </view>
+                    </view>
+                    <view class="flexBox-item shopCart-btn">
+                        <image catchtap="bindAzmShopCartBtn" src="../../../images/icon/shopping-car.png"></image>
+                        <text>{{counts}}</text>
+                    </view>
+                </view>
+            </view>
+            <view class="flexBox-item fb-4 right {{!isDeliveryAmount?'azm-submit-gray':''}}"
+                  catchtap="bindAzmSubmit">
+                <block wx:if="{{!isDeliveryAmount}}">
+                    <text>{{deliveryAmount!=deliveryAmountDifference?'还差':''}}￥{{deliveryAmountDifference}}起送</text>
+                </block>
+                <block wx:else>
+                    <text>选好了</text>
+                </block>
+            </view>
+        </view>
+    </view>
+
+    <!---------------购物车-->
+    <view class="shopCart transition-all {{!!shopCartModule?'':'height-0 hide'}} {{shopCart.length>5?'height-all':''}}">
+        <view class="top flexBox flexBox-between">
+            <view class="left flexBox-item fb-7">
+                <view class="h2">购物车</view>
+            </view>
+            <view class="right flexBox-item fb-5">
+                <button type="default" size="mini" plain="true" catchtap="bindAzmClearShopCart">清空</button>
+            </view>
+        </view>
+        <scroll-view scroll-y scroll-into-view="" class="ul">
+            <block wx:for="{{shopCart}}">
+                <view class="li flexBox">
+                    <view class="flexBox-item fb-6 azm-left">
+                        <view class="p text-overflow {{item.info.practicesLength>0?'text-top':''}} {{item.info.foodPackagesLength>0?'text-top':''}}">
+                            <text>{{item.name}}</text>
+                            <block wx:if="{{item.info.ruleList.length>1}}">
+                                <text class="text-ruleName" decode="true">&nbsp;-&nbsp;{{item.rule.name}}</text>
+                            </block>
+                        </view>
+                        <block wx:if="{{item.info.practicesLength>0}}">
+                            <view class="p text-overflow {{item.info.practicesLength>0?'text-bottom':''}}">
+                                <block wx:for="{{item.practicesList}}" wx:for-item="val" wx:for-index="i"
+                                       wx:if="{{val.practicesName}}">
+                                    <text decode="true">{{val.practicesName}}</text>
+                                    <text wx:if="{{(item.practicesList.length-1)!==i}}">/</text>
+                                </block>
+                            </view>
+                        </block>
+                        <!--套餐-->
+                        <block wx:elif="{{item.info.foodPackagesLength>0}}">
+                            <view class="p text-overflow {{item.info.foodPackagesLength>0?'text-bottom':''}}">
+                                <block wx:for="{{item.foodPackagesList}}" wx:for-item="val" wx:for-index="i"
+                                       wx:if="{{val.foodName}}">
+                                    <text decode="true">{{val.foodName}}</text>
+                                    <text wx:if="{{(item.foodPackagesList.length-1)!==i}}">/</text>
+                                </block>
+                            </view>
+                        </block>
+                    </view>
+                    <view class="flexBox-item fb-3 azm-money">
+                        <text decode="true">¥&nbsp;{{item.info.totalPrice}}</text>
+                    </view>
+                    <view class="flexBox-item fb-3 pr azm-addDish">
+                        <view class="row pa food-btn-plus">
+                            <template is="foodBtnPlus" data="{{data:item,index:item.info.index+','+index}}"></template>
+                        </view>
+                    </view>
+                </view>
+            </block>
+            <block wx:for="{{otherList}}">
+                <view class="li flexBox flexBox-start">
+                    <view class="flexBox-item fb-7">
+                        <view class="p">
+                            <text>{{item.name}}</text>
+                        </view>
+                    </view>
+                    <view class="flexBox-item fb-2">
+                        <text decode="true">¥&nbsp;{{item.price}}</text>
+                    </view>
+                </view>
+            </block>
+        </scroll-view>
+    </view>
+
+</view>
+
+<import src="../../../template/loading.wxml"/>
+<!--遮罩-->
+<template is="mask" data="{{isMask,class:shopCartModule+'-mask'}}"></template>
+
+<import src="../../../template/module/index.wxml"/>
+<!--规格弹窗-->
+<template is="module-popup" data="{{...ShopOneData,class:moduleActiveMe,animated}}"></template>
+<!--套餐弹窗-->
+<template is="module-popup" data="{{...PackageData,class:modulePackage,animated}}"></template>
+<!--加菜按钮-->
+<template name="foodBtnPlus">
+    <!--transition-all-->
+    <view class="row flexBox flexBox-between">
+        <block wx:if="{{replaceData&&replaceData[data.foodCode]}}">
+            <view class="left flexBox-item {{replaceData[data.foodCode].info.counts?'':'food-btn-plus-default'}}"
+                  catchtap="bindAzmLessFood" data-active="lessFood" data-value="{{data}}" data-index="{{index}}">
+                <text class="azm-icon iconfont-2 icon-jianhao"></text>
+            </view>
+            <view class="center flexBox-item {{replaceData[data.foodCode].info.counts? '':'food-btn-plus-default'}}">
+                <text>{{replaceData[data.foodCode].info.counts}}</text>
+            </view>
+        </block>
+        <block wx:else>
+            <view class="left flexBox-item {{data.info.counts?'':'food-btn-plus-default'}}"
+                  catchtap="bindAzmLessFood" data-active="lessFood" data-value="{{data}}" data-index="{{index}}">
+                <text class="azm-icon iconfont-2 icon-jianhao"></text>
+            </view>
+            <view class="center flexBox-item {{data.info.counts? '':'food-btn-plus-default'}}">
+                <text>{{data.info.counts}}</text>
+            </view>
+        </block>
+        <view class="right flexBox-item" catchtap="bindAzmAddFood" data-value="{{data}}" data-index="{{index}}">
+            <text class="azm-icon iconfont-2 icon-jiahao2"></text>
+        </view>
+    </view>
+</template>
+
+<!--自定义loading-->
+<import src="../../../template/loading.wxml"/>
+<template is="loading2" data="{{isLoading:hasMoreData}}"></template>
+
+
+<!--自定义Toast-->
+<import src="../../../template/toast/toast.wxml"/>
+<template is="azm_toast" data="{{...azm_toast}}"></template>
+
+<!--过滤器-->
+<wxs src="../../../utils/filter/filter_money.wxs" module="filterMoney"/>
+

@@ -1,0 +1,280 @@
+@import "../../index";
+
+page {
+  background: @color-f1f3f4;
+  .moduleMeal {
+    background-color: #57565c;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 100;
+    display: block;
+    .box {
+      .px2rpx(width, 270);
+      .px2rpx(height, 185);
+      background-color: #fff;
+      .center(50%);
+      border-radius: 3*2rpx;
+      .azm-title, .h6 {
+        .px2rpx(font-size, 14);
+        .px2rpx(height, 50);
+        .px2rpx(line-height, 50);
+        text-align: center;
+      }
+      .h2 {
+        .px2rpx(font-size, 40);
+        .px2rpx(height, 80);
+        .px2rpx(line-height, 80);
+        text-align: center;
+      }
+    }
+  }
+  view.new-class {
+    view {
+      color: #000;
+    }
+    .azm-section {
+      view {
+        box-sizing: border-box;
+      }
+      .px2rpx(margin-top, 10);
+      background-color: #fff;
+    }
+    //进度条
+    .azm-progressBar {
+      .px2rpx(height, 112.5);
+      .px2rpx(padding-left, 22);
+      .px2rpx(padding-right, 22);
+      .azm-top {
+        .px2rpx(height, 50);
+        .px2rpx(line-height, 50);
+        .azm-starts {
+          .px2rpx(font-size, 15);
+        }
+        .azm-icon {
+          .px2rpx(font-size, 17.5);
+        }
+        .orderTime {
+          color: rgba(45, 44, 52, .8);
+          .px2rpx(font-size, 12);
+        }
+      }
+      > .row {
+        position: relative;
+        width: 100%;
+        text-align: center;
+        .px2rpx(padding-left, 30);
+        .px2rpx(padding-right, 30);
+        .azm-round {
+          .px2rpx(font-size, 18);
+          text-shadow: 0 0 5*2rpx #7e7e7e;
+          color: #fff;
+        }
+        .azm-line {
+          .px2rpx(height, 16);
+          border-bottom: 4*2rpx solid #bfc4d3;
+        }
+        .azm-text {
+          .px2rpx(font-size, 12);
+        }
+        .azm-round-first {
+          top: 0;
+          .px2rpx(left, 12);
+          z-index: 10;
+          .px2rpx(width, -20);
+          .text-overflow();
+        }
+        .flexBox-item {
+          .px2rpx(padding-right, 0);
+          .azm-round-row {
+            top: 0;
+            .px2rpx(right, -35);
+            z-index: 10;
+            .px2rpx(width, 85);
+            .text-overflow();
+          }
+        }
+        .active {
+          .azm-round {
+            text-shadow: 0 0 5*2rpx #b4385a;
+            color: @color-f74b7b;
+          }
+          .azm-line {
+            border-bottom: 4*2rpx solid @color-f74b7b;
+          }
+        }
+
+      }
+    }
+    //订单详情
+    .azm-order {
+      .azm-title {
+        .px2rpx(padding-left, 22);
+        .px2rpx(padding-right, 22);
+        text-align: left;
+        .px2rpx(padding-top, 10);
+        .px2rpx(padding-bottom, 7);
+        border-bottom: @border-1px;
+        .flexBox-item {
+          .px2rpx(line-height, 31);
+          .px2rpx(height, 31);
+          &:nth-of-type(2) {
+            .px2rpx(font-size, 15);
+            color: #000;
+            font-weight: 500;
+          }
+          &:nth-of-type(3) {
+            color: #c1c1c1;
+            text-align: right;
+            text {
+              .px2rpx(font-size, 25);
+            }
+          }
+        }
+        .azm-image {
+          .px2rpx(width, 31);
+          .px2rpx(height, 31);
+          .px2rpx(border-radius, 3);
+        }
+      }
+      .azm-orderList {
+        padding: 15*2rpx 22*2rpx 1*2rpx;
+        .azm-orderList-item {
+          margin-bottom: 15*2rpx;
+          border: @border-1px;
+          .px2rpx(border-radius, 3);
+          .azm-orderList-title {
+            text {
+              .px2rpx(font-size, 12);
+            }
+            .flexBox-item {
+              .px2rpx(height, 31);
+              .px2rpx(line-height, 31);
+            }
+            background-color: #e3e9f3;
+            padding-left: 13*2rpx;
+            padding-right: 11*2rpx;
+          }
+          .azm-orderList-box {
+            padding: 10*2rpx 13*2rpx 10*2rpx 11*2rpx;
+            text {
+              .px2rpx(font-size, 14);
+            }
+            .azm-orderList-li {
+              .azm-left {
+                .p {
+                  &:nth-of-type(2) {
+                    color: rgba(45, 44, 52, .8);
+                    .px2rpx(font-size, 12);
+                  }
+                  .azm-icon {
+                    .px2rpx(font-size, 15);
+                    &.azm-icon-blue {
+                      color: #008de6;
+                    }
+                    &.azm-icon-pink {
+                      color: @color-f74b7b
+                    }
+                  }
+                }
+              }
+              .azm-center {
+                color: #aab1cb;
+              }
+            }
+          }
+        }
+      }
+      .azm-other {
+        padding-bottom: 2*2rpx;
+        border-bottom: @border-1px;
+        text {
+          .px2rpx(font-size, 14);
+        }
+        .azm-other-li {
+          margin: 2*2rpx 0;
+          .flexBox-item {
+            .px2rpx(height, 26);
+            .px2rpx(line-height, 26);
+          }
+        }
+        .azm-center {
+          color: #aab1cb;
+        }
+      }
+      .azm-order-price {
+        text {
+          color: @color-f74b7b;
+          .px2rpx(font-size, 14);
+        }
+        padding: 2*2rpx 0;
+        border-bottom: @border-1px;
+        .azm-li {
+          margin: 2*2rpx 0;
+          .flexBox-item {
+            .px2rpx(height, 26);
+            .px2rpx(line-height, 26);
+          }
+        }
+      }
+      .azm-order-footer {
+        .px2rpx(height, 49.5);
+        .px2rpx(line-height, 49.5);
+        text {
+          .px2rpx(font-size, 15);
+        }
+      }
+    }
+    //配送信息
+    .azm-orderInfo {
+      //标题
+      .azm-title {
+        padding: 0 22*2rpx;
+        .px2rpx(height, 47.5);
+        .px2rpx(line-height, 47.5);
+        border-bottom: @border-1px;
+        text {
+          .px2rpx(font-size, 15);
+        }
+      }
+      .box {
+        padding: 5*2rpx 0;
+        position: relative;
+        .azm-li {
+          text {
+            .px2rpx(font-size, 14);
+          }
+          .flexBox-item {
+            .px2rpx(min-height, 26);
+            .px2rpx(line-height, 26);
+          }
+          .text-gray {
+            color: #aab1cb;
+          }
+        }
+        .azm-open-module {
+          .translateY(50%);
+          right: 0;
+          .px2rpx(height, 80);
+          .px2rpx(line-height, 80);
+          width: 100%;
+          text-align: right;
+          .azm-icon {
+            .px2rpx(font-size, 50);
+            color: #aab1cb;
+          }
+        }
+      }
+    }
+    //底部按钮
+    .azm-footer {
+      padding: 20*2rpx 15*2rpx;
+      button {
+        margin: 0 20*2rpx;
+        border-radius: 37*2rpx;
+      }
+    }
+  }
+}

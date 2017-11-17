@@ -1,0 +1,71 @@
+<view class="old-class">
+
+    <view class="wrapper has-nav ctn" style="margin-bottom:1rem;">
+        <image src="/images/banner.jpg" class="bannerBg"></image>
+        <view class="ctn headline">
+            <view class="left">
+                <view class="img-ctn">
+                    <image src="{{resDetailData.banners[0].imagePath}}"></image>
+                </view>
+            </view>
+            <view class="right">
+                <text class="h2 bold">{{resDetailData.restaurant.name}}</text>
+                <text class="p gray-1 bold" style="margin-top:0.2rem;">{{resDetailData.restaurant.typeOfCooking}}</text>
+            </view>
+            <view class="clear"></view>
+        </view>
+        <view class="content">
+            <view class="area">
+                <view class="title">
+                    <image class="icon-mini" src="/images/icon/point-gray.png" style="margin-top:0.3rem"></image>
+                    <text class="h2">商家简介</text>
+                    <view class="inblk width-all pd-lr-bigger mg-top border-box">
+                        <text class="gray-1 p text-indent">{{resDetailData.restaurant.intro}}</text>
+                    </view>
+                </view>
+            </view>
+            <view class="area">
+                <view class="title">
+                    <image class="icon-mini" src="/images/icon/point-gray.png" style="margin-top:0.3rem"></image>
+                    <text class="h2">营业时间</text>
+                    <view class="inblk width-all pd-lr-bigger mg-top border-box">
+                        <text class="gray-1 p text-indent">早09:00 - 晚22:00</text>
+                    </view>
+                </view>
+            </view>
+            <view class="lineMe"></view>
+
+            <view class="area margin">
+                <view class="leftMe">
+                    <view class="inline-div mg-bottom" style="color:#000;">
+                        <image class="inline-icon icon-normal-equal" src="/images/icon/phone.png"></image>
+                        <text class="inline-text p gray-1" style="color:#000;">
+                            <button type="default" bindtap="calling" class="p-bigger bold">电话：0755-26514486</button>
+                        </text>
+                    </view>
+                </view>
+                <view class="rightMe">
+                    <view class="cus-table">
+                        <view class="cus-table-cell">
+                            <button class="btnMe" bindtap="calling">呼叫</button>
+                        </view>
+                    </view>
+                </view>
+            </view>
+
+            <view class="area padding">
+                <view class="leftMe" style="width:100%;">
+                    <view class="inline-div mg-bottom" style="color:#000;">
+                        <image class="inline-icon icon-normal-equal" src="/images/icon/dingwei.png"></image>
+                        <text class="inline-text p gray-1" style="color:#000;">
+                            <text class="p-bigger bold">地址：{{resDetailData.resAddr.address}}</text>
+                        </text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <import src="/pages/template/template.wxml"/>
+    <template is="navigation"/>
+</view>

@@ -1,0 +1,359 @@
+@import "../../index";
+
+page {
+  background-color: #fff;
+}
+
+.orderPage {
+  .fullScreen();
+  .header {
+    background-color: @bg-navigationBar-4b4b4b;
+    .shopInfo {
+      .px2rpx-two(padding, 10, 0, 10, 0);
+      .image {
+        .px2rpx(width, 52);
+        .px2rpx(height, 52);
+        border: 3*2rpx solid #636469;
+        border-radius: 100%;
+        overflow: hidden;
+        image {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .shopInfo-txt {
+        .p {
+          color: #fff;
+          &:nth-of-type(1) {
+            .px2rpx(padding-bottom, 10);
+          }
+          &:nth-of-type(2) {
+            .px2rpx(padding-left, 23);
+            &::after {
+              content: '';
+              position: absolute;
+              .translateY(50%);
+              left: 0;
+              .px2rpx(width, 14);
+              .px2rpx(height, 13);
+              background: data-uri('../../../images/shop/notice-white.png');
+              background-size: 14*2rpx 13*2rpx;
+            }
+          }
+        }
+      }
+    }
+  }
+  //菜品
+  .section {
+    .fullScreen();
+    .px2rpx(top, 72);
+    .px2rpx(bottom, 51);
+    view {
+      color: #2d2c34;
+    }
+    .dishes-tab {
+      height: 100%;
+      overflow: hidden;
+      > scroll-view {
+        height: 100%;
+      }
+      > .left {
+        min-height: 100%;
+        background-color: @bg-default;
+        .dishes-tab-item {
+          .px2rpx(height, 62);
+          .px2rpx(line-height, 62);
+          .px2rpx(padding-left, 16);
+          .px2rpx(padding-right, 8);
+          .px2rpx(font-size, 13);
+          font-weight: 500;
+          position: relative;
+          .weui-badge {
+            position: absolute;
+            .px2rpx(width, 20);
+            .px2rpx(height, 20);
+            .px2rpx(line-height, 20);
+            .px2rpx(font-size, 10);
+            background-color: @color-f74b7b;
+            padding: 0;
+            text-align: center;
+            border-radius: 50%;
+            z-index: 10;
+            color: #fff;
+            .px2rpx(top, 0);
+            .px2rpx(right, 0);
+          }
+          &.selected {
+            background-color: #fff;
+            color: @color-f74b7b;
+          }
+        }
+      }
+      > .right {
+        min-height: 100%;
+        .px2rpx(padding-top, 10);
+        .px2rpx(padding-left, 12.5);
+        .dishes-tab-item {
+          > .h2 {
+            position: relative;
+            .px2rpx(height, 31);
+            .px2rpx(line-height, 31);
+            background-color: @color-f1f3f4;
+            .px2rpx(padding-left, 8);
+            .px2rpx(font-size, 13);
+            font-weight: 500;
+            &::after {
+              position: absolute;
+              content: '';
+              .translateY(50%);
+              left: 0;
+              .px2rpx(height, 16);
+              border-left: 4*2rpx solid @color-f74b7b;
+            }
+          }
+          .dishes-tab-item-foodList {
+            margin-left: 0;
+            margin-top: 0;
+            border-bottom: @border-1px;
+            .px2rpx-two(padding, 8, 0, 8, 0);
+            &:nth-last-child(1) {
+              border-bottom: none;
+            }
+            .foodList-item {
+              > .left {
+                .image {
+                  .px2rpx(height, 80);
+                  .px2rpx(width, 80);
+                  .px2rpx(border-radius, 3);
+                  overflow: hidden;
+                }
+              }
+              > view.right {
+                .px2rpx(padding-left, 10);
+                .h2 {
+                  .px2rpx(font-size, 15);
+                  .px2rpx(padding-bottom, 3);
+                  color: @color-2d2c34;
+                }
+                .sales {
+                  color: rgba(45, 44, 52, 0.8);
+                }
+                .money {
+                  .px2rpx(padding-top, 10);
+                  color: @color-f74b7b;
+                  .px2rpx(font-size, 15);
+                }
+              }
+            }
+            .select {
+              right: 0;
+              bottom: 0;
+              &.food-btn-rule {
+                button {
+                  .px2rpx(font-size, 13);
+                  .px2rpx(border-radius, 28);
+                  .px2rpx(line-height, 28);
+                }
+                .weui-badge {
+                  position: absolute;
+                  .px2rpx(width, 20);
+                  .px2rpx(height, 20);
+                  .px2rpx(line-height, 20);
+                  .px2rpx(font-size, 10);
+                  background-color: @color-f74b7b;
+                  padding: 0;
+                  text-align: center;
+                  border-radius: 50%;
+                  z-index: 10;
+                  color: #fff;
+                  .px2rpx(top, -10);
+                  .px2rpx(right, -5);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  //底部栏
+  .footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    .px2rpx(height, 50);
+    .px2rpx(line-height, 50);
+    overflow: hidden;
+    .left {
+      .px2rpx-two(padding, 0, 28.5, 0, 22.5);
+      background-color: @bg-navigationBar-4b4b4b;
+      .px2rpx(font-size, 13);
+      text-align: center;
+      .money {
+        .px2rpx(font-size, 12);
+        .azm-money {
+          text-align: left;
+          .px2rpx(height, 25);
+          .px2rpx(line-height, 37);
+          font-weight: 600;
+        }
+        .azm-bottom {
+          text-align: left;
+          .px2rpx(height, 20);
+          .px2rpx(line-height, 20);
+          .px2rpx(font-size, 10);
+          color: #e8e8e8;
+        }
+      }
+      .shopCart-btn {
+        position: relative;
+        image {
+          .px2rpx(margin-top, 7.5);
+          .px2rpx(width, 34);
+          .px2rpx(height, 34);
+        }
+        text {
+          position: absolute;
+          .px2rpx(top, 3);
+          .px2rpx(right, -6);
+          .px2rpx(width, 15);
+          .px2rpx(height, 15);
+          .px2rpx(line-height, 15);
+          border-radius: 100%;
+          background-color: @color-f74b7b;
+          color: #fff;
+        }
+      }
+    }
+    .right {
+      text-align: center;
+      background-color: @color-f74b7b;
+      &.azm-submit-gray {
+        background-color: @color-8e8e8e;
+      }
+      .px2rpx(font-size, 15);
+      text {
+        display: inline-block;
+        width: 100%;
+        height: inherit;
+      }
+    }
+  }
+  //购物车
+  .shopCart {
+    position: absolute;
+    left: 0;
+    .px2rpx(bottom, 50);
+    .px2rpx(max-height, 300);
+    background-color: #fff;
+    width: 100%;
+    z-index: 401;
+    overflow: hidden;
+    .top {
+      .px2rpx-two(padding, 5, 15, 5, 15);
+      .px2rpx(height, 40);
+      .px2rpx(line-height, 40);
+      border-bottom: @border-1px;
+      background-color: #f3f3f3;
+      .left {
+        .h2 {
+          position: relative;
+          .px2rpx(height, 31);
+          .px2rpx(line-height, 31);
+          .px2rpx(padding-left, 8);
+          .px2rpx(font-size, 15);
+          &::after {
+            position: absolute;
+            content: '';
+            .translateY(50%);
+            left: 0;
+            .px2rpx(height, 16);
+            border-left: 4*2rpx solid @color-f74b7b;
+          }
+        }
+      }
+      .right {
+        position: relative;
+        .px2rpx(padding-left, 20);
+        text-align: right;
+        text {
+          color: #aab0ca;
+          display: inline-block;
+          width: 100%;
+          height: inherit;
+          .px2rpx(line-height, 30);
+        }
+        button {
+          border: none;
+          .px2rpx(height, 30);
+          .px2rpx(line-height, 30);
+        }
+        &::after {
+          content: '';
+          position: absolute;
+          .px2rpx(width, 12);
+          .px2rpx(height, 12.5);
+          .translateY(50%);
+          .px2rpx(right, 42);
+          background: data-uri('../../../images/icon/delete.png') no-repeat 0 0;
+          background-size: 12*2rpx 12.5*2rpx;
+        }
+      }
+    }
+    .ul {
+      padding: 0;
+      .px2rpx(padding-left, 20);
+      .px2rpx(padding-right, 15);
+      .px2rpx(max-height, 250);
+      box-sizing: border-box;
+      .li {
+        overflow: hidden;
+        &::after {
+          width: 0;
+          height: 0;
+        }
+        margin-bottom: 0;
+        .px2rpx(height, 50);
+        .px2rpx(line-height, 50);
+        border-bottom: @border-1px;
+        .azm-left {
+          .p {
+            .text-ruleName {
+              .px2rpx(font-size, 12);
+            }
+            &:nth-of-type(1) {
+
+            }
+            &:nth-of-type(2) {
+              .px2rpx(font-size, 11);
+              .px2rpx(height, 20);
+              .px2rpx(line-height, 20);
+              color: rgba(45, 44, 52, 0.8);
+            }
+            &.text-top {
+              .px2rpx(height, 25);
+              .px2rpx(line-height, 37);
+            }
+          }
+        }
+        &, view {
+          .px2rpx(font-size, 15.5);
+          color: #000;
+        }
+        .food-btn-plus {
+          width: 100%;
+          height: 100%;
+          top: 0;
+          right: 0;
+          .px2rpx(padding-top, 12);
+        }
+      }
+    }
+  }
+}
+
+.shopCartModule-mask {
+  .px2rpx(bottom, 50);
+}

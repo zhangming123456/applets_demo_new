@@ -1,0 +1,30 @@
+<view class="wrapper has-nav">
+    <view class="head-1 relative">
+        <text class="h1 white text-center">我的优惠券</text>
+        <image class="div-bg" src="/images/homepage/header.jpg"></image>
+    </view>
+
+    <view class="">
+        <view class="list-ctn">
+            <view class="list">
+                <text class="green h2">新店开张</text>
+                <view class="inblk-all">
+                    <text class="p fl">金额：满200即可使用一张</text>
+                    <text class="gray p-small fr">有效日期： 2016-12-30</text>
+                </view>
+                <view class="activity-icon"><image src="/images/icon/activity.jpg"></image></view>
+            </view>
+            <view class="list">
+                <text class="green h2">店庆10周年</text>
+                <view class="inblk-all">
+                    <text class="p fl">金额：满200即可使用一张</text>
+                    <text class="gray p-small fr">有效日期： 2016-12-30</text>
+                </view>
+                <view class="activity-icon"><image src="/images/icon/activity.jpg"></image></view>
+            </view>
+        </view>
+    </view>
+
+    <import src="/pages/template/template.wxml" />
+    <template is="navigation" />
+</view>

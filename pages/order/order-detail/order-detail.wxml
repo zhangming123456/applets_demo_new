@@ -1,0 +1,301 @@
+<script src="../../../utils/utilPage.js"></script>
+<view class="new-class">
+    <!--进度条-->
+    <view class="azm-section azm-progressBar">
+        <view class="azm-top flexBox">
+            <view class="flexBox-item fb-4">
+                <text class="azm-icon text-red iconfont-2 {{orderStatus.iconName}}"></text>
+                <text decode="true" class="text-red azm-starts">&nbsp;&nbsp;{{orderStatus.name}}</text>
+            </view>
+            <view class="flexBox-item fb-8 orderTime text-right">
+                <text decode="true">下单时间：{{orderDetailData.createTime}}</text>
+            </view>
+        </view>
+        <view class="row flexBox">
+            <view class="active pa azm-round-first">
+                <view class="row">
+                    <text class="azm-round iconfont icon-point"></text>
+                </view>
+                <view class="row azm-text">
+                    <text>订单确认</text>
+                </view>
+            </view>
+            <block wx:for="{{progressBar}}">
+                <view class="flexBox-item fb-{{12/progressBar.length}} pr {{item.status?'active':''}}">
+                    <view class="azm-line"></view>
+                    <view class="azm-round-row pa">
+                        <view class="row">
+                            <text class="azm-round iconfont icon-point"></text>
+                        </view>
+                        <view class="row azm-text">
+                            <text>{{item.name}}</text>
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </view>
+    <!--订单列表-->
+    <view class="azm-section azm-order">
+        <navigator open-type="navigate" class="azm-title"
+                   url="/pages/shop/home/home?resId={{resId}}&consumerId={{orderDetailData.consumerId}}&isaddDish=true&tableCode={{tableCode}}&tableName={{orderDetailData.title}}">
+            <view class="flexBox">
+                <view class="flexBox-item fb-2">
+                    <image class="azm-image" src="{{serverAddressImg+res.resLogo}}"></image>
+                </view>
+                <view class="flexBox-item fb-8">
+                    <text>{{res.resName}}</text>
+                </view>
+                <view class="flexBox-item fb-2">
+                    <text class="azm-text iconfont-2 icon-right"></text>
+                </view>
+            </view>
+        </navigator>
+        <view class="azm-orderList">
+            <block wx:for="{{orderDetailData.orderJson}}">
+                <view class="azm-orderList-item">
+                    <view class="azm-orderList-title flexBox">
+                        <view class="azm-left flexBox-item fb-4 text-overflow">
+                            <text>下单人：</text>
+                            <block wx:if="{{item.name}}">
+                                <text class="text-red">{{item.name}}</text>
+                            </block>
+                            <block wx:else>
+                                <text class="text-red">服务员</text>
+                            </block>
+                        </view>
+                        <view class="azm-right flexBox-item fb-5 text-right text-overflow">
+                            <text>{{item.orderCreateTime}}</text>
+                        </view>
+                        <view class="azm-right flexBox-item fb-3 text-right text-overflow">
+                            <block wx:if="{{isOrderType === 3}}">
+                                <block wx:if="{{item.orderStatus == 1}}">
+                                    <text>待接单</text>
+                                </block>
+                                <block wx:elif="{{item.orderStatus == 2}}">
+                                    <text>已拒单</text>
+                                </block>
+                                <block wx:elif="{{item.orderStatus == 3}}">
+                                    <text>已接单</text>
+                                </block>
+                            </block>
+                        </view>
+                    </view>
+                    <view class="azm-orderList-box">
+                        <block wx:for="{{item.orderFoodList}}" wx:for-item="val">
+                            <view class="azm-orderList-li flexBox">
+                                <view class="azm-left flexBox-item fb-7">
+                                    <view class="p text-overflow">
+                                        <block wx:if="{{val.giveFlag == 1}}">
+                                            <text class="iconfont icon-zengdianji azm-icon azm-icon-blue"></text>
+                                        </block>
+                                        <block wx:if="{{val.status == 2}}">
+                                            <text class="iconfont icon-tui azm-icon azm-icon-pink"></text>
+                                        </block>
+                                        <text>{{val.name}}</text>
+                                        <block wx:if="{{val.ruleName && val.ruleName != '默认' }}">
+                                            <text>({{val.ruleName}})</text>
+                                        </block>
+                                    </view>
+                                    <!--<view class="p text-overflow">-->
+                                    <!--<text>微辣</text>-->
+                                    <!--</view>-->
+                                </view>
+                                <view class="azm-center flexBox-item fb-2 text-right">
+                                    <text>x {{val.foodCount}}</text>
+                                </view>
+                                <view class="azm-right flexBox-item fb-3 text-right">
+                                    <text>¥ {{val.price}}</text>
+                                </view>
+                            </view>
+                        </block>
+                    </view>
+                </view>
+            </block>
+        </view>
+        <view class="azm-other box">
+            <view class="azm-other-distribution flexBox azm-other-li">
+                <!--茶位费-->
+                <block wx:if="{{orderDetailData.serviceAmount}}">
+                    <view class="flexBox-item fb-4">
+                        <text>茶位费</text>
+                    </view>
+                    <view class="flexBox-item fb-4 text-right azm-center">
+                        <text></text>
+                    </view>
+                    <view class="flexBox-item fb-4 text-right">
+                        <text>¥{{orderDetailData.serviceAmount}}</text>
+                    </view>
+                </block>
+                <!--配送费-->
+                <block wx:if="{{orderDetailData.distributionFee}}">
+                    <view class="flexBox-item fb-4">
+                        <text>配送费</text>
+                    </view>
+                    <view class="flexBox-item fb-4 text-right azm-center">
+                        <text></text>
+                    </view>
+                    <view class="flexBox-item fb-4 text-right">
+                        <text>¥{{orderDetailData.distributionFee}}</text>
+                    </view>
+                </block>
+                <!--餐盒费-->
+                <block wx:if="{{orderDetailData.packingCharge}}">
+                    <view class="flexBox-item fb-4">
+                        <text>餐盒费</text>
+                    </view>
+                    <view class="flexBox-item fb-4 text-right azm-center">
+                        <text></text>
+                    </view>
+                    <view class="flexBox-item fb-4 text-right">
+                        <text>¥{{orderDetailData.packingCharge}}</text>
+                    </view>
+                </block>
+            </view>
+        </view>
+        <view class="azm-order-price box">
+            <view class="azm-li flexBox">
+                <view class="flexBox-item fb-8">
+                    <text>总价</text>
+                </view>
+                <view class="flexBox-item fb-4 text-right">
+                    <text>¥{{orderDetailData.totalPrice}}</text>
+                </view>
+            </view>
+            <view class="azm-li flexBox">
+                <view class="flexBox-item fb-8">
+                    <text>优惠折扣</text>
+                </view>
+                <view class="flexBox-item fb-4 text-right">
+                    <text>-¥{{orderDetailData.discountPrice}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="azm-order-footer text-right box">
+            <text>实付：</text>
+            <text class="text-red">¥{{orderDetailData.consumption}}</text>
+        </view>
+    </view>
+    <!--就餐信息-->
+    <view class="azm-section azm-orderInfo">
+        <view class="azm-title">
+            <block wx:if="{{orderDetailData.consumerType == 2}}">
+                <text>配送信息</text>
+            </block>
+            <block wx:else>
+                <text>就餐信息</text>
+            </block>
+        </view>
+        <view class="box">
+            <view class="azm-li flexBox">
+                <view class="flexBox-item fb-3">
+                    <text>订单号</text>
+                </view>
+                <view class="flexBox-item fb-9 text-gray">
+                    <text>{{orderDetailData.consumerNo}}</text>
+                </view>
+            </view>
+            <!--堂食-->
+            <block wx:if="{{orderDetailData.consumerType == 0&&!orderDetailData.dinnerType}}">
+                <view class="azm-li flexBox">
+                    <view class="flexBox-item fb-3">
+                        <text>就餐人数</text>
+                    </view>
+                    <view class="flexBox-item fb-9 text-gray">
+                        <text>{{orderDetailData.fNumber}}人</text>
+                    </view>
+                </view>
+                <view class="azm-li flexBox">
+                    <view class="flexBox-item fb-3">
+                        <text>桌台</text>
+                    </view>
+                    <view class="flexBox-item fb-9 text-gray">
+                        <text>{{orderDetailData.title}}</text>
+                    </view>
+                </view>
+            </block>
+            <!--自助取餐-->
+            <block wx:elif="{{orderDetailData.consumerType == 0&&orderDetailData.dinnerType}}">
+                <view class="azm-li flexBox">
+                    <view class="flexBox-item fb-3">
+                        <text>取餐号</text>
+                    </view>
+                    <view class="flexBox-item fb-9 text-gray">
+                        <text>{{orderDetailData.mealNumber}}</text>
+                    </view>
+                </view>
+                <view class="azm-li flexBox">
+                    <view class="flexBox-item fb-3">
+                        <text>就餐方式</text>
+                    </view>
+                    <view class="flexBox-item fb-9 text-gray">
+                        <text>自取</text>
+                    </view>
+                </view>
+                <view class="pa azm-open-module" catchtap="openModuleMeal">
+                    <text class="azm-icon iconfont-2 icon-right"></text>
+                </view>
+            </block>
+            <!--外卖-->
+            <block wx:if="{{orderDetailData.consumerType == 2}}">
+                <view class="azm-li flexBox">
+                    <view class="flexBox-item fb-3">
+                        <text>联系人</text>
+                    </view>
+                    <view class="flexBox-item fb-9 text-gray">
+                        <text>{{orderDetailData.consumerName}}</text>
+                    </view>
+                </view>
+                <view class="azm-li flexBox">
+                    <view class="flexBox-item fb-3">
+                        <text>联系电话</text>
+                    </view>
+                    <view class="flexBox-item fb-9 text-gray">
+                        <text>{{orderDetailData.consumerMobile}}</text>
+                    </view>
+                </view>
+                <view class="azm-li flexBox">
+                    <view class="flexBox-item fb-3">
+                        <text>收货地址</text>
+                    </view>
+                    <view class="flexBox-item fb-9 text-gray">
+                        <text>{{orderDetailData.consumerAddress}}</text>
+                    </view>
+                </view>
+            </block>
+            <view class="azm-li flexBox">
+                <view class="flexBox-item fb-3">
+                    <text>备注</text>
+                </view>
+                <view class="flexBox-item fb-9 text-gray">
+                    <text>{{orderDetailData.note}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <view class="azm-footer flexBox">
+        <block wx:for="{{foodBtnList}}">
+            <view class="flexBox-item fb-{{12/foodBtnList.length}}">
+                <button plain="true" type="mini" class="btn-{{item.color}}" data-type="{{item.type}}" catchtap="goPay">
+                    {{item.name}}
+                </button>
+            </view>
+        </block>
+    </view>
+</view>
+
+<view class="pa hide {{moduleMeal}}" catchtap="closeModuleMeal">
+    <view class="box">
+        <view class="azm-title">
+            <text>取餐号</text>
+        </view>
+        <view class="h2">
+            <text>{{orderDetailData.mealNumber}}</text>
+        </view>
+        <view class="h6">
+            <text>下单时间：</text>
+            <text>{{orderDetailData.createTime}}</text>
+        </view>
+    </view>
+</view>

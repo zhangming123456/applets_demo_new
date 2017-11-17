@@ -1,0 +1,10 @@
+<!--template/toast/toast.wxss-->
+<template name="azm_toast">
+    <view class="toast_content_box" wx:if="{{isHide}}">
+        <view class="toast_content">
+            <view class="toast_content_text">
+                <text>{{content}}</text>
+            </view>
+        </view>
+    </view>
+</template>

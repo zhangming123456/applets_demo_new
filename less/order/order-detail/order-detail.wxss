@@ -1,0 +1,265 @@
+page {
+  background: #f1f3f4;
+}
+page .moduleMeal {
+  background-color: #57565c;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 100;
+  display: block;
+}
+page .moduleMeal .box {
+  width: 540rpx;
+  height: 370rpx;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 6rpx;
+}
+page .moduleMeal .box .azm-title,
+page .moduleMeal .box .h6 {
+  font-size: 28rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+}
+page .moduleMeal .box .h2 {
+  font-size: 80rpx;
+  height: 160rpx;
+  line-height: 160rpx;
+  text-align: center;
+}
+page view.new-class view {
+  color: #000;
+}
+page view.new-class .azm-section {
+  margin-top: 20rpx;
+  background-color: #fff;
+}
+page view.new-class .azm-section view {
+  box-sizing: border-box;
+}
+page view.new-class .azm-progressBar {
+  height: 225rpx;
+  padding-left: 44rpx;
+  padding-right: 44rpx;
+}
+page view.new-class .azm-progressBar .azm-top {
+  height: 100rpx;
+  line-height: 100rpx;
+}
+page view.new-class .azm-progressBar .azm-top .azm-starts {
+  font-size: 30rpx;
+}
+page view.new-class .azm-progressBar .azm-top .azm-icon {
+  font-size: 35rpx;
+}
+page view.new-class .azm-progressBar .azm-top .orderTime {
+  color: rgba(45, 44, 52, 0.8);
+  font-size: 24rpx;
+}
+page view.new-class .azm-progressBar > .row {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  padding-left: 60rpx;
+  padding-right: 60rpx;
+}
+page view.new-class .azm-progressBar > .row .azm-round {
+  font-size: 36rpx;
+  text-shadow: 0 0 10rpx #7e7e7e;
+  color: #fff;
+}
+page view.new-class .azm-progressBar > .row .azm-line {
+  height: 32rpx;
+  border-bottom: 8rpx solid #bfc4d3;
+}
+page view.new-class .azm-progressBar > .row .azm-text {
+  font-size: 24rpx;
+}
+page view.new-class .azm-progressBar > .row .azm-round-first {
+  top: 0;
+  left: 24rpx;
+  z-index: 10;
+  width: -40rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+page view.new-class .azm-progressBar > .row .flexBox-item {
+  padding-right: 0rpx;
+}
+page view.new-class .azm-progressBar > .row .flexBox-item .azm-round-row {
+  top: 0;
+  right: -70rpx;
+  z-index: 10;
+  width: 170rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+page view.new-class .azm-progressBar > .row .active .azm-round {
+  text-shadow: 0 0 10rpx #b4385a;
+  color: #f74b7b;
+}
+page view.new-class .azm-progressBar > .row .active .azm-line {
+  border-bottom: 8rpx solid #f74b7b;
+}
+page view.new-class .azm-order .azm-title {
+  padding-left: 44rpx;
+  padding-right: 44rpx;
+  text-align: left;
+  padding-top: 20rpx;
+  padding-bottom: 14rpx;
+  border-bottom: 2rpx solid #e2e2e2;
+}
+page view.new-class .azm-order .azm-title .flexBox-item {
+  line-height: 62rpx;
+  height: 62rpx;
+}
+page view.new-class .azm-order .azm-title .flexBox-item:nth-of-type(2) {
+  font-size: 30rpx;
+  color: #000;
+  font-weight: 500;
+}
+page view.new-class .azm-order .azm-title .flexBox-item:nth-of-type(3) {
+  color: #c1c1c1;
+  text-align: right;
+}
+page view.new-class .azm-order .azm-title .flexBox-item:nth-of-type(3) text {
+  font-size: 50rpx;
+}
+page view.new-class .azm-order .azm-title .azm-image {
+  width: 62rpx;
+  height: 62rpx;
+  border-radius: 6rpx;
+}
+page view.new-class .azm-order .azm-orderList {
+  padding: 30rpx 44rpx 2rpx;
+}
+page view.new-class .azm-order .azm-orderList .azm-orderList-item {
+  margin-bottom: 30rpx;
+  border: 2rpx solid #e2e2e2;
+  border-radius: 6rpx;
+}
+page view.new-class .azm-order .azm-orderList .azm-orderList-item .azm-orderList-title {
+  background-color: #e3e9f3;
+  padding-left: 26rpx;
+  padding-right: 22rpx;
+}
+page view.new-class .azm-order .azm-orderList .azm-orderList-item .azm-orderList-title text {
+  font-size: 24rpx;
+}
+page view.new-class .azm-order .azm-orderList .azm-orderList-item .azm-orderList-title .flexBox-item {
+  height: 62rpx;
+  line-height: 62rpx;
+}
+page view.new-class .azm-order .azm-orderList .azm-orderList-item .azm-orderList-box {
+  padding: 20rpx 26rpx 20rpx 22rpx;
+}
+page view.new-class .azm-order .azm-orderList .azm-orderList-item .azm-orderList-box text {
+  font-size: 28rpx;
+}
+page view.new-class .azm-order .azm-orderList .azm-orderList-item .azm-orderList-box .azm-orderList-li .azm-left .p:nth-of-type(2) {
+  color: rgba(45, 44, 52, 0.8);
+  font-size: 24rpx;
+}
+page view.new-class .azm-order .azm-orderList .azm-orderList-item .azm-orderList-box .azm-orderList-li .azm-left .p .azm-icon {
+  font-size: 30rpx;
+}
+page view.new-class .azm-order .azm-orderList .azm-orderList-item .azm-orderList-box .azm-orderList-li .azm-left .p .azm-icon.azm-icon-blue {
+  color: #008de6;
+}
+page view.new-class .azm-order .azm-orderList .azm-orderList-item .azm-orderList-box .azm-orderList-li .azm-left .p .azm-icon.azm-icon-pink {
+  color: #f74b7b;
+}
+page view.new-class .azm-order .azm-orderList .azm-orderList-item .azm-orderList-box .azm-orderList-li .azm-center {
+  color: #aab1cb;
+}
+page view.new-class .azm-order .azm-other {
+  padding-bottom: 4rpx;
+  border-bottom: 2rpx solid #e2e2e2;
+}
+page view.new-class .azm-order .azm-other text {
+  font-size: 28rpx;
+}
+page view.new-class .azm-order .azm-other .azm-other-li {
+  margin: 4rpx 0;
+}
+page view.new-class .azm-order .azm-other .azm-other-li .flexBox-item {
+  height: 52rpx;
+  line-height: 52rpx;
+}
+page view.new-class .azm-order .azm-other .azm-center {
+  color: #aab1cb;
+}
+page view.new-class .azm-order .azm-order-price {
+  padding: 4rpx 0;
+  border-bottom: 2rpx solid #e2e2e2;
+}
+page view.new-class .azm-order .azm-order-price text {
+  color: #f74b7b;
+  font-size: 28rpx;
+}
+page view.new-class .azm-order .azm-order-price .azm-li {
+  margin: 4rpx 0;
+}
+page view.new-class .azm-order .azm-order-price .azm-li .flexBox-item {
+  height: 52rpx;
+  line-height: 52rpx;
+}
+page view.new-class .azm-order .azm-order-footer {
+  height: 99rpx;
+  line-height: 99rpx;
+}
+page view.new-class .azm-order .azm-order-footer text {
+  font-size: 30rpx;
+}
+page view.new-class .azm-orderInfo .azm-title {
+  padding: 0 44rpx;
+  height: 95rpx;
+  line-height: 95rpx;
+  border-bottom: 2rpx solid #e2e2e2;
+}
+page view.new-class .azm-orderInfo .azm-title text {
+  font-size: 30rpx;
+}
+page view.new-class .azm-orderInfo .box {
+  padding: 10rpx 0;
+  position: relative;
+}
+page view.new-class .azm-orderInfo .box .azm-li text {
+  font-size: 28rpx;
+}
+page view.new-class .azm-orderInfo .box .azm-li .flexBox-item {
+  min-height: 52rpx;
+  line-height: 52rpx;
+}
+page view.new-class .azm-orderInfo .box .azm-li .text-gray {
+  color: #aab1cb;
+}
+page view.new-class .azm-orderInfo .box .azm-open-module {
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  height: 160rpx;
+  line-height: 160rpx;
+  width: 100%;
+  text-align: right;
+}
+page view.new-class .azm-orderInfo .box .azm-open-module .azm-icon {
+  font-size: 100rpx;
+  color: #aab1cb;
+}
+page view.new-class .azm-footer {
+  padding: 40rpx 30rpx;
+}
+page view.new-class .azm-footer button {
+  margin: 0 40rpx;
+  border-radius: 74rpx;
+}

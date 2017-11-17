@@ -1,0 +1,278 @@
+page {
+  background: #f1f3f4;
+}
+page view.new-class .azm-waimai.header {
+  width: 100%;
+  background-color: #2d2c34;
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+}
+page view.new-class .azm-waimai.header navigator {
+  width: inherit;
+  height: inherit;
+  padding-top: 20rpx;
+  padding-bottom: 40rpx;
+  text-align: center;
+}
+page view.new-class .azm-waimai.header navigator button {
+  background-color: #2d2c34;
+  border-color: #fff;
+  color: #fff;
+  margin: 0 auto;
+  width: 240rpx;
+  height: 60rpx;
+  line-height: 50rpx;
+  border-radius: 60rpx;
+}
+page view.new-class .azm-waimai.header navigator .icon-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 40rpx;
+}
+page view.new-class .azm-waimai.header navigator .azm-address {
+  position: relative;
+  height: 62rpx;
+  line-height: 62rpx;
+  margin-bottom: 20rpx;
+  font-weight: 600;
+  font-size: 36rpx;
+}
+page view.new-class .azm-waimai.header navigator .azm-address .image {
+  width: 28rpx;
+  height: 42rpx;
+}
+page view.new-class .azm-waimai.header navigator .azm-address .image image {
+  width: inherit;
+  height: inherit;
+}
+page view.new-class .azm-waimai.header navigator .azm-address .azm-address-text {
+  max-width: 500rpx;
+}
+page view.old-class .wrapper {
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+page view.old-class .ct.bg-color-gray {
+  margin-bottom: 7rem;
+}
+page view.old-class .pro-list {
+  margin-top: 0.4rem;
+}
+page view.old-class .cur-page {
+  border-bottom: 1px solid #ddd;
+  display: inline-block;
+  width: 100%;
+}
+page view.old-class .remark text {
+  width: 20%;
+}
+page view.old-class .remark input {
+  width: 80%;
+}
+page view.old-class .azm-tanshi.arrow-list-ctn {
+  border-bottom: 1px solid #ddd;
+}
+page view.old-class .azm-tanshi.arrow-list-ctn .list {
+  padding: 0 2rem;
+  padding-left: 0;
+}
+page view.old-class .azm-tanshi.arrow-list-ctn .list .entry:first-child {
+  border-top: none;
+}
+page view.old-class .azm-tanshi.arrow-list-ctn .list .entry:last-child {
+  border-bottom: none;
+}
+page view.old-class .azm-tanshi.arrow-list-ctn .list .entry .reduce image {
+  float: initial;
+  margin-right: 0;
+}
+page view.old-class .tab-ctn {
+  box-sizing: border-box;
+  width: 90%;
+  margin: 1rem auto;
+}
+page view.old-class .tab-ctn .tab {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+page view.old-class .tab-ctn .tab .btn {
+  float: left;
+  margin-right: 0.3rem;
+  padding: 0.5rem 0.6rem;
+  border-color: #bfc4d3;
+  color: #bfc4d3;
+  background: #fff;
+}
+page view.old-class .tab-ctn .tab .btn.active {
+  color: #fff;
+  border: none;
+  background: #f74b7b;
+}
+page view.old-class .tab-ctn .tab-content {
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+page view.old-class .tab-ctn .tab-content.active {
+  opacity: 1;
+  height: auto;
+}
+page view.old-class .tab-ctn .tab-content .entry {
+  margin: 0.5rem 0.25rem;
+  display: inline-block;
+  font-size: 0.8rem;
+  padding: 0.3rem 0.5rem;
+  border-color: #bfc4d3;
+  color: #bfc4d3;
+}
+page view.old-class .tab-ctn .tab-content .entry.active {
+  color: #fff;
+  border-color: #f74b7b;
+}
+page view.old-class .arrow-list-ctn .list .entry {
+  transition: all 0.3s ease-in-out;
+}
+page view.old-class .arrow-list-ctn .list .entry text.size {
+  line-height: 1.9rem;
+}
+page view.old-class .arrow-list-ctn .list .entry.none {
+  height: 0rem;
+  overflow: hidden;
+  opacity: 0;
+  padding: 0;
+  margin: 0;
+}
+page view.old-class .jagofancybox .box {
+  padding-bottom: 1rem;
+}
+page view.old-class .tableName {
+  margin-left: 0.8rem;
+}
+page view.old-class .calculate .reduceMe {
+  display: inline-block;
+}
+page view.old-class .calculate .plusMe {
+  display: inline-block;
+}
+page view.old-class .arrow-list-ctn .list .entry image {
+  width: 1.3rem;
+  height: 1.3rem;
+  float: none;
+  margin: 0.2rem 0.5rem 0 1rem;
+}
+page view.old-class .arrow-list-ctn .list .entry {
+  display: inline-block;
+  width: 100%;
+  position: relative;
+  border-bottom: 1px solid #ddd;
+  padding: 1rem 0rem 0.8rem 0rem;
+  box-sizing: border-box;
+  top: -0.1rem;
+  margin: 0 1.2rem;
+}
+page view.old-class .fontSize {
+  font-size: 0.8rem;
+}
+page view.old-class .tableNum text {
+  font-size: 0.8rem;
+  /*border:1px solid #f74b7b;*/
+  display: inline-block;
+}
+page view.old-class .tableNum text {
+  margin-right: 0.5rem;
+  position: relative;
+  top: 0rem;
+}
+page view.old-class .table {
+  width: 100%;
+  background: #57565d;
+}
+page view.old-class .table .taihao {
+  display: inline-block;
+  width: 12%;
+  /*border: 1px solid red;*/
+  font-size: 0.875rem;
+  color: #2d2c34;
+}
+page view.old-class .table .taihaoM {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+page view.old-class .table .tableNo {
+  display: inline-block;
+  width: 80%;
+  /*border: 1px solid red;*/
+}
+page view.old-class .ttxt {
+  box-sizing: border-box;
+  display: inline-block;
+  border: 1px solid #bfc4d3;
+  margin: 0;
+  height: 60rpx;
+  line-height: 52rpx;
+  text-align: center;
+  top: 0;
+  color: #bfc4d3;
+  font-size: 0.6875rem;
+  margin-left: 0.5rem;
+  border-radius: 5px;
+  margin-bottom: 0.41rem;
+}
+page view.old-class .subareaAct {
+  color: #fff;
+  border: 1px solid #f74b7b;
+  background: #f74b7b;
+}
+page view.old-class .choice {
+  margin-bottom: 1rem;
+}
+page view.old-class .table text.activeTab {
+  background: #f74b7b;
+  border-color: #f74b7b;
+  color: #fff;
+}
+page view.old-class .table {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /*border:1px solid red;*/
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+}
+page view.old-class .tableContent {
+  background: #fff;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-top: 2rem;
+  padding-bottom: 2rem;
+}
+page view.old-class .tableContent image {
+  width: 1.25rem;
+  height: 0.875rem;
+}
+page view.old-class .queren {
+  border: 1px solid #f74b7b;
+  text-align: center;
+  color: #fff;
+  font-size: 1rem;
+  margin: 0 35%;
+  border-radius: 5px;
+  margin-top: 0.41rem;
+  padding: 3px 6px;
+  background: #f74b7b;
+}
+page view.old-class .tableNN {
+  display: none;
+}
+page view.old-class .tableBox {
+  display: none;
+}
+page view.old-class .tableNo {
+  display: block;
+}

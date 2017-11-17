@@ -1,0 +1,736 @@
+/*title部分**********************************************************/
+view.canteen-index {
+  position: absolute;
+  margin: auto;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  /*堂食模块***************************************************************/
+  /*提示是否加菜*/
+  /*.module{display:block;}*/
+  /*菜品规格*/
+  /*.module{display:block;}*/
+  /*店铺详情模块************************************************************************/
+  /*.contact.area { padding: 1.2rem 0 1.2rem 1rem !important; }*/
+  /*********** 购物车盒子 ********************/
+}
+view.canteen-index .swiper-tab {
+  width: 100%;
+  border-bottom: 3rpx solid #f1f3f4;
+  text-align: center;
+  line-height: 80rpx;
+  padding-bottom: 1rpx;
+}
+view.canteen-index .swiper-tab-list {
+  font-size: 0.9rem;
+  display: inline-block;
+  width: 33.33%;
+  color: #2d2c34;
+}
+view.canteen-index .canteen-bottom-122 {
+  bottom: 122rpx;
+}
+view.canteen-index .choose-area-box {
+  position: absolute;
+  box-sizing: border-box;
+  /* width: 100%;
+    height: 100%; */
+  bottom: 50rpx;
+  right: 20rpx;
+}
+view.canteen-index .choose-area-box > .choose-area-box-right {
+  position: absolute;
+  right: 0;
+}
+view.canteen-index .choose-area-box > .choose-area-box-left {
+  position: absolute;
+  right: 115rpx;
+}
+view.canteen-index .choose-area-box > .text-center-box {
+  position: absolute;
+  right: 75rpx;
+  bottom: -50rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+view.canteen-index .on {
+  color: #f74b7b;
+  border-bottom: 5rpx solid #f74b7b;
+  padding: 14rpx 0rpx 12rpx 0rpx;
+}
+view.canteen-index .swiper-box {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+  margin: auto;
+  top: 113rpx;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: auto;
+}
+view.canteen-index .swiper-box view {
+  text-align: center;
+}
+view.canteen-index .tankuang {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: #000;
+  z-index: 100;
+}
+view.canteen-index .jagofancybox .title {
+  text-align: center;
+}
+view.canteen-index .jagofancybox .ct {
+  padding: 0 1rem 2rem;
+  box-sizing: border-box;
+}
+view.canteen-index .jagofancybox .ct.cus-height {
+  padding-top: 2rem;
+}
+view.canteen-index .jagofancybox .ct .title {
+  margin-bottom: 0.8rem;
+  text-align: left;
+}
+view.canteen-index .jagofancybox .ct .outer {
+  text-align: center;
+}
+view.canteen-index .jagofancybox .ct .outer .entry {
+  float: left;
+}
+view.canteen-index .jagofancybox .ct .outer .entry .price {
+  display: block;
+  font-size: 0.9rem;
+  margin-top: 0.8rem;
+  font-weight: bold;
+  text-align: center;
+}
+view.canteen-index .jagofancybox .ct .outer .inner {
+  margin: 0 0.5rem;
+  font-size: 0.8rem;
+}
+view.canteen-index .jagofancybox .add-to-car.style-1 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: inline-block;
+  width: 100%;
+  background: #4c4c4c;
+  padding: 0.5rem 1rem;
+  box-sizing: border-box;
+}
+view.canteen-index .jagofancybox .add-to-car.style-1 text {
+  float: left;
+  color: #fff;
+  width: auto;
+  line-height: 2rem;
+}
+view.canteen-index .jagofancybox .add-to-car.style-1 .btn {
+  float: right;
+  line-height: 2rem;
+  padding: 0 0.8rem;
+}
+view.canteen-index .jagofancybox .add-to-car.style-2 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: inline-block;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  box-sizing: border-box;
+}
+view.canteen-index .jagofancybox .add-to-car.style-2 .btn {
+  line-height: 2rem;
+  padding: 0 0.8rem;
+  width: 50%;
+}
+view.canteen-index .search-ctn {
+  padding: 0 0.5rem;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 71%;
+  z-index: 1;
+  background: #fff;
+}
+view.canteen-index .search-ctn input {
+  border-bottom: 1px solid #f1f3f4;
+  height: 2.5rem;
+}
+view.canteen-index .search-ctn .icon-search {
+  position: absolute;
+  right: 0.8rem;
+  top: 0.75rem;
+}
+view.canteen-index .list-choose.right .overflow-y-scroll {
+  margin-top: 3rem;
+}
+view.canteen-index .scroll-view {
+  margin-top: 0rem;
+  transition: all 0.3s ease-in-out;
+}
+view.canteen-index .jianshao image {
+  width: 48rpx;
+  height: 48rpx;
+  z-index: 20;
+}
+view.canteen-index .add image {
+  width: 48rpx;
+  height: 48rpx;
+  z-index: 20;
+}
+view.canteen-index .entry .jianshao {
+  float: right;
+  width: 30%;
+  text-align: center;
+}
+view.canteen-index .entry .num {
+  float: right;
+  width: 25%;
+  text-align: center;
+}
+view.canteen-index .entry .add {
+  float: right;
+  width: 30%;
+  text-align: center;
+}
+view.canteen-index .salesMe {
+  color: #aab0ca;
+  font-size: 0.75rem;
+  margin: 0.35rem 0rem 0rem -3.2rem;
+  display: inline-block;
+}
+view.canteen-index .money {
+  margin-top: 0.8rem;
+  display: inline-block;
+  font-size: 0.8rem;
+}
+view.canteen-index .money.totalHide,
+view.canteen-index .money.deliveryHide {
+  display: none;
+}
+view.canteen-index .money.totalShow,
+view.canteen-index .money.deliveryShow {
+  display: inline-block;
+}
+view.canteen-index .module {
+  display: none;
+}
+view.canteen-index .tanchuang {
+  padding: 1rem 1rem 0.2rem 1rem;
+  opacity: 1;
+  background: #fff;
+  position: absolute;
+  right: 15%;
+  top: 25%;
+  z-index: 100;
+  border-radius: 2px;
+}
+view.canteen-index .tanchuang .content {
+  min-width: 235px;
+  line-height: 1.3rem;
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+}
+view.canteen-index .tanchuang .use,
+view.canteen-index .tanchuang .phone {
+  width: 50%;
+  background: none;
+  border-right: 1px solid #bfc4d3;
+  border-radius: 0;
+  color: #000;
+  font-size: 1rem;
+}
+view.canteen-index .tanchuang .phone {
+  border-right: none;
+  color: #f74b7b;
+}
+view.canteen-index .tanchuang .h4 {
+  border-top: 1px solid #bfc4d3;
+}
+view.canteen-index .moduleActive {
+  background: #57565c;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  display: block;
+  opacity: 0.95;
+}
+view.canteen-index .tanchuang.goOrder .use,
+view.canteen-index .tanchuang.goOrder .phone {
+  width: 100%;
+  border: none;
+}
+view.canteen-index .tanchuang.goOrder {
+  right: 25%;
+}
+view.canteen-index .moduleMe {
+  display: none;
+}
+view.canteen-index .tanchuangMe {
+  padding: 0rem 0rem 0.2rem 0rem;
+  opacity: 1;
+  background: #fff;
+  position: absolute;
+  right: 6.5%;
+  top: 25%;
+  z-index: 100;
+  border-radius: 2px;
+  text-align: center;
+  width: 85%;
+}
+view.canteen-index .tanchuangMe .contentMe {
+  line-height: 2.625rem;
+  font-size: 0.9rem;
+  background: #000;
+  color: #fff;
+}
+view.canteen-index .tanchuangMe .useMe,
+view.canteen-index .tanchuangMe .phoneMe {
+  width: 50%;
+  background: none;
+  border-right: 1px solid #bfc4d3;
+  border-radius: 0;
+  color: #000;
+  font-size: 1rem;
+}
+view.canteen-index .tanchuangMe .h4Me {
+  padding-left: 0.9375rem;
+  margin-top: 1.5625rem;
+  text-align: left;
+}
+view.canteen-index .tanchuangMe .phoneMe {
+  border-right: none;
+  color: #f74b7b;
+}
+view.canteen-index .inblkMe {
+  padding: 0.5rem 0rem 0rem 0rem;
+}
+view.canteen-index .inblk {
+  margin-left: 0.875rem;
+}
+view.canteen-index .kw {
+  margin-bottom: 0.5rem;
+}
+view.canteen-index .blkMe {
+  color: #bec4d2;
+  border: 1px solid #bec4d2;
+  border-radius: 0.1rem;
+  text-align: center;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.5rem;
+}
+view.canteen-index .standardText {
+  font-size: 0.6875rem;
+  color: #2d2c34;
+  margin-top: 0.5625rem;
+  display: inline-block;
+  margin-left: 0.5rem;
+}
+view.canteen-index .button {
+  width: 6.25rem;
+  height: 1.75rem;
+  border-radius: 1rem;
+  margin: 1.675rem 0 0.875rem 6rem;
+  text-align: center;
+  box-sizing: border-box;
+}
+view.canteen-index .cancle {
+  border: 1px solid #fff;
+  border-radius: 100%;
+  height: 1.5rem;
+  width: 1.5rem;
+  line-height: 1.4rem;
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+  background: transparent;
+  color: #fff;
+  font-size: 1.5rem;
+  z-index: 20;
+}
+view.canteen-index .userCell {
+  color: #bec4d2;
+  border: 1px solid #bec4d2;
+  border-radius: 0.1rem;
+  text-align: center;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.5rem;
+}
+view.canteen-index .userCellActive {
+  color: #fff;
+  background: #f74b7b;
+  border: 1px solid #f74b7b;
+}
+view.canteen-index .countMe {
+  background: #4b4b4b;
+  color: #fff;
+  box-sizing: border-box;
+  border-radius: 100%;
+  position: absolute;
+  bottom: 1.1rem;
+  right: -0.2rem;
+  display: inline-block;
+  line-height: 1rem;
+  min-width: 1rem;
+  min-height: 1rem;
+  font-size: 0.7rem;
+}
+view.canteen-index .ctn {
+  position: relative;
+  top: 0;
+}
+view.canteen-index .ctn image {
+  width: 100%;
+}
+view.canteen-index .ctn .h1 {
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  text-align: center;
+  width: 100%;
+}
+view.canteen-index .headline {
+  position: absolute;
+  top: 0rem;
+  left: 0rem;
+  background: transparent;
+}
+view.canteen-index .headline .h2 {
+  margin: 0rem 0 0.3rem;
+  color: #fff;
+  text-align: left;
+}
+view.canteen-index .headline .img-ctn {
+  background: #6e7bb3;
+  box-sizing: border-box;
+  width: 4rem;
+  height: 4rem;
+  text-align: center;
+  padding: 0.7rem;
+  border-radius: 300px;
+  display: inline-block;
+}
+view.canteen-index .headline .arrow {
+  right: 1.5rem;
+}
+view.canteen-index .content .category {
+  padding: 0.5rem 0.5rem;
+  background: #fff;
+}
+view.canteen-index .content .category .entry {
+  float: left;
+  width: 30%;
+  text-align: center;
+  margin-bottom: 1rem;
+  margin: 0 1.5%;
+  padding: 1.2rem 0;
+  background: #f2f3f4;
+  border-radius: 0.3rem;
+}
+view.canteen-index .content .category .entry image {
+  width: 2rem;
+  height: 1.6rem;
+}
+view.canteen-index .content .category .entry text {
+  margin-top: 1rem;
+}
+view.canteen-index .content .area {
+  padding: 0.8rem 0 1rem;
+  margin: 0.5rem 1.5rem 0 1rem;
+  border-bottom: 1px solid #f1f3f4;
+  text-align: left;
+}
+view.canteen-index .content .area .title {
+  display: inline-block;
+  width: 100%;
+  margin: 0rem 0rem;
+  height: 1.6rem;
+}
+view.canteen-index .content .area .title image {
+  float: left;
+  margin-right: 0.5rem;
+  margin-top: 0.4rem;
+}
+view.canteen-index .content .area .title .h2 {
+  float: left;
+  letter-spacing: 0.1rem;
+  line-height: 1.6rem;
+  font-weight: bold;
+}
+view.canteen-index .content .area .ct .entry {
+  margin-top: 0.6rem;
+  display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.6rem 0;
+}
+view.canteen-index .content .area .ct .entry .left {
+  float: left;
+  width: 70%;
+  box-sizing: border-box;
+  height: 5rem;
+  color: #fff;
+  padding: 0rem 0 0 1.2rem;
+}
+view.canteen-index .content .area .ct .entry .right {
+  float: right;
+  width: 30%;
+  box-sizing: border-box;
+  height: 5rem;
+  color: #fff;
+  padding: 0rem 0.8rem;
+  text-align: center;
+}
+view.canteen-index .content .area .ct .entry .left .p-bigger {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+view.canteen-index .content .area .ct .entry .left .p {
+  margin-top: 0.7rem;
+  font-size: 0.8rem;
+}
+view.canteen-index .content .area .ct .entry .right .p {
+  display: inline-block;
+}
+view.canteen-index .content .area .ct .entry .right .span {
+  display: inline-block;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+view.canteen-index .content .area .ct .entry .right .p-small {
+  margin-top: 0.8rem;
+}
+view.canteen-index .contact {
+  display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
+}
+view.canteen-index .contact .left {
+  box-sizing: border-box;
+  width: 68%;
+  float: left;
+  display: inline-block;
+}
+view.canteen-index .contact .right {
+  width: 30%;
+  float: left;
+  text-align: center;
+  margin: -0.2rem 1.2rem 0rem 0rem;
+  display: inline-block;
+}
+view.canteen-index .leftMe {
+  box-sizing: border-box;
+  width: 68%;
+  display: block;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: left !important;
+  font-size: 34rpx;
+  font-weight: bold;
+}
+view.canteen-index .leftMe > image {
+  display: inline-block;
+  width: 48rpx;
+  height: 48rpx;
+  vertical-align: text-bottom;
+}
+view.canteen-index .rightMe {
+  width: 25%;
+  display: inline-block;
+  padding: 0.8rem 0rem 0rem 1.2rem;
+}
+view.canteen-index .lineMe {
+  border-top: 8px solid #f4f4f4;
+}
+view.canteen-index .btnMe {
+  color: #000;
+  background: #f74b7b;
+  box-sizing: border-box;
+  padding: 0 12px;
+  line-height: 1.8rem;
+  font-size: 0.9rem;
+}
+view.canteen-index .bannerBg {
+  height: 6.5rem;
+}
+view.canteen-index .bg-img {
+  background-image: url("/images/banner.jpg");
+}
+view.canteen-index .content .margin {
+  margin: 0.5rem 1rem 0 1rem;
+  padding: 0.3rem 0 0.3rem;
+}
+view.canteen-index .content .padding {
+  margin: 0.5rem 1.5rem 0 1rem;
+  padding: 0rem 0 0.8rem;
+  border-bottom: none;
+}
+view.canteen-index .service .inline-div {
+  float: left;
+  width: 40%;
+}
+view.canteen-index .service .inline-div text:before {
+  content: '•';
+  color: #f74b7b;
+  margin-right: 0.3rem;
+  font-size: 3rem;
+  width: 2rem;
+  vertical-align: middle;
+  display: inline-block;
+}
+view.canteen-index .service .inline-div text {
+  line-height: 2.2rem;
+}
+view.canteen-index .distance {
+  margin-left: 0.6rem;
+}
+view.canteen-index .me {
+  margin: 0 0.4rem 0.3rem 0;
+}
+view.canteen-index .bold {
+  font-weight: bold;
+}
+view.canteen-index .shopping {
+  position: absolute;
+  top: 0.8rem;
+  right: 1rem;
+  font-size: 0.8rem;
+  color: #b5bbd1;
+  z-index: 10;
+}
+view.canteen-index .shopping > image {
+  width: 0.8rem;
+  height: 0.8rem;
+  position: relative;
+  top: 0.09rem;
+  left: -0.3rem;
+}
+view.canteen-index .carItem {
+  text-align: right;
+  padding-right: 2rem;
+}
+view.canteen-index .canteen-tab-box {
+  height: 113rpx;
+  overflow: hidden;
+}
+view.canteen-index .cart-box {
+  padding: 0rpx 20rpx 10rpx 40rpx;
+}
+view.canteen-index .cart-box view {
+  text-align: left;
+}
+view.canteen-index .cart-box .list {
+  padding-bottom: 0;
+  min-height: 100rpx;
+}
+view.canteen-index .cart-box .list text {
+  font-size: 24rpx;
+}
+view.canteen-index .cart-box .list .fl {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  height: 100%;
+}
+view.canteen-index .cart-box .list .fl.cart-box-list-money {
+  text-align: right;
+  padding-right: 10rpx;
+  line-height: 48rpx;
+}
+view.canteen-index .cart-box .list .fl.cart-box-list-money text {
+  font-size: 30rpx;
+}
+view.canteen-index .cart-box .list .fl > view {
+  width: 344rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+view.canteen-index .cart-box .list .fl > view.inner {
+  font-weight: bold;
+  line-height: 48rpx;
+}
+view.canteen-index .cart-box .list .fl > view.inner text {
+  font-size: 30rpx;
+}
+view.canteen-index .cart-box .list .fl > view.inner .rule {
+  font-weight: 400;
+  font-size: 24rpx;
+}
+view.canteen-index .cart-box .list .cart-box-list-add {
+  padding: 0rpx 10rpx 0rpx 10rpx;
+  height: 52rpx;
+}
+view.canteen-index .cart-box .list .cart-box-list-add > view {
+  height: 48rpx;
+  line-height: 48rpx;
+  text-align: center;
+}
+view.canteen-index .food-left image {
+  width: 140rpx;
+  height: 140rpx;
+  vertical-align: text-bottom;
+  border-radius: 6rpx;
+}
+view.canteen-index .food-right {
+  padding-left: 23rpx;
+  padding-right: 10rpx;
+}
+view.canteen-index .food-right .p {
+  position: relative;
+  text-align: left;
+}
+view.canteen-index .food-right .p text {
+  font-size: 32rpx;
+}
+view.canteen-index .food-right .p:nth-of-type(2) {
+  padding-top: 10rpx;
+  font-size: 24rpx;
+  color: #aab0ca;
+}
+view.canteen-index .food-right .p:nth-of-type(3) {
+  height: 70rpx;
+  line-height: 70rpx;
+}
+view.canteen-index .food-right .p:nth-of-type(3) .food-money {
+  width: 120rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: left;
+  color: #f74b7b;
+}
+view.canteen-index .food-right .p:nth-of-type(3) .food-btn-plus {
+  padding-right: 20rpx;
+  height: 100%;
+}
+view.canteen-index .food-right .p:nth-of-type(3) .food-btn-plus > view {
+  height: 60rpx;
+  line-height: 50rpx;
+}
+view.canteen-index .food-right .p:nth-of-type(3) .food-btn-plus .food-rule {
+  padding-right: 20rpx;
+}
+view.canteen-index .food-right .p:nth-of-type(3) .food-btn-plus .food-rule .food-btn-rule {
+  height: 60rpx;
+  line-height: 52rpx;
+}
+view.canteen-index .food-right .p:nth-of-type(3) .food-btn-plus .plus {
+  float: right;
+}
+view.canteen-index .food-right .p:nth-of-type(3) .food-btn-plus .sum {
+  float: left;
+  width: 60rpx;
+}
+view.canteen-index .food-right .p:nth-of-type(3) .food-btn-plus .reduce {
+  float: left;
+}

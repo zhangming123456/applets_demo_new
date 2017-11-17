@@ -1,0 +1,89 @@
+page {
+  background: #fff;
+}
+page view.new-class .azm-btn {
+  text-align: center;
+  background-color: transparent;
+}
+page view.new-class .azm-btn.azm-btn-submit {
+  margin-left: 60rpx;
+  margin-top: 48rpx;
+  margin-right: 60rpx;
+  line-height: 80rpx;
+  border: 1px solid #f74b7b;
+  background-color: #f74b7b;
+  color: #fff;
+}
+page view.new-class .azm-btn.azm-btn-code {
+  border: 1px solid #f74b7b;
+  background-color: transparent;
+  color: #f74b7b;
+}
+page view.new-class .azm-btn.azm-btn-time {
+  border: 1px solid #aab1cb;
+  background-color: transparent;
+  color: #aab1cb;
+}
+page view.new-class .azm-header {
+  position: relative;
+}
+page view.new-class .azm-header image {
+  display: block;
+  width: 100%;
+  height: 480rpx;
+}
+page view.new-class .azm-header .azm-image-icon {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 100%;
+  border: 20rpx solid #fdc4d4;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+}
+page view.new-class .azm-header .azm-image-icon image {
+  width: 100%;
+  height: 100%;
+}
+page view.new-class .azm-section {
+  margin-top: 20rpx;
+  margin-bottom: 80rpx;
+  padding-left: 60rpx;
+  padding-right: 60rpx;
+}
+page view.new-class .azm-section .p {
+  border-bottom: 2rpx solid #e2e2e2;
+}
+page view.new-class .azm-section .p .azm-icon {
+  font-size: 50rpx;
+  color: #aab1cb;
+}
+page view.new-class .azm-section .p .azm-input {
+  -web-kit-appearance: none;
+  -moz-appearance: none;
+  text-decoration: none;
+  display: block;
+  height: 120rpx;
+  min-height: 120rpx;
+  box-sizing: border-box;
+  outline: 0;
+  font-size: 30rpx;
+  color: #000;
+}
+page view.new-class .azm-section .p .azm-input-pl {
+  color: #aab1cb;
+}
+page view.new-class .azm-section .p .azm-code {
+  padding-top: 22rpx;
+}
+page view.new-class .azm-section .p .flexBox-item {
+  line-height: 120rpx;
+  height: 120rpx;
+}
+page view.new-class .azm-section .azm-message {
+  color: #f74b7b;
+  text-align: center;
+  line-height: 50rpx;
+}

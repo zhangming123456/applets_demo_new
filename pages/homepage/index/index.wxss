@@ -1,0 +1,53 @@
+/**index.wxss**/
+/*店铺详情模块*/
+page {  }
+.ctn { position: relative; }
+.ctn image { width: 100%; }
+.ctn .h1 { position: absolute; top: 1rem; left: 0; text-align: center; width: 100%; }
+
+.headline { position: absolute;top:0rem;left: 0rem;background: transparent;}
+.headline .h2 { margin: 0rem 0 0.3rem; color:#fff;}
+.headline .img-ctn { background: #6e7bb3; box-sizing: border-box; width: 4rem; height: 4rem; text-align: center; padding: 0.7rem; border-radius: 300px; display: inline-block; }
+.headline .arrow { right: 1.5rem; }
+
+
+.content {  }
+.content .category { padding: 0.5rem 0.5rem; background: #fff; }
+.content .category .entry { float: left; width: 30%; text-align: center; margin-bottom: 1rem; margin: 0 1.5%; padding: 1.2rem 0; background: #f2f3f4; border-radius: 0.3rem; }
+.content .category .entry image { width: 2rem; height: 1.6rem; }
+.content .category .entry text { margin-top: 1rem; }
+
+.content .area { padding: 0.8rem 0 1rem;margin:0.5rem 1.5rem 0 1rem;border-bottom: 1px solid #f1f3f4;}
+.content .area .title  { display: inline-block; width: 100%; margin:0rem 0rem; height: 1.6rem; }
+.content .area .title image { float: left; margin-right: 0.5rem; margin-top: 0.4rem; }
+.content .area .title .h2 { float: left; letter-spacing: 0.1rem; line-height: 1.6rem; font-weight: bold; }
+
+.content .area .ct .entry { margin-top: 0.6rem; display: inline-block; width: 100%; box-sizing: border-box;padding:0.6rem 0;}
+.content .area .ct .entry .left { float: left; width: 70%; box-sizing: border-box; height: 5rem; color: #fff; padding: 0rem 0 0 1.2rem; }
+.content .area .ct .entry .right { float: right; width: 30%; box-sizing: border-box; height: 5rem; color: #fff; padding: 0rem 0.8rem; text-align: center; }
+.content .area .ct .entry .left .p-bigger { font-weight: bold; font-size: 1.3rem; }
+.content .area .ct .entry .left .p { margin-top: 0.7rem; font-size: 0.8rem; }
+.content .area .ct .entry .left .p-small {  }
+.content .area .ct .entry .right .p { display: inline-block; }
+.content .area .ct .entry .right .span { display: inline-block; font-size: 1.8rem; font-weight: bold; }
+.content .area .ct .entry .right .p-small { margin-top: 0.8rem; }
+
+.contact { display: inline-block; width: 100%; box-sizing: border-box; }
+/*.contact.area { padding: 1.2rem 0 1.2rem 1rem !important; }*/
+.contact .left { box-sizing: border-box; width: 68%;  float: left; display: inline-block;}
+.contact .right { width: 30%; float: left; text-align: center; margin: -0.2rem 1.2rem 0rem 0rem;  display: inline-block;}
+
+.leftMe { box-sizing: border-box; width: 68%;display: inline-block;}
+.rightMe { width: 25%; display: inline-block; padding:0.8rem 0rem 0rem 1.2rem;}
+.lineMe{border-top:15px solid #f4f4f4;}
+.btnMe{color:#fff;background: #f74b7b;box-sizing: border-box;padding:0 12px;line-height: 1.8rem;font-size:0.9rem;}
+.bannerBg{height:6.5rem;}
+.content .margin{margin:0.5rem 1.5rem 0 1rem;padding:0rem 0 0.8rem;}
+.content .padding{margin:0.9rem 1.5rem 0 1rem;padding:0rem 0 0.8rem;border-bottom:none;}
+
+.service .inline-div { float: left; width: 40%; }
+.service .inline-div text:before { content: '•'; color: #f74b7b; margin-right: 0.3rem; font-size: 3rem; width: 2rem; vertical-align: middle; display: inline-block; }
+.service .inline-div text { line-height: 2.2rem; }
+.distance{margin-left:0.6rem;}
+.me{margin:0 0.4rem 0.3rem 0;}
+.bold{font-weight: bold}

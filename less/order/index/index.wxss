@@ -1,0 +1,97 @@
+page .orderIndex view,
+page .orderIndex navigator {
+  box-sizing: border-box;
+}
+page .orderIndex .weui-loadmore__tips_in-line {
+  background-color: #f1f2f4;
+}
+page .orderIndex .row {
+  background-color: #fff;
+  margin-top: 20rpx;
+  border-radius: 8rpx;
+}
+page .orderIndex .row .azm-title {
+  padding-left: 50rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom: 2rpx solid #e2e2e2;
+}
+page .orderIndex .row .azm-title .h2 {
+  display: inline-block;
+  font-size: 30rpx;
+  width: 180rpx;
+  font-weight: 500;
+  color: #000;
+}
+page .orderIndex .row .azm-title .azm-span {
+  color: #f74b7b;
+  font-size: 28rpx;
+  display: inline-block;
+  font-weight: 400;
+}
+page .orderIndex .row .azm-section {
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+page .orderIndex .row .azm-section .azm-image {
+  padding-left: 50rpx;
+}
+page .orderIndex .row .azm-section .azm-image image {
+  border-radius: 22rpx;
+  width: 160rpx;
+  height: 160rpx;
+}
+page .orderIndex .row .azm-section .azm-image > view {
+  text-align: center;
+  border-radius: 22rpx;
+  width: 160rpx;
+  height: 160rpx;
+}
+page .orderIndex .row .azm-section .azm-image > view .azm-icon {
+  color: #7e8396;
+  font-size: 100rpx;
+}
+page .orderIndex .row .azm-section .azm-center {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+page .orderIndex .row .azm-section .azm-center.navigator-hover {
+  background-color: #ffffff;
+  opacity: 1;
+}
+page .orderIndex .row .azm-section .azm-center .h3 {
+  color: #000;
+  font-size: 28rpx;
+}
+page .orderIndex .row .azm-section .azm-center .azm-time {
+  color: #bbc1d4;
+  font-size: 24rpx;
+  padding-top: 10rpx;
+  padding-bottom: 16rpx;
+}
+page .orderIndex .row .azm-section .azm-center .azm-money {
+  font-size: 28rpx;
+}
+page .orderIndex .row .azm-section .azm-right {
+  text-align: center;
+  padding: 0rpx 6rpx 0rpx 6rpx;
+}
+page .orderIndex .row .azm-section .azm-right .azm-status {
+  color: #bbc1d4;
+  font-size: 24rpx;
+}
+page .orderIndex .row .azm-section .azm-right button {
+  font-size: 24rpx;
+  margin-top: 16rpx;
+  margin-left: 16rpx;
+  margin-right: 16rpx;
+  line-height: 46rpx;
+  border: 2rpx solid #e2e2e2;
+  color: #000;
+}
+page .orderIndex .row .azm-section .azm-right button.azm-btn-red {
+  border: 2rpx solid #f74b7b;
+  background-color: #f74b7b;
+  color: #fff;
+}

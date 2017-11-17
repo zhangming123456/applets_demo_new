@@ -1,0 +1,94 @@
+@import "../../index";
+
+page {
+  background: #fff;
+  view.new-class {
+
+    .azm-btn {
+      text-align: center;
+      background-color: transparent;
+      &.azm-btn-submit {
+        .px2rpx(margin-left, 30);
+        .px2rpx(margin-top, 24);
+        .px2rpx(margin-right, 30);
+        .px2rpx(line-height, 40);
+        border: 1px solid #f74b7b;
+        background-color: #f74b7b;
+        color: #fff;
+      }
+      &.azm-btn-code {
+        border: 1px solid #f74b7b;
+        background-color: transparent;
+        color: #f74b7b;
+      }
+      &.azm-btn-time {
+        border: 1px solid #aab1cb;
+        background-color: transparent;
+        color: #aab1cb;
+      }
+    }
+
+    .azm-header {
+      position: relative;
+      image {
+        display: block;
+        width: 100%;
+        .px2rpx(height, 240);
+      }
+      .azm-image-icon {
+        .px2rpx(width, 100);
+        .px2rpx(height, 100);
+        border-radius: 100%;
+        border: 10*2rpx solid #fdc4d4;
+        .center(50%);
+        overflow: hidden;
+        image {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+
+    .azm-section {
+      .px2rpx(margin-top, 10);
+      .px2rpx(margin-bottom, 40);
+      .px2rpx(padding-left, 30);
+      .px2rpx(padding-right, 30);
+      .p {
+        border-bottom: @border-1px;
+        .azm-icon {
+          .px2rpx(font-size, 25);
+          color: #aab1cb;
+        }
+        .azm-input {
+          -web-kit-appearance: none;
+          -moz-appearance: none;
+          text-decoration: none;
+          display: block;
+          .px2rpx(height, 60);
+          .px2rpx(min-height, 60);
+          box-sizing: border-box;
+          outline: 0;
+          .px2rpx(font-size, 15);
+          color: #000;
+          &-pl {
+            color: #aab1cb;
+          }
+        }
+        .azm-code {
+          .px2rpx(padding-top, 11);
+        }
+        .flexBox-item {
+          .px2rpx(line-height, 60);
+          .px2rpx(height, 60);
+        }
+      }
+      .azm-message {
+        color: @color-f74b7b;
+        text-align: center;
+        line-height: 25*2rpx;
+      }
+    }
+  }
+}
+

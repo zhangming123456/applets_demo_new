@@ -1,0 +1,115 @@
+page {
+  background: #fff;
+}
+.azm-btn.azm-btn-submit {
+  margin-left: 60rpx;
+  margin-top: 48rpx;
+  margin-right: 60rpx;
+  line-height: 80rpx;
+  border: 1px solid #f74b7b;
+  background-color: #f74b7b;
+  color: #fff;
+}
+.azm-btn.azm-btn-code {
+  border: 1px solid #f74b7b;
+  background-color: transparent;
+  color: #f74b7b;
+}
+.azm-btn.azm-btn-time {
+  border: 1px solid #aab1cb;
+  background-color: transparent;
+  color: #aab1cb;
+}
+view.old-class {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  background: #fff;
+  /*.arrow-list-ctn .list .entry:last-child { border-bottom: none; }*/
+}
+view.old-class input {
+  margin-top: 0.1rem;
+}
+view.old-class label {
+  margin-right: 0.5rem;
+}
+view.old-class .btn-single {
+  margin-top: 1.5rem;
+}
+view.old-class .arrow-list-ctn .list .entry:first-child {
+  border-top: none;
+}
+view.old-class .btn-ctn {
+  text-align: center;
+}
+view.old-class .btn {
+  height: 60rpx;
+  line-height: 60rpx;
+}
+view.old-class .entry.relative input {
+  width: 7rem;
+}
+view.old-class .entry.relative .btn-ctn {
+  width: 35%;
+  box-sizing: border-box;
+  text-align: center;
+}
+view.old-class .entry.relative .btn-me {
+  border: 1px solid #aab1cb;
+}
+view.old-class .entry.relative .btn-ctn .btn-default {
+  background: none;
+  display: inline-block;
+  color: #f74b7b;
+}
+view.old-class .entry.relative .btn-ctn .btn-me {
+  color: #aab1cb;
+  border: none;
+}
+view.old-class .form {
+  width: 100%;
+  display: inline-block;
+  background: #fff;
+  padding: 2rem 1rem 1rem;
+}
+view.old-class .button {
+  width: 646rpx;
+  height: 80rpx;
+  line-height: 2.5555556;
+  border-radius: 6px;
+  font-size: 0.8rem;
+}
+view.old-class .info {
+  position: relative;
+}
+view.old-class .info > image {
+  width: 100%;
+}
+view.old-class .phone-add {
+  position: absolute;
+  left: 40%;
+  top: 36px;
+  z-index: 10;
+  background: #fdc4d4;
+  border-radius: 100%;
+  padding: 0.26rem 0.26rem 0rem 0.3rem;
+}
+view.old-class .phone-add image {
+  width: 91px;
+  height: 91px;
+  border-radius: 100%;
+}
+view.old-class .list {
+  box-sizing: border-box;
+}
+view.old-class .entry > image {
+  height: 26px;
+  width: 26px;
+  margin-top: 0.08rem;
+}
+view.old-class .mes {
+  color: #f74b7b;
+  font-size: 0.6875rem;
+  padding: 0.3rem 0rem 1rem 2.7rem;
+  margin-bottom: -1.3rem;
+}

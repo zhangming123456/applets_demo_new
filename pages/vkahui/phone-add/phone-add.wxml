@@ -1,0 +1,96 @@
+<view class="new-class">
+    <form bindsubmit="queSubmit">
+        <view class="azm-header">
+            <image src="/images/icon/bangding.png"></image>
+            <view class="azm-image-icon">
+                <image src="/images/icon/huiyuan.png"></image>
+            </view>
+        </view>
+        <view class="azm-section">
+            <view class="p">
+                <view class="flexBox">
+                    <view class="flexBox-item fb-1_5">
+                        <text class="iconfont-2 icon-yonghu azm-icon"></text>
+                    </view>
+                    <view class="flexBox-item fb-10_5">
+                        <input type="number" class="azm-input" name="mobile" placeholder-class="azm-input azm-input-pl"
+                               focus maxlength="11" bindinput="bindInput" data-type="mobile"
+                               placeholder="请输入手机号码"/>
+                    </view>
+                </view>
+            </view>
+            <view class="azm-message" wx:if="{{!isMobile}}">*{{phoneStr}}</view>
+            <view class="p">
+                <view class="flexBox">
+                    <view class="flexBox-item fb-1_5">
+                        <text class="iconfont icon-asmkticon0145 azm-icon"></text>
+                    </view>
+                    <view class="flexBox-item fb-6">
+                        <input type="number" class="azm-input" name="code" placeholder-class="azm-input azm-input-pl"
+                               data-type="code" focus="{{focus}}"
+                               cursor-spacing="200" maxlength="6" placeholder="请输入验证码" bindinput="bindInput"/>
+                    </view>
+                    <view class="flexBox-item fb-4_5 azm-code">
+                        <block wx:if="{{clock!=''}}">
+                            <button class="azm-btn azm-btn-time">{{clock}}(s)</button>
+                        </block>
+                        <block wx:else>
+                            <button class="azm-btn azm-btn-code" catchtap="formSubmit">获取验证码</button>
+                        </block>
+                    </view>
+                </view>
+            </view>
+            <view class="azm-message" wx:if="{{!isCode}}">*手机验证码输入错误，请重新输入</view>
+        </view>
+        <view class="azm-footer">
+            <button class="azm-btn azm-btn-submit" formType="submit"
+                    disabled="{{isVerificationCode && isPhone}}">确定
+            </button>
+        </view>
+    </form>
+</view>
+
+
+<!--<view class="old-class">-->
+<!--<form class="wrapper has-nav" bindsubmit="queSubmit">-->
+<!--<view class="info bg-color-white">-->
+<!--<image src="/images/icon/bangding.png"></image>-->
+<!--<view class="phone-add">-->
+<!--<image src="/images/icon/huiyuan.png"></image>-->
+<!--</view>-->
+<!--<view class="ct arrow-list-ctn">-->
+<!--<form class="list form" bindsubmit="formSubmit" style="margin-top:-2rem;">-->
+<!--<view class="entry">-->
+<!--<image src="/images/icon/user.png" class=""></image>-->
+<!--<input name="mobile" focus placeholder-style="color: #aab1cb;"-->
+<!--type="number" maxlength="11"-->
+<!--placeholder="请输入手机号码" bindblur="bindPhoneBlurEvent"/>-->
+<!--</view>-->
+<!--<view class="mes" wx:if="{{phone}}">*{{phoneStr}}</view>-->
+<!--<view class="entry relative inblk pd-right-none">-->
+<!--<image src="/images/icon/mima.png" class=""></image>-->
+<!--<input class="fl" name="code" placeholder-style="color: #aab1cb;" cursor-spacing="180"-->
+<!--type="number" maxlength="6"-->
+<!--placeholder="请输入验证码"/>-->
+<!--&lt;!&ndash;发送验证码开始倒计时&ndash;&gt;-->
+<!--<view class="btn-ctn fr">-->
+<!--<block wx:if="{{clock!=''}}">-->
+<!--<button class="azm-btn azm-btn-time">{{clock}}(s)</button>-->
+<!--</block>-->
+<!--<block wx:else>-->
+<!--<button class="azm-btn azm-btn-code" formType="submit">获取验证码</button>-->
+<!--</block>-->
+<!--</view>-->
+<!--</view>-->
+<!--<view class="mes" wx:if="{{yanzhengma}}">*手机验证码输入错误，请重新输入</view>-->
+<!--</form>-->
+<!--</view>-->
+<!--</view>-->
+<!--<view class="btn-ctn width-all">-->
+<!--<button class="azm-btn azm-btn-submit" formType="submit"-->
+<!--disabled="{{isVerificationCode && isPhone}}">确定-->
+<!--</button>-->
+<!--</view>-->
+<!--<view class="clear"></view>-->
+<!--</form>-->
+<!--</view>-->

@@ -1,0 +1,303 @@
+@import "index";
+
+page {
+  background: #f1f3f4;
+  .weui-loadmore__tips_in-line {
+    background-color: #f1f3f4;
+  }
+  .init-box {
+    .px2rpx(height, 100);
+  }
+  view.old-class {
+
+    .home {
+
+    }
+
+    .cus-height {
+      height: 1.1rem;
+    }
+
+    .tab-ctn {
+      padding: 2rem 0;
+      box-sizing: border-box;
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .tab-ctn .bg-color-gray {
+      border-radius: 100px;
+    }
+
+    .tab-ctn .tab {
+      padding: 0.8rem 1.2rem;
+      border-radius: 100px;
+    }
+
+    .tab-ctn .tab .p {
+      line-height: 1.1rem;
+    }
+
+    .tab-ctn .tab .circle-text {
+      background: #f74b7b;
+      min-width: 1.2rem;
+      height: 1rem;
+      line-height: 1rem;
+      border-radius: 1rem;
+      color: #fff;
+      padding: 0 0.1rem;
+    }
+
+    .tab-ctn .tab .spec {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 0.4rem !important;
+      height: 0.42rem !important;
+    }
+
+    /*.tab-ctn .active-1 .tab:nth-child(1) { background: #f74b7b; }
+    .tab-ctn .active-1 .tab:nth-child(1) .p { color: #fff; }
+    .tab-ctn .active-1 .tab:nth-child(1) .p.circle-text { color: #f74b7b; background: #fff; }*/
+    .tab-ctn .tab.active {
+      background: #f74b7b;
+    }
+
+    .tab-ctn .tab.active .p {
+      color: #fff;
+    }
+
+    .tab-ctn .tab.active .p.circle-text {
+      color: #f74b7b;
+      background: #fff;
+    }
+
+    /*.ct { margin-top: 7rem; }*/
+
+    .ct .entry {
+    }
+
+    .ct {
+      text-align: center;
+      background: #fff;
+      border-radius: 0.3rem;
+      box-shadow: 0 1px 0 #dcdcdc;
+      margin: 1rem 1.3rem 1rem 1.3rem;
+      .dot {
+        width: 100%;
+        .px2rpx(height, 11);
+        //position: absolute;
+        .px2rpx(top, 95);
+        left: 0;
+        z-index: 10;
+      }
+      .entry {
+        width: 100%;
+        background: #f74b7b;
+        border-top-left-radius: 0.2rem;
+        border-top-right-radius: 0.2rem;
+        padding: 0.625rem 0;
+        position: relative;
+        .img-area {
+          width: 30%;
+          text-align: center;
+          box-sizing: border-box;
+          .icon-user-bigger {
+            image {
+              .px2rpx(width, 70);
+              .px2rpx(height, 70);
+              border-radius: 100%;
+              overflow: hidden;
+            }
+          }
+          .azm-icon {
+            .px2rpx(font-size, 40);
+          }
+
+        }
+
+      }
+    }
+
+    .ct .entry .word-area {
+      box-sizing: border-box;
+      width: 70%;
+      text-align: left;
+      padding: 0.3rem 0rem 0 0.4rem;
+      .bottom {
+        .inline-div {
+          color: #fff;
+          .text-overflow();
+          .px2rpx(max-width, 100);
+          .px2rpx(min-width, 70);
+          vertical-align: text-bottom;
+        }
+      }
+    }
+
+    .ct .entry .word-area .top {
+      position: relative;
+      width: 100%;
+      .px2rpx(height, 35);
+      .px2rpx(line-height, 35);
+      .shopName {
+        .px2rpx(max-width, 150);
+        .text-overflow();
+      }
+    }
+
+    .ct .entry .word-area .top .h2 {
+      font-size: 1rem;
+      width: 100%;
+      line-height: 1.5rem;
+    }
+
+    .ct .entry .word-area .top .level-ctn {
+      position: absolute;
+      right: 0rem;
+      top: -1.2rem;
+      text-align: center;
+    }
+
+    .ct .entry .word-area .top .level-ctn .level {
+      display: block;
+    }
+
+    .ct .entry .word-area .top .level-ctn .level text {
+      line-height: 1.1rem;
+    }
+
+    .ct .entry .word-area .bottom {
+    }
+
+    .ct .entry .word-area .bottom .inline-div {
+      width: auto;
+    }
+
+    .ct .entry .word-area .bottom .inline-div text {
+      color: #fff;
+    }
+
+    .ct .entry > image {
+      height: 0.3rem;
+      width: 100%;
+      position: absolute;
+      bottom: 0rem;
+      left: 0rem;
+    }
+
+    .level.p {
+      margin-top: 0.3rem;
+    }
+
+    .level-b {
+      background: #f74b7b;
+    }
+
+    .level-a {
+      background: #f74b7b;
+    }
+
+    .bold {
+      font-weight: bold
+    }
+
+    .me {
+
+    }
+
+    .title {
+      overflow: hidden;
+    }
+
+    .dazhe {
+      display: inline-block;
+      color: #f74b7b;
+      background: #fff;
+      font-size: 0.8rem;
+      padding: 0.05rem 0.3rem;
+    }
+
+    .address {
+      font-size: 0.75rem;
+      font-weight: normal;
+      color: #8e8e8e;
+      margin: 0.9rem 0 0.5rem 1rem;
+      box-sizing: border-box;
+      text-align: left;
+    }
+
+    .number {
+      font-size: 0.6875rem;
+      font-weight: normal;
+      color: #8e8e8e;
+      margin: 0rem 1rem 0rem 0rem;
+      box-sizing: border-box;
+      text-align: right;
+    }
+
+    .line {
+      display: inline-block;
+      border: 1.98px solid #fff;
+      border-radius: 0.3rem;
+      width: 1.3rem;
+      margin-bottom: 0.3rem;
+    }
+
+    /*提示绑定手机部分样式*/
+    .module {
+      display: none;
+    }
+
+    /*.module{display:block;}*/
+    .tanchuang {
+      padding: 1rem 1rem 0.7rem 1rem;
+      opacity: 1;
+      background: #fff;
+      position: absolute;
+      right: 0%;
+      top: 25%;
+      z-index: 100;
+      margin: 0 2.3rem;
+      border-radius: 2px;
+    }
+
+    .tanchuang .content {
+      line-height: 1.3rem;
+      margin: 0.5rem 0;
+      font-size: 0.9rem;
+    }
+
+    .tanchuang .use, .tanchuang .phone {
+      width: 50%;
+      background: none;
+      border-right: 1px solid #bfc4d3;
+      border-radius: 0;
+      color: #000;
+      font-size: 1rem;
+    }
+
+    .tanchuang .phone {
+      border-right: none;
+      color: #f74b7b;
+    }
+
+    .tanchuang .h4 {
+      border-top: 1px solid #bfc4d3;
+    }
+
+    .moduleActive {
+      overflow: hidden;
+      background: #57565c;
+      .fullScreen();
+      position: fixed;
+      z-index: 10;
+      display: block;
+      opacity: 0.95
+    }
+  }
+}
