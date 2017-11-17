@@ -1,13 +1,13 @@
 /**
  * 小程序配置文件
  */
-// var host = "http://192.168.134.2:8082/api";
+var host = "http://192.168.134.2:8082/api";
 
 // host: 'https://vip.zhenler.com/api',//发布环境
 // host: 'http://192.168.134.2:8082/api',//开发环境
 // host: 'http://119.23.132.192/zhenler-server/api',//测试环境
 // host: 'http://192.168.134.254:8080/zhenler-server/api',
-var host = 'http://192.168.134.116:8080/zhenler-server/api';
+// var host = 'http://192.168.134.116:8080/zhenler-server/api';
 
 var config = {
 

@@ -1,23 +1,8 @@
 const app = getApp(),
-    queryString = require('../../../utils/queryString'),
     config = require('../../../utils/config'),
     util = require('../../../utils/util'),
     utilCommon = require('../../../utils/utilCommon'),
     ApiService = require('../../../utils/ApiService');
-import {
-    onShareAppMessage,//转发分享事件
-    utilPage_setShopCartsStorage,//设置并并保存本地购物车信息
-    imageError,//加载图片失败
-    utilPage_setNavigationBarTitle,//设置导航栏信息
-    utilPage_makePhoneCall,//拨打电话
-    utilPage_closeModule,//关闭模态弹窗
-    utilPage_openModule,//打开模态弹窗
-    utilPage_getMemberCardList,//获取会员卡信息
-    utilPage_getResDetail,//获取店铺信息
-} from '../../../utils/utilPage';
-
-import {ToastPannel} from '../../../template/toast/toast';//加载toast模板
-
 const appPage = {
     data: {
         text: "Page Takeaway",
@@ -30,9 +15,19 @@ const appPage = {
         shopInfo: {},//餐厅信息
         memberCardDto: {},//会员卡信息
         findFoodCatalogList: [],//菜品tab列表
+        _findFoodCatalogList: {},//菜品tab列表
         foodList: [],//菜品列表
-        dishesTabIndex: 'dishesTab0',//tabID
-        dishesTabListIndex: 'dishesTabList0',//tab列表ID
+        foodListObj: {},
+        _foodListObj: {},
+        dishesTab: {
+            index: 0,
+            code: ''
+        },//tabID
+        isBindDishesTab: true,//是否点击了tab
+
+
+
+        dishesTabListIndex: '',//tab列表ID
         totalPrice: 0,//总价
         discountTotalPrice: 0,//折后总价
         offerPrice: 0,//已优惠金额
@@ -58,7 +53,7 @@ const appPage = {
      * @param options 为页面跳转所带来的参数
      */
     onLoad: function (options) {
-        new ToastPannel();//初始自定义toast
+        new app.ToastPannel();//初始自定义toast
         let that = this;
         try {
             if (options) {
@@ -85,10 +80,11 @@ const appPage = {
      * @param options 为页面跳转所带来的参数
      */
     onShow: function (options) {
-        let _this = this;
+        console.warn(`${this.data.text}页面显示`);
+        let that = this;
         this.bindAzmCloseMask();//初始化所以弹框
-        if (this.data.isShow) {
-            _this.getResDetail();//获取店铺详情
+        if (this.data.isShow && app.globalData.isShow) {
+            that.loadData();
         }
     },
     onHide: function () {
@@ -106,7 +102,7 @@ const appPage = {
  * 方法类
  */
 const methods = {
-    loadCb: function () {
+    loadCb() {
         let that = this;
         app.getLoginRequestPromise().then(
             (rsp) => {
@@ -162,7 +158,7 @@ const methods = {
                     };
             }).catch(e => e);
         //获取菜品列表
-        const p3 = that.findFoodCatalogList()
+        const p3 = that.findFoodCatalogList({isTakeaway: 1})
             .then(
                 () => {
                     that.getShopCart();//获取购物车
@@ -217,47 +213,54 @@ const methods = {
     /**
      * 获取菜品列表
      */
-    getFoodList(data) {
+    getFoodList(data, resolve, reject) {
         // data = {isEatin: 1};//堂食菜品
         // data = {isTakeaway: 1};//外卖菜品
         let that = this;
-        return new Promise((resolve, reject) => {
-            data.resId = that.data.resId;
-            data.openId = that.data.openId;
+        data.resId = that.data.resId;
+        data.openId = that.data.openId;
+        if (that.data.foodListObj[data.foodCatalog] && that.data.foodListObj[data.foodCatalog].length > 0) {
+            resolve && resolve();
+        } else {
             ApiService.getFoodList(data,
                 (rsp) => {
                     if (2000 == rsp.code && rsp.value && rsp.value.length > 0) {
                         let foodList = rsp.value;
-                        for (let i = 0; i < foodList.length; i++) {
-                            foodList[i].scrollRange = [];
-                            foodList[i].scrollRange[0] = i > 0 ? foodList[i - 1].scrollRange[1] : 0;
-                            foodList[i].scrollRange[1] = foodList[i].list.length * 97 + 31 + (i > 0 ? foodList[i - 1].scrollRange[1] : 0);
-                            foodList[i].counts = 0;
+                        if (data.foodCatalog) {
+                            that.setData({
+                                [`foodListObj.${data.foodCatalog}`]: foodList
+                            });
+                        } else {
+                            that.setData({foodList});
                         }
-                        that.setData({foodList});
-                        resolve();
                     } else {
-                        reject();
                     }
+                },
+                () => {
+                    resolve && resolve();
                 }
             );
-        })
+        }
     },
+
+
     /**
      * 获取菜品tab分类
      */
     findFoodCatalogList(data) {
         let that = this,
-            resId = that.data.resId;
+            resId = that.data.resId,
+            index = that.data.dishesTab.index;
         return new Promise((resolve, reject) => {
             // data.resId = that.data.resId;
             ApiService.findFoodCatalogList(Object.assign({resId}, data),
                 (rsp) => {
                     if (2000 == rsp.code && rsp.value && rsp.value.length > 0) {
                         let findFoodCatalogList = rsp.value;
-                        that.getFoodList({isTakeaway: 1, foodCatalog: rsp.value[0].id});
-
-                        that.setData({findFoodCatalogList});
+                        that.bindDishesTab(null, rsp.value[index].catalogCode, index);
+                        that.setData({
+                            findFoodCatalogList
+                        });
                         resolve();
                     } else {
                         reject();
@@ -303,58 +306,6 @@ const methods = {
         app.globalData.shopCarts[this.data.resId][orderList[orderType] + 'Carts'].counts = this.data.counts;
         app.globalData.shopCarts[this.data.resId][orderList[orderType] + 'Carts'].amount = this.data.amount;
         app.setShopCartsStorage();
-    },
-    /**
-     * 菜品列表滚动联动tab
-     * @param e
-     */
-    scroll(e) {
-        let width = null;
-        wx.getSystemInfo({
-            success: function (res) {
-                width = res.windowWidth;
-            }
-        });
-        let scrollTop = e.detail.scrollTop,
-            foodList = this.data.foodList,
-            len = foodList.length,
-            proportion = width / 375,
-            index = 0;
-        if (Math.abs(this.data.foodListScrollTop - scrollTop) < 30) {
-            this.data.isScrollFoodList = true;
-        }
-        this.data.foodListScrollTop = scrollTop;
-        if (!this.data.isScrollFoodList) {
-            return;
-        }
-        for (let i = 0; i < len; i++) {
-            let start = foodList[i].scrollRange[0] * proportion,
-                last = foodList[i].scrollRange[1] * proportion;
-            if (scrollTop >= start && scrollTop < last) {
-                index = i;
-                break;
-            }
-        }
-        if (this.data.dishesTabIndex !== 'dishesTab' + index) {
-            this.setData({
-                dishesTabIndex: 'dishesTab' + index
-            })
-        }
-    },
-    /**
-     * tap点击事件
-     * @param e
-     */
-    dishesTab(e) {
-        this.data.isScrollFoodList = false;
-        let _this = this,
-            index = e.currentTarget.dataset.index;
-        if ('dishesTab' + index !== _this.data.dishesTabIndex) {
-            _this.setData({
-                dishesTabIndex: 'dishesTab' + index,
-                dishesTabListIndex: 'dishesTabList' + index
-            })
-        }
     },
     /**
      * 购物车按钮
@@ -1148,7 +1099,13 @@ const methods = {
         if (shopCart.length === 0) {
             _this.closeModule('shopCartModule');//关闭购物车
         }
-        this.setData({totalPrice, isDeliveryAmount, deliveryAmountDifference, counts: shopCart.length, foodListTab});
+        this.setData({
+            totalPrice,
+            isDeliveryAmount,
+            deliveryAmountDifference,
+            counts: shopCart.length,
+            foodListTab
+        });
         this.setShopCart();
     },
     /**
@@ -1313,29 +1270,56 @@ const events = {
         let _this = this;
         _this.submit();
     },
-    // bindscrolltoupper(e) {
-    //     this.setData({
-    //         dishesTabIndex: 'dishesTab0',//tabID
-    //         dishesTabListIndex: 'dishesTabList0',//tab列表ID
-    //     })
-    // },
-    // bindscrolltolower() {
-    //     let index = this.data.foodList.length - 1;
-    //     this.setData({
-    //         dishesTabIndex: 'dishesTab' + index,//tabID
-    //         dishesTabListIndex: 'dishesTabList' + index,//tab列表ID
-    //     })
-    // }
+
+
+    /**
+     * tap点击事件
+     * @param e
+     */
+    bindDishesTab(e, code = null, index = 0) {
+        if (!this.data.isBindDishesTab) {
+            return;
+        }
+        this.data.isBindDishesTab = false;
+        let that = this;
+        if (e) {
+            index = e.currentTarget.dataset.index;
+            code = e.currentTarget.dataset.code
+        }
+        if (!code) return;
+        that.getFoodList(
+            {isTakeaway: 1, foodCatalog: code, index},
+            () => {
+                that.data.isBindDishesTab = true;
+                if (code !== that.data.dishesTab.code) {
+                    that.setData({
+                        dishesTab: {code, index}
+                    })
+                }
+            }
+        );
+    },
+    bindPlusToShopCart(e) {
+        let that = this,
+            shopCart = that.data.shopCart,
+            foodListObj = that.data.foodListObj,
+            _foodListObj = that.data._foodListObj,
+            index = e.currentTarget.dataset.index,
+            value = e.currentTarget.dataset.value,
+            memberType = that.data.memberCardDto.memberType,
+            isAdded = that.getShopCartIndex(value);
+
+        if (-1 === isAdded) {
+            value.info = {
+                counts: 0,
+                amount: 0,
+                totalPrice: 0
+            };
+        }
+    },
+    bindCutToShopCart(e) {
+
+    }
 };
 Object.assign(appPage, methods, events);
-Page(Object.assign(appPage, {
-    onShareAppMessage,//转发分享事件
-    utilPage_setShopCartsStorage,//设置并并保存本地购物车信息
-    imageError,//加载图片失败
-    utilPage_setNavigationBarTitle,//设置导航栏信息
-    makePhoneCall: utilPage_makePhoneCall,//拨打电话
-    utilPage_closeModule,//关闭模态弹窗
-    utilPage_openModule,//打开模态弹窗
-    utilPage_getMemberCardList,//获取会员卡信息
-    utilPage_getResDetail,//获取店铺信息
-}));
+Page(Object.assign(appPage, app.utilPage));

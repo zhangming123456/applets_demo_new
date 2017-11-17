@@ -2,7 +2,6 @@ const util = require('./util'),
     utilCommon = require('./utilCommon'),
     queryString = require('./queryString'),
     apiService = require('./ApiService');
-let app = getApp();
 const failToast = (that, text) => {
     if (that.showToast) {
         that.showToast(text);
@@ -19,6 +18,13 @@ const showToast = (that, text) => {
     }
 };
 module.exports = {
+    _app: null,
+    getApp() {
+        if (!this._app) {
+            this._app = getApp();
+        }
+        return this._app;
+    },
     /**
      * 转发分享事件
      * @param options
@@ -62,8 +68,10 @@ module.exports = {
      * 设置并并保存本地购物车信息
      */
     utilPage_setShopCartsStorage() {
+        this.getApp();
+        let that = this;
         let resId = this.data.resId,
-            shopCartsStorage = app.globalData.shopCarts,
+            shopCartsStorage = that._app.globalData.shopCarts,
             shopInfo = this.data.shopInfo,
             shopCarts = {
                 hallCarts: {
@@ -132,14 +140,15 @@ module.exports = {
             if (!utilCommon.isArray(shopCartsStorage[resId].takeawayCarts.list)) {
                 shopCartsStorage[resId].takeawayCarts.list = shopCarts.takeawayCarts.list;
             }
-            app.globalData.shopCarts = shopCartsStorage;
-            app.setShopCartsStorage();
+            that._app.globalData.shopCarts = shopCartsStorage;
+            that._app.setShopCartsStorage();
         }
     },
     /**
      * 获取会员卡信息
      */
     utilPage_getMemberCardList(resId) {
+        this.getApp();
         let that = this;
         return new Promise(function (resolve, reject) {
             if (!resId) {
@@ -147,12 +156,12 @@ module.exports = {
                 return;
             }
 
-            let openId = app.globalData.openId;
+            let openId = that.data.openId;
             if (!utilCommon.isObject(that.data.memberCardDto)) {
                 that.data.memberCardDto = {};
             }
             try {
-                let memberCardDto = app.globalData.memberCardDtos[resId];
+                let memberCardDto = that._app.globalData.memberCardDtos[resId];
                 if (memberCardDto && memberCardDto.resId === resId) {
                     that.data.memberCardDto && Object.assign(that.data.memberCardDto, memberCardDto);
                     resolve();
@@ -163,7 +172,7 @@ module.exports = {
                     (rsp) => {
                         if (2000 == rsp.code && rsp.value && rsp.value.length > 0 && rsp.value[0].resId === resId) {
                             memberCardDto = rsp.value[0];
-                            app.globalData.memberCardDtos[resId] = memberCardDto;
+                            that._app.globalData.memberCardDtos[resId] = memberCardDto;
                             that.data.memberCardDto && Object.assign(that.data.memberCardDto, memberCardDto);
                         }
                     },
@@ -185,6 +194,7 @@ module.exports = {
      */
     utilPage_getResDetail(resId) {
         let that = this;
+        that.getApp();
         return new Promise(function (resolve, reject) {
             if (!resId) {
                 reject(true);
@@ -196,7 +206,7 @@ module.exports = {
 
             let shopInfo = that.data.shopInfo;
             try {
-                let resDetailDto = app.globalData.resDetailDtos[resId];
+                let resDetailDto = that._app.globalData.resDetailDtos[resId];
                 if (resDetailDto && resDetailDto.resId === resId) {
                     shopInfo && Object.assign(shopInfo, resDetailDto);
                     that.setData({shopInfo});
@@ -208,7 +218,7 @@ module.exports = {
                     (rsp) => {
                         if (2000 == rsp.code && rsp.value && rsp.value.resId === resId) {
                             resDetailDto = rsp.value;
-                            app.globalData.resDetailDtos[resId] = resDetailDto;
+                            that._app.globalData.resDetailDtos[resId] = resDetailDto;
                             shopInfo && Object.assign(shopInfo, resDetailDto);
                             that.setData({shopInfo});
                         }
@@ -239,7 +249,7 @@ module.exports = {
      * 拨打电话
      * @param e
      */
-    utilPage_makePhoneCall(e) {
+    makePhoneCall(e) {
         let phone = e.target.dataset.phone || e.currentTarget.dataset.phone || '';
         if (!phone) return;
         wx.makePhoneCall({

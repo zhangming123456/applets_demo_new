@@ -1,21 +1,9 @@
 const app = getApp(),
-    queryString = require('../../../utils/queryString'),
     config = require('../../../utils/config'),
     util = require('../../../utils/util'),
     utilCommon = require('../../../utils/utilCommon'),
     ApiService = require('../../../utils/ApiService'),
     Amap = require('../../../utils/amap');
-import {ToastPannel} from '../../../template/toast/toast';//加载toast模板
-import {
-    onShareAppMessage,//转发分享事件
-    utilPage_setShopCartsStorage,//设置并并保存本地购物车信息
-    imageError,//加载图片失败
-    utilPage_getQrcodeRid,//获取rid
-    utilPage_getOrderType,//获取店铺就餐模式
-    utilPage_getQRcodeTable,//获取resId与tableCode
-    utilPage_setNavigationBarTitle,//设置导航栏信息
-    utilPage_makePhoneCall,//拨打电话
-} from '../../../utils/utilPage';
 // 默认数据
 const SHOP_PAGES = {
     shopList: [
@@ -72,7 +60,7 @@ const appPage = {
         },
     },
     onLoad: function (options) {
-        new ToastPannel();//初始自定义toast
+        new app.ToastPannel();//初始自定义toast
         let that = this;
         try {
             if (options) {
@@ -370,13 +358,4 @@ const events = {
     }
 };
 Object.assign(appPage, methods, events);
-Page(Object.assign(appPage, {
-    onShareAppMessage,//转发分享事件
-    utilPage_setShopCartsStorage,//设置并并保存本地购物车信息
-    imageError,//加载图片失败
-    utilPage_getQrcodeRid,//获取rid
-    utilPage_getOrderType,//获取店铺就餐模式
-    utilPage_getQRcodeTable,//获取resId与tableCode
-    utilPage_setNavigationBarTitle,//设置导航栏信息
-    makePhoneCall: utilPage_makePhoneCall,//拨打电话
-}));
+Page(Object.assign(appPage, app.utilPage));

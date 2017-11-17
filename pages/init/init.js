@@ -1,16 +1,8 @@
 const app = getApp(),
     config = require('../../utils/config'),
-    queryString = require('../../utils/queryString'),
     util = require('../../utils/util'),
     utilCommon = require('../../utils/utilCommon'),
     ApiService = require('../../utils/ApiService');
-import {ToastPannel} from '../../template/toast/toast';//加载toast模板
-import {
-    onShareAppMessage,//转发分享事件
-    imageError,//加载图片失败
-    utilPage_getQrcodeRid,//获取rid
-    utilPage_getQRcodeTable,//获取resId与tableCode
-} from '../../utils/utilPage';
 
 const appPage = {
     data: {
@@ -23,7 +15,7 @@ const appPage = {
 
     },
     onLoad: function (options) {
-        new ToastPannel();//初始自定义toast
+        new app.ToastPannel();//初始自定义toast
         let that = this;
         try {
             if (options) {
@@ -123,9 +115,4 @@ const events = {
 };
 
 Object.assign(appPage, methods, events);
-Page(Object.assign(appPage, {
-    onShareAppMessage,//转发分享事件
-    imageError,//加载图片失败
-    utilPage_getQrcodeRid,//获取rid
-    utilPage_getQRcodeTable,//获取resId与tableCode
-}));
+Page(Object.assign(appPage, app.utilPage));

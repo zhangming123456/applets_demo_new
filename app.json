@@ -12,10 +12,7 @@
     "pages/shop/home_scanCode/home_scanCode",
     "pages/vkahui/address-edit/address-edit",
     "pages/vkahui/address/address",
-    "pages/vkahui/phone-add/phone-add",
-    "pages/homepage/index/index",
-    "pages/homepage/index-my-coupon/index-my-coupon",
-    "pages/homepage/logs/logs"
+    "pages/vkahui/phone-add/phone-add"
   ],
   "window": {
     "backgroundTextStyle": "light",

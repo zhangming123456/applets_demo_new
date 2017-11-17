@@ -1,9 +1,10 @@
-const util = require('./utils/util'),
-    config = require('./utils/config'),
+const config = require('./utils/config'),
+    utilPage = require('./utils/utilPage'),
     authorize = require('./utils/authorize');
-
+import {ToastPannel} from './template/toast/toast';//加载toast模板
 App({
     globalData: {
+        isShow: false,
         openId: null,
         token: null,
         userInfo: {},
@@ -12,6 +13,8 @@ App({
         memberCardDtos: {},//会员卡信息
         resDetailDtos: {},//店铺信息
     },
+    utilPage,
+    ToastPannel,
     /**
      * 生命周期函数--监听小程序初始化
      * @param options
@@ -25,6 +28,7 @@ App({
      */
     onShow: function (options) {
         let that = this;
+        this.globalData.isShow = true;
         console.log(options, '______________App_options_____________');
         console.log(this.globalData, '___________App_isCurrentApp_________');
         if (!that.globalData.openId) {
@@ -42,6 +46,7 @@ App({
      * @param options
      */
     onHide: function (options) {
+        this.globalData.isShow = false;
         // console.warn('监听小程序隐藏', options);
     },
     /**
